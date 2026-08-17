@@ -1,0 +1,15 @@
+{
+  "minimum_relevance_score": 4,
+  "near_duplicate_threshold": 0.90,
+  "daily_limit": 12,
+  "weekly_limit": 28,
+  "category_order": ["园区建设", "技术与设施", "政策与标准", "数据与评估", "项目与投融资", "其他重要动态"],
+  "weekly_target_share": {
+    "园区建设": 0.35,
+    "技术与设施": 0.25,
+    "政策与标准": 0.15,
+    "数据与评估": 0.15,
+    "项目与投融资": 0.10
+  },
+  "editorial_note": "分类比例用于避免单一政策来源挤占周报，不构成对事件重要性的自动排名；缺少高质量记录时不强行补齐数量。"
+}

@@ -1,0 +1,36 @@
+name: 新来源建议
+about: 建议增加长期稳定的政策、园区或技术公开来源
+labels: ["source-request"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 来源名称
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: 公开入口 URL
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: 来源类型
+      options: [国家政策, 地方政策, 园区公开信息, 技术设施, 统计与标准, 其他]
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: 更新频率、内容范围与使用价值
+    validations:
+      required: true
+  - type: checkboxes
+    id: access
+    attributes:
+      label: 公开访问确认
+      options:
+        - label: 来源无需登录、付费或绕过技术限制即可访问
+          required: true

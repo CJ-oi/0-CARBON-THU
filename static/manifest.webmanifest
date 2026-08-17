@@ -1,0 +1,10 @@
+{
+  "name": "园区碳观察",
+  "short_name": "园区碳观察",
+  "description": "零碳园区公开数据、自动报告和项目可行性分析平台",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f2ea",
+  "theme_color": "#315f54",
+  "icons": []
+}

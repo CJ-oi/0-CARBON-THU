@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-17T11:13:46+00:00",
+  "reports": [
+    {
+      "type": "daily",
+      "date": "2026-08-17",
+      "html": "reports/daily-latest.html",
+      "markdown": "reports/daily-latest.md",
+      "json": "reports/daily-latest.json",
+      "pdf": "reports/daily-latest.pdf",
+      "record_count": 12
+    },
+    {
+      "type": "weekly",
+      "date": "2026-08-17",
+      "html": "reports/weekly-latest.html",
+      "markdown": "reports/weekly-latest.md",
+      "json": "reports/weekly-latest.json",
+      "pdf": "reports/weekly-latest.pdf",
+      "record_count": 8
+    },
+    {
+      "type": "feasibility",
+      "date": 2025,
+      "html": "reports/feasibility-latest.html",
+      "markdown": "reports/feasibility-latest.md",
+      "json": "reports/feasibility-latest.json",
+      "pdf": "reports/feasibility-latest.pdf",
+      "record_count": 1
+    }
+  ]
+}

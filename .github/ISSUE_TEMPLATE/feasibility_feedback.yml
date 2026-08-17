@@ -1,0 +1,31 @@
+name: 可行性结果反馈
+about: 反馈措施适用性、项目参数、利益相关方或实施条件
+labels: ["feasibility"]
+body:
+  - type: input
+    id: park_type
+    attributes:
+      label: 园区类型与主导产业
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 当前阶段
+      options: [公开资料研究, 园区调研, 初步测算, 专项可研, 项目实施, 运行评估]
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: 需要修改或补充的判断
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 公开证据或脱敏参数依据
+  - type: textarea
+    id: action
+    attributes:
+      label: 建议处理方式

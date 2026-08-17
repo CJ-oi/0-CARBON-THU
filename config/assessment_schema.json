@@ -1,0 +1,27 @@
+{
+  "required_gate_fields": [
+    "park_name",
+    "boundary_confirmed",
+    "enterprise_list_confirmed",
+    "baseline_year",
+    "energy_tce",
+    "scope1_tco2",
+    "scope2_tco2",
+    "process_tco2"
+  ],
+  "optional_indicator_fields": [
+    "economic_output_10k_cny",
+    "clean_energy_pct",
+    "product_energy_status",
+    "solid_waste_pct",
+    "waste_energy_pct",
+    "water_reuse_pct"
+  ],
+  "project_fields": [
+    "project_id", "name", "category", "capex_10k_cny",
+    "annual_abatement_tco2", "annual_saving_10k_cny",
+    "annual_opex_10k_cny", "lifetime_years", "start_year",
+    "stakeholders", "maturity", "evidence_level", "prerequisites",
+    "mutex_group"
+  ]
+}

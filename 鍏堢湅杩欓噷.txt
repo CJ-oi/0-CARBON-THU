@@ -1,0 +1,17 @@
+园区碳观察 - 全面升级源码
+
+适用仓库：https://github.com/CJ-oi/zero-carbon-park/
+公开网站：https://cj-oi.github.io/zero-carbon-park/
+
+Windows 更新：
+1. 先备份 GitHub Desktop 当前本地仓库。
+2. 将本压缩包解压后的全部内容复制到本地 zero-carbon-park 目录并覆盖。
+3. 不要删除本地 .git 文件夹。
+4. GitHub Desktop 填写提交说明：全面升级页面、地图、报告与可行性分析。
+5. 点击 Commit to main，再点击 Push origin。
+6. 等待 GitHub Actions 全部变绿。
+7. 打开公开网站并按 Ctrl+F5 强制刷新。
+
+详细步骤：docs/UPGRADE_WINDOWS.md
+邮件直接发送配置：docs/EMAIL_DELIVERY.md
+完整验收记录：outputs/全面升级验收记录.md

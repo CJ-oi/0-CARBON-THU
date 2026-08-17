@@ -1,0 +1,26 @@
+test_indicator_gaps (test_accounting.AccountingTests.test_indicator_gaps) ... ok
+test_missing_boundary_stops_formal_gate (test_accounting.AccountingTests.test_missing_boundary_stops_formal_gate) ... ok
+test_zero_process_emissions_is_valid (test_accounting.AccountingTests.test_zero_process_emissions_is_valid) ... ok
+test_archive_limit (test_archive.ArchiveTests.test_archive_limit) ... ok
+test_canonical_url_dedup_and_version (test_archive.ArchiveTests.test_canonical_url_dedup_and_version) ... ok
+test_html_parser (test_collector.CollectorTests.test_html_parser) ... ok
+test_url_and_date_normalization (test_collector.CollectorTests.test_url_and_date_normalization) ... ok
+test_coordinate_ranges_and_metadata (test_coordinates.CoordinateTests.test_coordinate_ranges_and_metadata) ... ok
+test_facility_record_precedes_notice_word (test_curation.CurationTests.test_facility_record_precedes_notice_word) ... ok
+test_same_event_is_collapsed (test_curation.CurationTests.test_same_event_is_collapsed) ... ok
+test_unrelated_innovation_policy_is_excluded (test_curation.CurationTests.test_unrelated_innovation_policy_is_excluded) ... ok
+test_build_and_validate_site (test_exporter_validator.ExporterValidatorTests.test_build_and_validate_site) ... ok
+test_demonstration_scenario_is_not_formal_conclusion (test_feasibility.FeasibilityTests.test_demonstration_scenario_is_not_formal_conclusion) ... ok
+test_formal_scenario_returns_portfolio (test_feasibility.FeasibilityTests.test_formal_scenario_returns_portfolio) ... ok
+test_green_power_is_conditional (test_feasibility.FeasibilityTests.test_green_power_is_conditional) ... ok
+test_missing_data_returns_tasks_not_formal_gap (test_feasibility.FeasibilityTests.test_missing_data_returns_tasks_not_formal_gap) ... ok
+test_fallback_search_keeps_best_abatement (test_portfolio.PortfolioTests.test_fallback_search_keeps_best_abatement) ... ok
+test_meeting_target_prefers_lower_npv_cost (test_portfolio.PortfolioTests.test_meeting_target_prefers_lower_npv_cost) ... ok
+test_prerequisite_and_mutex (test_portfolio.PortfolioTests.test_prerequisite_and_mutex) ... ok
+test_sensitivity_has_three_transparent_scenarios (test_portfolio.PortfolioTests.test_sensitivity_has_three_transparent_scenarios) ... ok
+test_recommendations_are_gap_linked_and_non_numeric (test_recommendations.RecommendationTests.test_recommendations_are_gap_linked_and_non_numeric) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.031s
+
+OK

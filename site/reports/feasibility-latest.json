@@ -1,0 +1,900 @@
+{
+  "park_name": "示范经济技术开发区",
+  "baseline_year": 2025,
+  "mode": "demonstration",
+  "gate": {
+    "ready": true,
+    "missing": [],
+    "checked": [
+      "park_name",
+      "boundary_confirmed",
+      "enterprise_list_confirmed",
+      "baseline_year",
+      "energy_tce",
+      "scope1_tco2",
+      "scope2_tco2",
+      "process_tco2"
+    ]
+  },
+  "five_questions": {
+    "数据够不够": {
+      "answer": "已填入演示数据，用于验证计算链路；正式使用仍需替换为园区原始台账",
+      "readiness_pct": 100,
+      "tasks": []
+    },
+    "现状是什么": {
+      "answer": "已形成同边界、同年度的排放基线",
+      "industry": "高新/先进制造型",
+      "boundary": "已确认",
+      "baseline_year": 2025,
+      "inventory": {
+        "scope1_tco2": 68000.0,
+        "scope2_tco2": 92000.0,
+        "process_tco2": 24000.0,
+        "verified_removals_tco2": 0.0,
+        "gross_emissions_tco2": 184000.0,
+        "net_emissions_tco2": 184000.0
+      },
+      "energy_tce": 800000.0,
+      "economic_intensity": {
+        "economic_output_10k_cny": 8500000.0,
+        "emissions_tco2_per_10k_cny": 0.02164706
+      }
+    },
+    "差距在哪里": {
+      "answer": "已按国家试行指标形成差距表",
+      "core_target": 0.2,
+      "annual_reduction_needed_tco2": 24000.0,
+      "rows": [
+        {
+          "metric": "单位能耗碳排放",
+          "current": 0.23,
+          "unit": "tCO₂/tce",
+          "target": 0.2,
+          "gap": 0.03,
+          "status": "未达到",
+          "nature": "核心指标"
+        },
+        {
+          "metric": "园区企业产出产品单位能耗",
+          "current": "未达标",
+          "unit": "状态",
+          "target": "达到或优于二级能耗限额；不适用时说明",
+          "gap": null,
+          "status": "未完成判断",
+          "nature": "引导指标"
+        },
+        {
+          "metric": "清洁能源消费占比",
+          "current": 76.0,
+          "unit": "%",
+          "target": 90.0,
+          "gap": 14.0,
+          "status": "未达到",
+          "nature": "引导指标"
+        },
+        {
+          "metric": "工业固体废弃物综合利用率",
+          "current": 72.0,
+          "unit": "%",
+          "target": 80.0,
+          "gap": 8.0,
+          "status": "未达到",
+          "nature": "引导指标"
+        },
+        {
+          "metric": "余热/余冷/余压综合利用率",
+          "current": 38.0,
+          "unit": "%",
+          "target": 50.0,
+          "gap": 12.0,
+          "status": "未达到",
+          "nature": "引导指标"
+        },
+        {
+          "metric": "工业用水重复利用率",
+          "current": 70.0,
+          "unit": "%",
+          "target": 80.0,
+          "gap": 10.0,
+          "status": "未达到",
+          "nature": "引导指标"
+        }
+      ]
+    },
+    "怎么减": {
+      "answer": "已按指标差距、产业适用性和实施前置条件形成分层建议；未取得项目参数前不填写确定减排量和投资额",
+      "recommendations": [
+        {
+          "tech_id": "T011",
+          "tier": "无悔型",
+          "direction": "化工工艺",
+          "measure": "蒸汽系统优化",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗",
+            "余热/余冷/余压综合利用率"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗、余热/余冷/余压综合利用率；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "压力等级、凝结水、泄漏",
+          "calculation": "降低燃料与蒸汽损失",
+          "economics": "节能收益",
+          "constraints": "生产连续性",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 25,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T036",
+          "tier": "无悔型",
+          "direction": "供热供冷",
+          "measure": "蒸汽管网降压与凝结水回收",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗",
+            "余热/余冷/余压综合利用率"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗、余热/余冷/余压综合利用率；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "压力、温度、流量、回水率、泄漏率",
+          "calculation": "减少补水加热与蒸汽损失对应燃料",
+          "economics": "蒸汽节约、回收期",
+          "constraints": "腐蚀、水质、用户压力",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 25,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T057",
+          "tier": "无悔型",
+          "direction": "纺织印染",
+          "measure": "低浴比染色与废水余热回收",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "余热/余冷/余压综合利用率",
+            "工业用水重复利用率"
+          ],
+          "reason": "对应差距：单位能耗碳排放、余热/余冷/余压综合利用率、工业用水重复利用率；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "浴比、水温、流量、回收温差",
+          "calculation": "减少水、蒸汽和废水处理能耗",
+          "economics": "水汽节约、回收期",
+          "constraints": "色差、污堵",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 25,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T010",
+          "tier": "条件型",
+          "direction": "供热供冷",
+          "measure": "热储能/冷储能",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "余热/余冷/余压综合利用率",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、余热/余冷/余压综合利用率、园区企业产出产品单位能耗；需先完成源荷、接入、场地或工艺条件核查",
+          "prerequisites": "负荷曲线、储能损失",
+          "calculation": "移峰和提高余热利用",
+          "economics": "LCOS/回收期",
+          "constraints": "空间、介质、安全",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 19,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T046",
+          "tier": "无悔型",
+          "direction": "高新制造",
+          "measure": "真空系统集中化与变频控制",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "真空度、流量、负荷曲线",
+          "calculation": "泵效率和负载匹配节电",
+          "economics": "节电、维护费",
+          "constraints": "污染隔离、可靠性",
+          "stakeholders": "园区管委会、相关设施运营方和实施企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 18,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T007",
+          "tier": "战略型",
+          "direction": "供热供冷",
+          "measure": "工业余热梯级利用",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "余热/余冷/余压综合利用率",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、余热/余冷/余压综合利用率、园区企业产出产品单位能耗；适合作为中长期专项论证方向",
+          "prerequisites": "温度、流量、时间匹配",
+          "calculation": "替代蒸汽/燃气/电制热",
+          "economics": "换热网络投资",
+          "constraints": "温位、距离、腐蚀",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 18,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T052",
+          "tier": "战略型",
+          "direction": "算力",
+          "measure": "数据中心余热外供",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "余热/余冷/余压综合利用率",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、余热/余冷/余压综合利用率、园区企业产出产品单位能耗；适合作为中长期专项论证方向",
+          "prerequisites": "水温、热量、距离、热用户曲线",
+          "calculation": "替代锅炉或热泵供热",
+          "economics": "管网+热泵LCOH",
+          "constraints": "温位、季节匹配",
+          "stakeholders": "能源运营方、供热企业、用热企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 18,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T018",
+          "tier": "无悔型",
+          "direction": "先进制造",
+          "measure": "压缩空气系统优化",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "压力、流量、泄漏、负荷",
+          "calculation": "降低电耗",
+          "economics": "节电收益",
+          "constraints": "生产稳定",
+          "stakeholders": "重点用能企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 17,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T019",
+          "tier": "无悔型",
+          "direction": "先进制造",
+          "measure": "高效电机与变频",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗；优先用于建立基线、消除明显能效损失或提高资源利用",
+          "prerequisites": "功率、运行小时、负荷率",
+          "calculation": "效率差×运行电量",
+          "economics": "回收期",
+          "constraints": "工况匹配",
+          "stakeholders": "重点用能企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 17,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T008",
+          "tier": "条件型",
+          "direction": "供热供冷",
+          "measure": "高温热泵",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗",
+            "清洁能源消费占比"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗、清洁能源消费占比；需先完成源荷、接入、场地或工艺条件核查",
+          "prerequisites": "热源温度、供热温度、COP",
+          "calculation": "替代锅炉燃料",
+          "economics": "LCOH、回收期",
+          "constraints": "温升、工质、安全",
+          "stakeholders": "能源运营方、供热企业、用热企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 15,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T012",
+          "tier": "条件型",
+          "direction": "化工工艺",
+          "measure": "精馏热集成/热泵精馏",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗",
+            "清洁能源消费占比"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗、清洁能源消费占比；需先完成源荷、接入、场地或工艺条件核查",
+          "prerequisites": "塔顶/塔釜温度、回流比",
+          "calculation": "降低再沸器热负荷",
+          "economics": "CAPEX、蒸汽节约",
+          "constraints": "产品纯度、改造空间",
+          "stakeholders": "园区管委会、相关设施运营方和实施企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 15,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        },
+        {
+          "tech_id": "T029",
+          "tier": "条件型",
+          "direction": "资源循环",
+          "measure": "工业共生供需匹配",
+          "matched_gaps": [
+            "单位能耗碳排放",
+            "园区企业产出产品单位能耗",
+            "工业固体废弃物综合利用率"
+          ],
+          "reason": "对应差距：单位能耗碳排放、园区企业产出产品单位能耗、工业固体废弃物综合利用率；需先完成源荷、接入、场地或工艺条件核查",
+          "prerequisites": "供需量、品质、距离、时间",
+          "calculation": "避免原生资源和处置排放",
+          "economics": "管网/物流成本",
+          "constraints": "稳定性、责任",
+          "stakeholders": "热力运营方、用汽企业",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 15,
+          "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。"
+        }
+      ],
+      "measures": [
+        {
+          "tech_id": "T018",
+          "category": "无悔型",
+          "direction": "先进制造",
+          "measure": "压缩空气系统优化",
+          "applicable": "全部制造",
+          "object": "空压机/管网",
+          "inputs": "压力、流量、泄漏、负荷",
+          "abatement_logic": "降低电耗",
+          "economics": "节电收益",
+          "constraints": "生产稳定",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 6,
+          "reason": "适用产业匹配；对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T019",
+          "category": "无悔型",
+          "direction": "先进制造",
+          "measure": "高效电机与变频",
+          "applicable": "全部制造",
+          "object": "泵、风机、压缩机",
+          "inputs": "功率、运行小时、负荷率",
+          "abatement_logic": "效率差×运行电量",
+          "economics": "回收期",
+          "constraints": "工况匹配",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 6,
+          "reason": "适用产业匹配；对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T031",
+          "category": "无悔型",
+          "direction": "管理",
+          "measure": "能碳计量与M&V",
+          "applicable": "全部",
+          "object": "企业/设备",
+          "inputs": "计量点、频率、基线",
+          "abatement_logic": "提高核算与项目核证质量",
+          "economics": "平台成本",
+          "constraints": "数据权限",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 6,
+          "reason": "适用产业匹配；对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T064",
+          "category": "无悔型",
+          "direction": "管理",
+          "measure": "异常能耗检测与预测性维护",
+          "applicable": "全部",
+          "object": "设备和产线",
+          "inputs": "时序测点、工况、故障记录",
+          "abatement_logic": "避免效率劣化和泄漏",
+          "economics": "节能、停机损失",
+          "constraints": "数据覆盖、误报",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 6,
+          "reason": "适用产业匹配；对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T030",
+          "category": "战略型",
+          "direction": "资源循环",
+          "measure": "再生水与浓水分质利用",
+          "applicable": "全部",
+          "object": "供排水系统",
+          "inputs": "水质水量、用户要求",
+          "abatement_logic": "降低新水和处理能耗",
+          "economics": "水价、处理成本",
+          "constraints": "水质、盐平衡",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "适用产业匹配"
+        },
+        {
+          "tech_id": "T033",
+          "category": "战略型",
+          "direction": "金融",
+          "measure": "项目组合与绿色融资",
+          "applicable": "全部",
+          "object": "项目包",
+          "inputs": "CAPEX、现金流、减排、风险",
+          "abatement_logic": "选择预算约束下最优组合",
+          "economics": "NPV、IRR、MACC",
+          "constraints": "融资、建设周期",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "适用产业匹配"
+        },
+        {
+          "tech_id": "T065",
+          "category": "战略型",
+          "direction": "金融",
+          "measure": "边际减排成本曲线MACC",
+          "applicable": "全部",
+          "object": "项目组合",
+          "inputs": "减排量、CAPEX、OPEX、寿命",
+          "abatement_logic": "单位全生命周期净成本/减排量",
+          "economics": "元/tCO2e、NPV",
+          "constraints": "基线一致、项目交互",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "适用产业匹配"
+        },
+        {
+          "tech_id": "T007",
+          "category": "无悔型",
+          "direction": "供热供冷",
+          "measure": "工业余热梯级利用",
+          "applicable": "化工、冶金、数据中心",
+          "object": "烟气/冷却水/工艺物流",
+          "inputs": "温度、流量、时间匹配",
+          "abatement_logic": "替代蒸汽/燃气/电制热",
+          "economics": "换热网络投资",
+          "constraints": "温位、距离、腐蚀",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T011",
+          "category": "无悔型",
+          "direction": "化工工艺",
+          "measure": "蒸汽系统优化",
+          "applicable": "化工/石化",
+          "object": "锅炉-管网-用户",
+          "inputs": "压力等级、凝结水、泄漏",
+          "abatement_logic": "降低燃料与蒸汽损失",
+          "economics": "节能收益",
+          "constraints": "生产连续性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T028",
+          "category": "无悔型",
+          "direction": "冶金",
+          "measure": "余热余压发电与煤气回收",
+          "applicable": "钢铁/冶金",
+          "object": "高炉、转炉、烧结",
+          "inputs": "气量、温度、压力",
+          "abatement_logic": "替代外购电/燃料",
+          "economics": "回收期",
+          "constraints": "气质、连续性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T036",
+          "category": "无悔型",
+          "direction": "供热供冷",
+          "measure": "蒸汽管网降压与凝结水回收",
+          "applicable": "化工、食品、造纸、纺织",
+          "object": "蒸汽管网和用户端",
+          "inputs": "压力、温度、流量、回水率、泄漏率",
+          "abatement_logic": "减少补水加热与蒸汽损失对应燃料",
+          "economics": "蒸汽节约、回收期",
+          "constraints": "腐蚀、水质、用户压力",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T040",
+          "category": "无悔型",
+          "direction": "化工工艺",
+          "measure": "低碳蒸汽与电加热耦合",
+          "applicable": "化工、制药、新材料",
+          "object": "反应加热、再沸器、干燥",
+          "inputs": "温度等级、蒸汽负荷、电价、绿电",
+          "abatement_logic": "按小时选择低碳热源",
+          "economics": "LCOH、容量电费",
+          "constraints": "温度、网架、连续性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T046",
+          "category": "无悔型",
+          "direction": "高新制造",
+          "measure": "真空系统集中化与变频控制",
+          "applicable": "半导体、光伏、医药",
+          "object": "真空泵组",
+          "inputs": "真空度、流量、负荷曲线",
+          "abatement_logic": "泵效率和负载匹配节电",
+          "economics": "节电、维护费",
+          "constraints": "污染隔离、可靠性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T052",
+          "category": "无悔型",
+          "direction": "算力",
+          "measure": "数据中心余热外供",
+          "applicable": "靠近供热用户的数据中心",
+          "object": "冷却水余热",
+          "inputs": "水温、热量、距离、热用户曲线",
+          "abatement_logic": "替代锅炉或热泵供热",
+          "economics": "管网+热泵LCOH",
+          "constraints": "温位、季节匹配",
+          "maturity": "示范/成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T057",
+          "category": "无悔型",
+          "direction": "纺织印染",
+          "measure": "低浴比染色与废水余热回收",
+          "applicable": "纺织印染",
+          "object": "染色机、定型机、废水",
+          "inputs": "浴比、水温、流量、回收温差",
+          "abatement_logic": "减少水、蒸汽和废水处理能耗",
+          "economics": "水汽节约、回收期",
+          "constraints": "色差、污堵",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "对外部制度与能源条件依赖较小"
+        },
+        {
+          "tech_id": "T001",
+          "category": "条件型",
+          "direction": "能源供给",
+          "measure": "分布式光伏",
+          "applicable": "全部",
+          "object": "屋顶/闲置地",
+          "inputs": "可用面积、辐照、并网容量、负荷曲线",
+          "abatement_logic": "替代边际/平均电网排放",
+          "economics": "CAPEX、LCOE、回收期",
+          "constraints": "消纳率、并网、屋顶承载",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "适用产业匹配"
+        },
+        {
+          "tech_id": "T006",
+          "category": "条件型",
+          "direction": "能源供给",
+          "measure": "多能微网",
+          "applicable": "全部",
+          "object": "电-热-冷-气-氢",
+          "inputs": "设备效率、负荷、价格",
+          "abatement_logic": "多能替代与协同",
+          "economics": "总年化成本",
+          "constraints": "能量平衡、可靠性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 3,
+          "reason": "适用产业匹配"
+        },
+        {
+          "tech_id": "T005",
+          "category": "战略型",
+          "direction": "能源供给",
+          "measure": "需求响应/虚拟电厂",
+          "applicable": "制造、算力",
+          "object": "可移峰负荷",
+          "inputs": "可调容量、持续时间、损失成本",
+          "abatement_logic": "减少高碳时段用电",
+          "economics": "响应收益、机会成本",
+          "constraints": "生产连续性",
+          "maturity": "成熟",
+          "parameter_status": "指南级，需以园区台账、可研或供应商报价核实",
+          "score": 0,
+          "reason": "作为指南条目保留"
+        }
+      ],
+      "counts": {
+        "无悔型": 6,
+        "条件型": 4,
+        "战略型": 2
+      }
+    },
+    "花多少钱": {
+      "answer": "已形成预算约束下的项目组合",
+      "portfolio": {
+        "selected_projects": [
+          {
+            "project_id": "P04",
+            "name": "蒸汽管网与凝结水回收",
+            "category": "节能降碳",
+            "capex_10k_cny": 3600.0,
+            "annual_abatement_tco2": 12500.0,
+            "annual_net_benefit_10k_cny": 1200.0,
+            "lifetime_years": 12,
+            "start_year": 2027,
+            "npv_cost_10k_cny": -7035.902,
+            "lifetime_abatement_tco2": 150000.0,
+            "macc_cny_per_tco2": -469.0601,
+            "simple_payback_years": 3.0,
+            "stakeholders": [
+              "园区企业",
+              "公共设施运营方"
+            ],
+            "maturity": "成熟",
+            "evidence_level": "演示参数"
+          },
+          {
+            "project_id": "P03",
+            "name": "空压系统优化",
+            "category": "节能降碳",
+            "capex_10k_cny": 1600.0,
+            "annual_abatement_tco2": 5200.0,
+            "annual_net_benefit_10k_cny": 695.0,
+            "lifetime_years": 8,
+            "start_year": 2026,
+            "npv_cost_10k_cny": -2891.9329,
+            "lifetime_abatement_tco2": 41600.0,
+            "macc_cny_per_tco2": -695.1762,
+            "simple_payback_years": 2.302,
+            "stakeholders": [
+              "园区企业"
+            ],
+            "maturity": "成熟",
+            "evidence_level": "演示参数"
+          },
+          {
+            "project_id": "P02",
+            "name": "高效电机与变频改造",
+            "category": "节能降碳",
+            "capex_10k_cny": 2800.0,
+            "annual_abatement_tco2": 8600.0,
+            "annual_net_benefit_10k_cny": 1090.0,
+            "lifetime_years": 10,
+            "start_year": 2026,
+            "npv_cost_10k_cny": -5616.6911,
+            "lifetime_abatement_tco2": 86000.0,
+            "macc_cny_per_tco2": -653.1036,
+            "simple_payback_years": 2.569,
+            "stakeholders": [
+              "园区企业"
+            ],
+            "maturity": "成熟",
+            "evidence_level": "演示参数"
+          },
+          {
+            "project_id": "P05",
+            "name": "工业余热梯级利用",
+            "category": "供热供冷",
+            "capex_10k_cny": 9800.0,
+            "annual_abatement_tco2": 24000.0,
+            "annual_net_benefit_10k_cny": 1390.0,
+            "lifetime_years": 15,
+            "start_year": 2027,
+            "npv_cost_10k_cny": -4627.7247,
+            "lifetime_abatement_tco2": 360000.0,
+            "macc_cny_per_tco2": -128.5479,
+            "simple_payback_years": 7.05,
+            "stakeholders": [
+              "园区企业",
+              "能源运营方"
+            ],
+            "maturity": "成熟",
+            "evidence_level": "演示参数"
+          },
+          {
+            "project_id": "P01",
+            "name": "分级计量与能碳管理基础",
+            "category": "管理基础",
+            "capex_10k_cny": 1200.0,
+            "annual_abatement_tco2": 2500.0,
+            "annual_net_benefit_10k_cny": 340.0,
+            "lifetime_years": 8,
+            "start_year": 2026,
+            "npv_cost_10k_cny": -997.4923,
+            "lifetime_abatement_tco2": 20000.0,
+            "macc_cny_per_tco2": -498.7462,
+            "simple_payback_years": 3.529,
+            "stakeholders": [
+              "园区管委会",
+              "园区企业"
+            ],
+            "maturity": "成熟",
+            "evidence_level": "演示参数"
+          }
+        ],
+        "project_ids": [
+          "P04",
+          "P03",
+          "P02",
+          "P05",
+          "P01"
+        ],
+        "capex_10k_cny": 19000.0,
+        "annual_abatement_tco2": 52800.0,
+        "annual_net_benefit_10k_cny": 4715.0,
+        "npv_cost_10k_cny": -21169.743,
+        "lifetime_abatement_tco2": 657600.0,
+        "macc_cny_per_tco2": -321.9243,
+        "meets_target": true,
+        "budget_10k_cny": 35000.0,
+        "annual_target_tco2": 50000.0,
+        "target_gap_tco2": 0.0,
+        "discount_rate": 0.05,
+        "stakeholders": [
+          {
+            "stakeholder": "公共设施运营方",
+            "project_count": 1,
+            "capex_10k_cny": 1800.0,
+            "annual_net_benefit_10k_cny": 600.0,
+            "annual_abatement_tco2": 6250.0
+          },
+          {
+            "stakeholder": "园区企业",
+            "project_count": 5,
+            "capex_10k_cny": 11700.0,
+            "annual_net_benefit_10k_cny": 3250.0,
+            "annual_abatement_tco2": 33300.0
+          },
+          {
+            "stakeholder": "园区管委会",
+            "project_count": 1,
+            "capex_10k_cny": 600.0,
+            "annual_net_benefit_10k_cny": 170.0,
+            "annual_abatement_tco2": 1250.0
+          },
+          {
+            "stakeholder": "能源运营方",
+            "project_count": 1,
+            "capex_10k_cny": 4900.0,
+            "annual_net_benefit_10k_cny": 695.0,
+            "annual_abatement_tco2": 12000.0
+          }
+        ],
+        "annual_path": [
+          {
+            "year": 2026,
+            "annual_abatement_tco2": 16300.0,
+            "cumulative_abatement_tco2": 16300.0,
+            "remaining_emissions_tco2": 167700.0,
+            "stage": "减碳"
+          },
+          {
+            "year": 2027,
+            "annual_abatement_tco2": 52800.0,
+            "cumulative_abatement_tco2": 69100.0,
+            "remaining_emissions_tco2": 131200.0,
+            "stage": "减碳"
+          },
+          {
+            "year": 2028,
+            "annual_abatement_tco2": 52800.0,
+            "cumulative_abatement_tco2": 121900.0,
+            "remaining_emissions_tco2": 131200.0,
+            "stage": "减碳"
+          },
+          {
+            "year": 2029,
+            "annual_abatement_tco2": 52800.0,
+            "cumulative_abatement_tco2": 174700.0,
+            "remaining_emissions_tco2": 131200.0,
+            "stage": "减碳"
+          },
+          {
+            "year": 2030,
+            "annual_abatement_tco2": 52800.0,
+            "cumulative_abatement_tco2": 227500.0,
+            "remaining_emissions_tco2": 131200.0,
+            "stage": "减碳"
+          }
+        ],
+        "sensitivity": [
+          {
+            "name": "保守情景",
+            "note": "投资上浮15%，节省下降20%，运维上浮10%，减排下降10%",
+            "capex_10k_cny": 21850.0,
+            "annual_abatement_tco2": 47520.0,
+            "annual_net_benefit_10k_cny": 3429.0909,
+            "npv_cost_10k_cny": -7364.3585,
+            "simple_payback_years": 6.372
+          },
+          {
+            "name": "基准情景",
+            "note": "按当前录入参数",
+            "capex_10k_cny": 19000.0,
+            "annual_abatement_tco2": 52800.0,
+            "annual_net_benefit_10k_cny": 4715.0,
+            "npv_cost_10k_cny": -21169.7429,
+            "simple_payback_years": 4.03
+          },
+          {
+            "name": "改善情景",
+            "note": "投资下降5%，节省上升10%，减排上升5%",
+            "capex_10k_cny": 18050.0,
+            "annual_abatement_tco2": 55440.0,
+            "annual_net_benefit_10k_cny": 5186.5,
+            "npv_cost_10k_cny": -26136.7172,
+            "simple_payback_years": 3.48
+          }
+        ]
+      }
+    }
+  },
+  "feasibility": {
+    "conclusion": "演示场景仅用于验证计算链路，不构成园区可行性结论",
+    "high_risk_count": 1,
+    "medium_risk_count": 3,
+    "risks": [
+      {
+        "dimension": "示范数据",
+        "level": "高",
+        "finding": "当前排放、指标和项目经济参数用于验证计算链路，并非某个园区的正式台账",
+        "action": "用同边界、同年度的原始台账、报价和测量验证参数替换后重新运行"
+      },
+      {
+        "dimension": "数据与边界",
+        "level": "低",
+        "finding": "正式核算门槛字段已提供",
+        "action": "继续保留原始凭证、因子版本和复核记录"
+      },
+      {
+        "dimension": "绿电实践",
+        "level": "中",
+        "finding": "源荷匹配、网架、计量结算或责任边界未全部确认",
+        "action": "绿电直连仅作为条件型路径，先开展负荷曲线与接入条件专项核查"
+      },
+      {
+        "dimension": "项目参数",
+        "level": "中",
+        "finding": "8个项目仍使用指南级或未核验参数",
+        "action": "取得供应商报价、能量平衡、节能量测量与验证边界后再转为投资建议"
+      },
+      {
+        "dimension": "标准差距",
+        "level": "中",
+        "finding": "6项指标仍有差距或缺数据",
+        "action": "按核心指标优先、引导指标分项推进"
+      }
+    ],
+    "decision_boundary": "本结果属于前期筛查和项目排序，不替代法定节能审查、环评、接入系统审查、工程可研或投资决策。"
+  }
+}

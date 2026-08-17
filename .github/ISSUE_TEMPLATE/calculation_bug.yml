@@ -1,0 +1,34 @@
+name: 计算问题
+about: 反馈差距核算、项目组合或报告输出问题
+labels: ["calculation"]
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: 涉及模块
+      options: [数据准备, 排放核算, 国家指标差距, 措施筛选, 项目经济性, 项目组合, 年度路径, 自动报告]
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: 可公开的输入数据或复现步骤
+      description: 请对敏感数据进行脱敏
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器或运行环境

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zero-carbon-park-observatory"
+version = "1.0.0"
+description = "Open-source public-data and feasibility platform for zero-carbon industrial parks"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Zero Carbon Park Observatory Contributors"}]
+dependencies = []
+
+[project.scripts]
+zcpark = "park_observer.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

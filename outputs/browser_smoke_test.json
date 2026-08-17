@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-08-17T11:13:58.380529+00:00",
+  "site": "/mnt/data/zero-carbon-park-round2-final/site",
+  "passed": 38,
+  "total": 38,
+  "ok": true,
+  "checks": [
+    {
+      "name": "内置自检",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "无禁用按钮",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "无空锚点",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "五项工作入口",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "报告链接",
+      "passed": true,
+      "detail": "12"
+    },
+    {
+      "name": "地图筛选：全国",
+      "passed": true,
+      "detail": "67 个园区点位"
+    },
+    {
+      "name": "地图筛选：国家级",
+      "passed": true,
+      "detail": "52 个园区点位"
+    },
+    {
+      "name": "地图筛选：广东",
+      "passed": true,
+      "detail": "17 个园区点位"
+    },
+    {
+      "name": "地图筛选：全球",
+      "passed": true,
+      "detail": "12 个园区点位"
+    },
+    {
+      "name": "园区名称定位",
+      "passed": true,
+      "detail": "marker_count=1"
+    },
+    {
+      "name": "地图点位联动资料卡",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "地图复位",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "动态分类入口",
+      "passed": true,
+      "detail": "6"
+    },
+    {
+      "name": "动态分类切换",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "动态分批展开",
+      "passed": true,
+      "detail": "9->18"
+    },
+    {
+      "name": "五项工作切换：data-ready",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "五项工作切换：current-state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "五项工作切换：gap",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "五项工作切换：reduce",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "五项工作切换：cost",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "P0字段批量勾选",
+      "passed": true,
+      "detail": "76%"
+    },
+    {
+      "name": "生成补数任务",
+      "passed": true,
+      "detail": "50"
+    },
+    {
+      "name": "园区现状画像",
+      "passed": true,
+      "detail": "天津经济技术开发区\n天津市 · 天津市 · 国家级第一批\n建设范围\n园中园\n建设周期\n2025—2030\n产业类型\n高新/先进制造型\n\n已登记名录和结构信息，定量绩效仍需园区台账。\n\n公开事实\n\n天津"
+    },
+    {
+      "name": "指标差距核算",
+      "passed": true,
+      "detail": "年度总排放\n285,000\ntCO₂\n单位能耗排放\n0.36\ntCO₂/tce\n待处理指标\n6\n项\n指标\t现状\t目标\t差距/状态\n单位综合能耗碳排放\n20万—100万吨标准煤区间示例阈值；正式申报时核对适用类别\t0.36tCO₂/tce\t0"
+    },
+    {
+      "name": "自动减排建议",
+      "passed": true,
+      "detail": "无悔型低碳蒸汽与电加热耦合对应问题：单位综合能耗碳排放、产品单位能耗、余热/余冷/余压综合利用率先降低单位能源消耗和高耗能系统损失；围绕主要产品基准线开展设备与工艺改造；先做热源—热汇匹配和年度运行小时核算先核实：温度等级、蒸汽负荷、电价、"
+    },
+    {
+      "name": "无悔型措施批量选择",
+      "passed": true,
+      "detail": "2"
+    },
+    {
+      "name": "措施检索",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "项目组合可行性分析",
+      "passed": true,
+      "detail": "组合投资\n24,500\n万元\n年度减排\n51,400\ntCO₂\n年度净收益\n6,340\n万元\n目标缺口\n0\ntCO₂/年\n\n初筛结论：演示场景仅用于验证计算链路，不构成园区可行性结论\n\n重点用能设备计量与诊断\n管理基础 · 演示参数\n800万元 / 3,200t\n空压系统群控与泄"
+    },
+    {
+      "name": "演示参数不形成正式结论",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "关键参数敏感性",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "年度路径与利益相关方",
+      "passed": true,
+      "detail": "利益相关方\n园区管委会\n1个项目；分摊投资口径 400 万元；年净收益口径 330 万元；年减排 1,600 tCO₂。\n园区企业\n4个项目；分摊投资口径 9,100 万元；年净收益口径 4,170 万元；年减排 31,300 tCO₂。\n"
+    },
+    {
+      "name": "新增项目",
+      "passed": true,
+      "detail": "6->7"
+    },
+    {
+      "name": "删除项目",
+      "passed": true,
+      "detail": "7->6"
+    },
+    {
+      "name": "公开资料库检索",
+      "passed": true,
+      "detail": "找到 3 条，当前显示 3 条。"
+    },
+    {
+      "name": "公开资料库清空",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "邮箱输入校验",
+      "passed": true,
+      "detail": "请填写有效邮箱。"
+    },
+    {
+      "name": "浏览器控制台无错误",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "页面运行无异常",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

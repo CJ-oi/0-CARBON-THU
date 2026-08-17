@@ -1,0 +1,7 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>邮件发送配置｜园区碳观察</title><link rel="stylesheet" href="../styles.css"><style>.doc{max-width:980px;margin:0 auto;padding:52px 24px 90px}.doc h1{font-size:38px}.doc h2{margin-top:42px;padding-top:22px;border-top:1px solid var(--line)}.doc li{margin:7px 0}.doc code,.doc pre{background:#ecefe9}.doc code{padding:2px 5px}.doc pre{padding:16px;overflow:auto;border:1px solid var(--line)}.doc .back{display:inline-flex;margin-bottom:24px}</style></head><body><main class="doc"><a class="btn btn-line back" href="../index.html#reports">← 返回报告中心</a><h1>报告邮件发送配置</h1><p class="lead">GitHub Pages 不能安全保存邮件密钥。未配置发送服务时，网站会打开本机邮件客户端；配置 Cloudflare Worker 后，可以直接把最新 PDF 报告发送到用户输入的邮箱。</p><h2>工作方式</h2><ol><li>网页只提交收件邮箱、报告类型和本次发送授权；</li><li>Worker 校验来源、邮箱和报告类型；</li><li>Worker 从本网站固定路径读取最新 PDF；</li><li>通过 Resend 发送附件；</li><li>邮箱不会写入 GitHub 仓库。</li></ol><h2>部署步骤</h2><pre>cd services/report-mailer
+npm install
+npx wrangler login
+npx wrangler secret put RESEND_API_KEY
+npm run deploy</pre><p>将部署得到的 Worker 地址写入 <code>config/runtime.json</code> 的 <code>mail_endpoint</code>，提交并推送后网站自动重建。</p><h2>必要配置</h2><pre>SITE_URL = "https://cj-oi.github.io/zero-carbon-park/"
+ALLOWED_ORIGIN = "https://cj-oi.github.io"
+REPORT_FROM = "园区碳观察 &lt;reports@已验证域名&gt;"</pre><h2>安全边界</h2><p>不要将 Resend 密钥写入仓库。正式公开前建议启用发件域名 SPF/DKIM、Cloudflare Turnstile 和请求限流。服务不接受任意附件地址，只从本站固定报告路径读取 PDF。</p><p><a class="btn btn-dark" href="technical.html">查看技术说明</a></p></main></body></html>

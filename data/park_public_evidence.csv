@@ -1,0 +1,19 @@
+﻿evidence_id,park_id,date,evidence_type,metric,value,unit,statement,caveat,source_url
+E001,NAT-009,2025-04-09,公开现状,企业绿电使用比例,接近70,%,公开报道显示，园区企业绿电使用比例接近70%。,报道口径，不能替代同一基准年能源平衡表和绿电凭证。,https://www.ndrc.gov.cn/fggz/hjyzy/tdftzh/202504/t20250409_1397120.html
+E002,NAT-009,2025-04-09,公开现状,废水循环利用率,95,%,公开报道显示，园区废水循环利用率达到95%。,需核实统计边界、分母和基准年后方可用于正式对标。,https://www.ndrc.gov.cn/fggz/hjyzy/tdftzh/202504/t20250409_1397120.html
+E003,NAT-018,2026-01-04,公开现状,周边新能源装机,超过680,万千瓦,公开报道显示，园区所在区域风、光等新能源装机已超过680万千瓦。,区域供给条件，不等于园区实际消纳量。,https://zjic.zj.gov.cn/ywdh/nyhj/202601/t20260104_23887267.shtml
+E004,NAT-018,2026-01-04,公开现状,年度直供绿电,超过2000,万千瓦时,公开报道显示，园区年直供绿电超过2000万千瓦时。,需与园区总用电量、绿电交易和环境属性核销台账核对。,https://zjic.zj.gov.cn/ywdh/nyhj/202601/t20260104_23887267.shtml
+E005,NAT-018,2030目标,建设目标,绿电直供占比,70,%,公开建设安排提出，到2030年绿电直供占比达到70%。,规划目标，不是当前完成值。,https://zjic.zj.gov.cn/ywdh/nyhj/202601/t20260104_23887267.shtml
+E006,NAT-018,2030目标,建设目标,绿电消费占比,约95,%,公开建设安排提出，到2030年绿电消费占比达到约95%。,规划目标，不是当前完成值。,https://zjic.zj.gov.cn/ywdh/nyhj/202601/t20260104_23887267.shtml
+E007,NAT-014,2025年末,公开现状,入园企业,19,家,公开信息显示，截至2025年底园区已落户企业19家，其中规上企业6家。,企业数量口径需与园区正式企业清单核对。,https://www.jl.gov.cn/szfzt/gzlfz/gzdt/202602/t20260222_3554945.html
+E008,NAT-014,2029目标,建设目标,绿电装机,160,万千瓦,园区建设安排提出，到2029年绿电装机规模达到160万千瓦。,建设目标，不是当前完成值。,https://www.jl.gov.cn/szfzt/gzlfz/gzdt/202602/t20260222_3554945.html
+E009,NAT-014,2029目标,建设目标,绿电占比,不低于90,%,园区建设安排提出，到2029年绿电占比不低于90%。,建设目标，不是当前完成值。,https://www.jl.gov.cn/szfzt/gzlfz/gzdt/202602/t20260222_3554945.html
+E010,NAT-014,2029目标,建设目标,单位能耗二氧化碳排放,低于0.2,tCO2/tce,园区建设安排提出，到2029年单位能耗二氧化碳排放降至0.2 tCO2/tce以下。,建设目标，正式核算仍应使用国家方法和园区台账。,https://www.jl.gov.cn/szfzt/gzlfz/gzdt/202602/t20260222_3554945.html
+E011,NAT-002,2026-02-12,在建项目,电化学储能,1.05,GWh,天津经开区公开信息显示，园区电网侧有1.05 GWh大型电化学储能项目在建。,在建规模，不等于已投运容量和实际减排量。,https://www.teda.gov.cn/contents/13/104291.html
+E012,I001,2026核验,国际案例,合作成员,16,家公共和私营机构,Kalundborg Symbiosis官网显示，当前伙伴关系由16家公共和私营机构组成，并自1972年持续发展。,用于治理和工业共生机制参考，不适用中国国家级零碳园区验收。,https://www.symbiosis.dk/en/
+E013,I002,2025-10-24,国际案例,风光装机,84.8,MW,GreenLab官网显示，其直接连接的混合能源园区已组合84.8 MW风电和光伏。,用于综合能源系统案例参考，需转换指标口径后比较。,https://www.greenlab.dk/knowledge/welcome-to-44-mwh-bess/
+E014,I002,2025-10-24,国际案例,可再生能源年产量,200—220,GWh/年,GreenLab官网披露混合能源园区年可再生能源产量为200—220 GWh。,用于案例参考，不是中国园区核算口径。,https://www.greenlab.dk/knowledge/welcome-to-44-mwh-bess/
+E015,I002,2025-10-24,国际案例,电池储能,44,MWh,GreenLab披露园区部署44 MWh电池储能系统。,设备规模不直接等于减排量。,https://www.greenlab.dk/knowledge/welcome-to-44-mwh-bess/
+E016,I004,UNIDO案例资料,国际案例,工业共生项目,35,个,UNIDO案例资料记录，Ulsan Mipo–Onsan已实施35个工业共生项目。,历史案例数据，用于识别工业共生商业模式，不用于当前绩效排名。,https://downloads.unido.org/ot/14/23/14234051/20190116bis-Final-Project%20document-International%20EIP%20Centre-SAPID160210.pdf
+E017,I004,UNIDO案例资料,国际案例,年度二氧化碳减排,超过66,万吨CO2/年,UNIDO案例资料记录，相关项目年度二氧化碳减排超过66万吨。,历史项目汇总数据，边界与中国国家核算方法不同。,https://downloads.unido.org/ot/14/23/14234051/20190116bis-Final-Project%20document-International%20EIP%20Centre-SAPID160210.pdf
+E018,I004,UNIDO案例资料,国际案例,年度经济节省,约1.4,亿美元/年,UNIDO案例资料记录，相关工业共生项目年度节省约1.4亿美元。,历史案例数据，价格和汇率不能直接套用到国内园区。,https://downloads.unido.org/ot/14/23/14234051/20190116bis-Final-Project%20document-International%20EIP%20Centre-SAPID160210.pdf

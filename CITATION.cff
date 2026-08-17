@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "园区碳观察：零碳园区公共数据与实施决策平台"
+message: "如在研究、教学或园区咨询中使用本项目，请引用本仓库及所使用数据的原始来源。"
+type: software
+authors:
+  - name: "园区碳观察项目组"
+version: 1.0.0
+date-released: 2026-08-17
+license: MIT

@@ -1,0 +1,411 @@
+{
+  "report_type": "weekly",
+  "generated_at": "2026-08-17T11:13:46+00:00",
+  "report_date": "2026-08-17",
+  "record_count": 8,
+  "records": [
+    {
+      "record_id": "SEED-20260817-TEDA-FUND",
+      "published_date": "2026-08-17",
+      "title": "天津经开区开展零碳园区专项资金申报培训",
+      "summary": "天津经开区围绕中央预算内投资、超长期特别国债、绿色低息专项贷款和节能降碳专项资金开展培训，近40家企业参加。该信息可用于识别项目储备、资金来源和申报材料要求，不直接替代项目可研或资金承诺。",
+      "publisher": "天津经济技术开发区",
+      "source_name": "天津经济技术开发区",
+      "source_id": "SEED",
+      "source_scope": "园区",
+      "default_category": "项目与投融资",
+      "topic": "项目与投融资",
+      "region": "天津市",
+      "parks": [
+        "NAT-002"
+      ],
+      "url": "https://www.teda.gov.cn/contents/13/113463.html",
+      "canonical_url": "https://www.teda.gov.cn/contents/13/113463.html",
+      "why": "用于识别项目条件、实施主体和资金线索；收益与风险需基于项目参数复核。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T16:30:00+08:00",
+      "last_seen": "2026-08-17T16:30:00+08:00",
+      "content_hash": "b61cdba233ee94559ad3641428424a1112c8aefc10be07a3a628b65d60fc6bab",
+      "version_count": 1,
+      "normalized_title": "天津经开区开展零碳园区专项资金申报培训",
+      "document_number": "",
+      "category": "项目与投融资",
+      "source_level": "园区",
+      "relevance_score": 22,
+      "relevance_status": "include",
+      "relevance_reason": "命中“零碳园区”；命中“经开区”；命中“节能降碳”；含实施或量化线索；来自园区公开来源",
+      "event_key": "EVT-b421b74721b71971",
+      "quality_score": 28
+    },
+    {
+      "record_id": "SEED-20260814-JIULONG",
+      "published_date": "2026-08-14",
+      "title": "重庆九龙新城园区公开近零碳建设与强度下降线索",
+      "summary": "九龙坡区公开信息显示，九龙新城园区已获评市级近零碳园区等试点，近三年二氧化碳排放强度下降14%；同时披露再生铝、企业节能改造和碳市场参与情况。14%为公开报道线索，正式比较前需核对园区边界、基准年、分母口径和原始清单。",
+      "publisher": "重庆市九龙坡区人民政府",
+      "source_name": "重庆市九龙坡区人民政府",
+      "source_id": "SEED",
+      "source_scope": "地方",
+      "default_category": "数据与评估",
+      "topic": "技术与设施",
+      "region": "重庆市",
+      "parks": [],
+      "url": "https://www.cqjlp.gov.cn/zwxx/qxdt/202608/t20260814_15932463.html",
+      "canonical_url": "https://www.cqjlp.gov.cn/zwxx/qxdt/202608/t20260814_15932463.html",
+      "why": "作为设施改造和项目储备线索；投资、节能量和减排量需可研或测量验证。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T16:30:00+08:00",
+      "last_seen": "2026-08-17T16:30:00+08:00",
+      "content_hash": "3f1ce46b09eef70a3d396dde5149bd45928f395e076553263d1ece26ad0e9749",
+      "version_count": 1,
+      "normalized_title": "重庆九龙新城园区公开近零碳建设与强度下降线索",
+      "document_number": "",
+      "category": "技术与设施",
+      "source_level": "地方",
+      "relevance_score": 19,
+      "relevance_status": "include",
+      "relevance_reason": "命中“零碳园区”；命中“碳排放”；命中“节能改造”；含实施或量化线索",
+      "event_key": "EVT-55275695e6392346",
+      "quality_score": 25
+    },
+    {
+      "record_id": "SEED-20260814-SUXIANG-FACTORY",
+      "published_date": "2026-08-14",
+      "title": "苏相合作区企业公开零碳工厂节能改造参数",
+      "summary": "苏相合作区公开案例披露，江苏美的清洁电器建设4.32 MWp光伏电站，实施空压、制冷、喷涂等15项节能降碳项目，年减排超过3300吨。该数据属于企业边界案例，可用于设施参数和测量验证调研，不作为园区整体绩效。",
+      "publisher": "苏州工业园区管理委员会",
+      "source_name": "苏州工业园区管理委员会",
+      "source_id": "SEED",
+      "source_scope": "园区",
+      "default_category": "技术与设施",
+      "topic": "技术与设施",
+      "region": "江苏省",
+      "parks": [],
+      "url": "https://www.sipac.gov.cn/sxhzq/mtjj/202608/5fa7a860784c4e94996f8fd88101b8bd.shtml",
+      "canonical_url": "https://www.sipac.gov.cn/sxhzq/mtjj/202608/5fa7a860784c4e94996f8fd88101b8bd.shtml",
+      "why": "作为设施改造和项目储备线索；投资、节能量和减排量需可研或测量验证。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T16:30:00+08:00",
+      "last_seen": "2026-08-17T16:30:00+08:00",
+      "content_hash": "d1eafdbff9ff55a4cda9a3b1563fde5408074cdd831ab6d685cd78f05034f200",
+      "version_count": 1,
+      "normalized_title": "苏相合作区企业公开零碳工厂节能改造参数",
+      "document_number": "",
+      "category": "技术与设施",
+      "source_level": "园区",
+      "relevance_score": 19,
+      "relevance_status": "include",
+      "relevance_reason": "命中“节能降碳”；命中“空压”；命中“节能改造”；命中“减排”；含实施或量化线索；来自园区公开来源",
+      "event_key": "EVT-161626b7a2d76982",
+      "quality_score": 25
+    },
+    {
+      "record_id": "SEED-20260817-SHANXI-ECO-DAY",
+      "published_date": "2026-08-17",
+      "title": "山西生态日活动梳理大同和阳泉零碳园区建设任务",
+      "summary": "山西公开信息提到，大同经开区和阳泉高新区已进入首批国家级零碳园区建设名单，并将能源转型、产业升级、节能增效以及工业、建筑、交通领域的清洁低碳改造作为后续重点。该记录用于建设任务跟踪，不作为园区绩效结论。",
+      "publisher": "长治市生态环境局转载山西日报",
+      "source_name": "长治市生态环境局转载山西日报",
+      "source_id": "SEED",
+      "source_scope": "地方",
+      "default_category": "园区建设",
+      "topic": "园区建设",
+      "region": "山西省",
+      "parks": [
+        "NAT-007",
+        "NAT-008"
+      ],
+      "url": "https://sthjj.changzhi.gov.cn/gzdt/hbyw/202608/t20260817_3196425.html",
+      "canonical_url": "https://sthjj.changzhi.gov.cn/gzdt/hbyw/202608/t20260817_3196425.html",
+      "why": "用于核对建设范围、实施主体和进展；涉及绩效时仍需园区台账。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T17:20:00+08:00",
+      "last_seen": "2026-08-17T17:20:00+08:00",
+      "content_hash": "ee1f0ab44dadbd4b908dd8fb16e032a8ee59e6d431814eac490fd8158bfc61f6",
+      "version_count": 1,
+      "normalized_title": "山西生态日活动梳理大同和阳泉零碳园区建设任务",
+      "document_number": "",
+      "category": "园区建设",
+      "source_level": "地方",
+      "relevance_score": 14,
+      "relevance_status": "include",
+      "relevance_reason": "命中“零碳园区”；命中“经开区”；含实施或量化线索",
+      "event_key": "EVT-16e163824772368f",
+      "quality_score": 20
+    },
+    {
+      "record_id": "SEED-20260816-SHANDONG-FORUM",
+      "published_date": "2026-08-16",
+      "title": "山东生态日活动交流丁字湾和垦利零碳园区建设做法",
+      "summary": "2026年全国生态日山东活动暨烟台论坛上，海阳市和东营市垦利区分别交流丁字湾新型能源创新区、垦利经济开发区国家级零碳园区建设做法。该记录作为案例调研入口，后续仍需获取园区边界、年度台账和项目参数。",
+      "publisher": "山东宣传网转载大众新闻客户端",
+      "source_name": "山东宣传网转载大众新闻客户端",
+      "source_id": "SEED",
+      "source_scope": "地方",
+      "default_category": "园区建设",
+      "topic": "园区建设",
+      "region": "山东省",
+      "parks": [
+        "NAT-027",
+        "NAT-028"
+      ],
+      "url": "https://www.sdxc.gov.cn/sy/jrywsy/202608/t20260816_18024137.htm",
+      "canonical_url": "https://www.sdxc.gov.cn/sy/jrywsy/202608/t20260816_18024137.htm",
+      "why": "用于核对建设范围、实施主体和进展；涉及绩效时仍需园区台账。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T16:30:00+08:00",
+      "last_seen": "2026-08-17T16:30:00+08:00",
+      "content_hash": "c79e4a87543c39e39ca2d7113c85cf6aa2d673e86df1f0bfcfe8ff42147ce301",
+      "version_count": 1,
+      "normalized_title": "山东生态日活动交流丁字湾和垦利零碳园区建设做法",
+      "document_number": "",
+      "category": "园区建设",
+      "source_level": "地方",
+      "relevance_score": 12,
+      "relevance_status": "include",
+      "relevance_reason": "命中“零碳园区”；含实施或量化线索",
+      "event_key": "EVT-39dc3e8efbdb38b8",
+      "quality_score": 18
+    },
+    {
+      "record_id": "SEED-20260813-JINJI-LAKE",
+      "published_date": "2026-08-13",
+      "title": "金鸡湖商务区组织企业交流零碳工厂与综合能碳服务",
+      "summary": "金鸡湖商务区组织20余家工业和服务业企业交流节能降碳、工艺优化、用水循环、能碳服务和绿色金融。公开信息还列出区域内零碳工厂、近零碳工厂和绿色工厂数量。相关数量属于商务区公开统计，正式比较前需核对认定口径和时间。",
+      "publisher": "苏州工业园区管理委员会",
+      "source_name": "苏州工业园区管理委员会",
+      "source_id": "SEED",
+      "source_scope": "园区",
+      "default_category": "园区建设",
+      "topic": "技术与设施",
+      "region": "江苏省",
+      "parks": [],
+      "url": "https://www.sipac.gov.cn/jjhswq/tpxw/202608/c6d8768667ca46f3881037238267d162.shtml",
+      "canonical_url": "https://www.sipac.gov.cn/jjhswq/tpxw/202608/c6d8768667ca46f3881037238267d162.shtml",
+      "why": "作为设施改造和项目储备线索；投资、节能量和减排量需可研或测量验证。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T17:20:00+08:00",
+      "last_seen": "2026-08-17T17:20:00+08:00",
+      "content_hash": "8c713ff57631519cc1e0c70cc8eae1a786ae3bf2a0b2341785e3f9b94e0028e6",
+      "version_count": 1,
+      "normalized_title": "金鸡湖商务区组织企业交流零碳工厂与综合能碳服务",
+      "document_number": "",
+      "category": "技术与设施",
+      "source_level": "园区",
+      "relevance_score": 11,
+      "relevance_status": "include",
+      "relevance_reason": "命中“节能降碳”；命中“绿色工厂”；来自园区公开来源",
+      "event_key": "EVT-ad7421e17ac85a80",
+      "quality_score": 17
+    },
+    {
+      "record_id": "SEED-0001",
+      "published_date": "2026-08-12",
+      "title": "多地零碳园区推进源头降碳、过程脱碳和智能控碳",
+      "summary": "公开报道梳理了园区在能源供给、工艺改造和数字化管理方面的推进方式。平台将其作为措施线索与调研入口，不把报道中的跨园区数字直接并入单个园区绩效。",
+      "publisher": "福建省工业和信息化厅转载人民日报",
+      "source_name": "福建省工业和信息化厅转载人民日报",
+      "source_id": "SEED",
+      "topic": "园区建设",
+      "region": "中国",
+      "parks": [],
+      "url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202608/t20260812_7199107.htm",
+      "canonical_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202608/t20260812_7199107.htm",
+      "why": "用于核对建设范围、实施主体和进展；涉及绩效时仍需园区台账。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T00:00:00+08:00",
+      "last_seen": "2026-08-16T19:13:49+00:00",
+      "content_hash": "bb5813720c13818e05f6e88b869b8119f6af1dfde55fc5b5533b8c6b1d1d76b8",
+      "version_count": 1,
+      "normalized_title": "多地零碳园区推进源头降碳、过程脱碳和智能控碳",
+      "document_number": "",
+      "category": "园区建设",
+      "source_level": "地方",
+      "relevance_score": 12,
+      "relevance_status": "include",
+      "relevance_reason": "命中“零碳园区”；含实施或量化线索",
+      "event_key": "EVT-c36e148f2fcb0eca",
+      "quality_score": 17
+    },
+    {
+      "record_id": "SEED-20260811-TEDA-CCUS",
+      "published_date": "2026-08-11",
+      "title": "天津南港工业区启动万吨级固体吸附二氧化碳捕集示范项目",
+      "summary": "华电万吨级固体吸附二氧化碳捕集示范项目在天津南港工业区启动建设。该项目可作为火电和高排放产业深度减排技术线索；正式纳入园区项目组合前需补充投资、能耗惩罚、捕集率、利用或封存去向及全生命周期边界。",
+      "publisher": "天津经济技术开发区",
+      "source_name": "天津经济技术开发区",
+      "source_id": "SEED",
+      "source_scope": "园区",
+      "default_category": "技术与设施",
+      "topic": "项目与投融资",
+      "region": "天津市",
+      "parks": [
+        "NAT-002"
+      ],
+      "url": "https://www.teda.gov.cn/contents/14/113238.html",
+      "canonical_url": "https://www.teda.gov.cn/contents/14/113238.html",
+      "why": "用于识别项目条件、实施主体和资金线索；收益与风险需基于项目参数复核。",
+      "review_status": "human_reviewed",
+      "first_seen": "2026-08-17T16:30:00+08:00",
+      "last_seen": "2026-08-17T16:30:00+08:00",
+      "content_hash": "900738e2f46c74b92cefce1fbeae76fcf470b37221a478865bd475ad5874b03b",
+      "version_count": 1,
+      "normalized_title": "天津南港工业区启动万吨级固体吸附二氧化碳捕集示范项目",
+      "document_number": "",
+      "category": "项目与投融资",
+      "source_level": "园区",
+      "relevance_score": 6,
+      "relevance_status": "include",
+      "relevance_reason": "命中“减排”；含实施或量化线索；来自园区公开来源",
+      "event_key": "EVT-238689a384230413",
+      "quality_score": 12
+    }
+  ],
+  "analysis": {
+    "summary": [
+      "本期纳入8条经过去重和相关性筛选的记录，其中实施类8条、政策标准0条。",
+      "记录来自6个独立来源；3条含量化线索，4条已明确关联具体园区。",
+      "本期较集中的工作主题为：项目与资金5条、计量与能碳管理2条、设备与系统节能1条。"
+    ],
+    "opportunities": [
+      "将分级计量、能碳台账和异常监测作为数据底座项目，先解决边界、口径和责任不清的问题。",
+      "优先排查空压、蒸汽、泵风机、余热等运行改善项目，先形成基线和可验证节能量。",
+      "清洁供能项目应在负荷、网架、消纳、计量结算和环境属性核清后进入专项论证。",
+      "把充换电、重卡和园区物流纳入场景项目库，明确车辆规模、里程、补能利用率和运营主体。",
+      "将资金政策与项目参数表联动，明确适用对象、申报窗口、投资主体和可计量绩效。"
+    ],
+    "constraints": [
+      "公开资料用于发现线索和形成核查任务；正式核算仍要求同一边界、同一年度、同一单位和可追溯凭证。"
+    ],
+    "data_tasks": [
+      "补充计量点位清单、表计层级、数据频率、缺失率及与企业清单的对应关系。",
+      "收集设备额定参数、负荷率、运行小时、改造前后能耗、停产影响和报价依据。",
+      "补充15分钟或小时负荷曲线、可用场地、接入条件、消纳比例、绿证或绿电合同资料。",
+      "补充车辆清单、年行驶里程、燃料或电耗、补能设施利用率及运输组织方案。"
+    ],
+    "no_regret": [
+      "确认园区法定边界、纳入企业清单和基准年，建立统一园区主键。",
+      "完善分级计量、能源平衡和数据责任表，先处理缺失、重复和口径不一致。",
+      "优先排查计量、空压、蒸汽、泵风机、余热和水回用，形成可验证的低风险项目。",
+      "所有候选项目保留基线、计算方法、报价来源、实施主体和测量验证边界。"
+    ],
+    "category_counts": {
+      "项目与投融资": 2,
+      "技术与设施": 3,
+      "园区建设": 3
+    },
+    "source_counts": {
+      "天津经济技术开发区": 2,
+      "苏州工业园区管理委员会": 2,
+      "重庆市九龙坡区人民政府": 1,
+      "长治市生态环境局转载山西日报": 1,
+      "山东宣传网转载大众新闻客户端": 1,
+      "福建省工业和信息化厅转载人民日报": 1
+    },
+    "source_level_counts": {
+      "园区": 4,
+      "地方": 4
+    },
+    "theme_counts": {
+      "项目与资金": 5,
+      "计量与能碳管理": 2,
+      "设备与系统节能": 1,
+      "清洁供能": 1,
+      "交通与物流": 1
+    },
+    "quality_metrics": [
+      {
+        "label": "入选记录",
+        "value": 8,
+        "note": "经相关性筛选和事件归并后的记录"
+      },
+      {
+        "label": "实施类记录",
+        "value": 8,
+        "note": "占100%，包括园区建设、技术设施和项目投融资"
+      },
+      {
+        "label": "政策标准记录",
+        "value": 0,
+        "note": "占0%"
+      },
+      {
+        "label": "含量化线索",
+        "value": 3,
+        "note": "仅表示存在数字，不代表可直接进入园区核算"
+      },
+      {
+        "label": "明确关联园区",
+        "value": 4,
+        "note": "已完成园区对象关联的记录"
+      },
+      {
+        "label": "独立来源",
+        "value": 6,
+        "note": "最高单一来源占比25%"
+      },
+      {
+        "label": "归并关联材料",
+        "value": 0,
+        "note": "同一事件下保留的补充来源"
+      }
+    ],
+    "balance_rows": [
+      {
+        "category": "园区建设",
+        "count": 3,
+        "actual_share": 0.375,
+        "target_share": 0.35
+      },
+      {
+        "category": "技术与设施",
+        "count": 3,
+        "actual_share": 0.375,
+        "target_share": 0.25
+      },
+      {
+        "category": "政策与标准",
+        "count": 0,
+        "actual_share": 0.0,
+        "target_share": 0.15
+      },
+      {
+        "category": "数据与评估",
+        "count": 0,
+        "actual_share": 0.0,
+        "target_share": 0.15
+      },
+      {
+        "category": "项目与投融资",
+        "count": 2,
+        "actual_share": 0.25,
+        "target_share": 0.1
+      },
+      {
+        "category": "其他重要动态",
+        "count": 0,
+        "actual_share": 0.0,
+        "target_share": 0.0
+      }
+    ]
+  },
+  "topic_counts": {
+    "项目与投融资": 2,
+    "技术与设施": 3,
+    "园区建设": 3
+  },
+  "source_counts": {
+    "天津经济技术开发区": 2,
+    "苏州工业园区管理委员会": 2,
+    "重庆市九龙坡区人民政府": 1,
+    "长治市生态环境局转载山西日报": 1,
+    "山东宣传网转载大众新闻客户端": 1,
+    "福建省工业和信息化厅转载人民日报": 1
+  },
+  "note": "周报用于识别建设进展、技术设施、规则变化和下一步数据任务，不等同于园区绩效统计。",
+  "screenshots": [
+    "../assets/report_screenshots/site-overview.png",
+    "../assets/report_screenshots/map-and-detail.png",
+    "../assets/report_screenshots/five-questions.png"
+  ]
+}

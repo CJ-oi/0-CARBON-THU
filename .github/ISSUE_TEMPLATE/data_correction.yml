@@ -1,0 +1,40 @@
+name: 数据更正
+about: 更正园区名称、地区、事实、日期、来源或用途边界
+labels: ["data-correction"]
+body:
+  - type: markdown
+    attributes:
+      value: 请只提交公开信息。不要上传企业敏感台账、个人信息或合同价格。
+  - type: input
+    id: park
+    attributes:
+      label: 园区或记录对象
+      placeholder: 例如：某某经济技术开发区
+    validations:
+      required: true
+  - type: input
+    id: record
+    attributes:
+      label: 当前记录位置
+      placeholder: 页面区块、记录标题或 record_id
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 建议更正内容
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 核验来源
+      description: 请提供公开原文 URL
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 核验理由与边界说明
+    validations:
+      required: true

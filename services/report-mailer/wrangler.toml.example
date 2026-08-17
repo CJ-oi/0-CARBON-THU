@@ -1,0 +1,8 @@
+name = "park-report-mailer"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+SITE_URL = "https://cj-oi.github.io/zero-carbon-park/"
+ALLOWED_ORIGIN = "https://cj-oi.github.io"
+REPORT_FROM = "园区碳观察 <reports@your-domain.example>"

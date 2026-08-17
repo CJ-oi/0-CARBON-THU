@@ -1,0 +1,304 @@
+{
+  "updated": "2026-08-17",
+  "archive_limit": 100000,
+  "request_timeout_seconds": 20,
+  "max_links_per_source": 40,
+  "max_article_fetches_per_source": 8,
+  "failure_policy": {
+    "watch_after": 3,
+    "quarantine_after": 7,
+    "quarantine_retest_days": 7
+  },
+  "keywords": [
+    "零碳园区",
+    "低碳园区",
+    "经济技术开发区",
+    "经开区",
+    "绿色园区",
+    "节能降碳",
+    "绿电直连",
+    "源网荷储",
+    "能碳管理",
+    "工业共生",
+    "绿色低碳",
+    "碳排放双控",
+    "节能改造",
+    "余热利用",
+    "绿色制造",
+    "零碳工厂",
+    "碳计量",
+    "能源管理",
+    "分级计量",
+    "设备更新",
+    "工业余热",
+    "水重复利用",
+    "工业固废",
+    "合同能源管理",
+    "绿色金融"
+  ],
+  "topic_rules": {
+    "国家政策": [
+      "通知",
+      "规划",
+      "意见",
+      "办法",
+      "标准",
+      "核算",
+      "指标体系"
+    ],
+    "地方建设": [
+      "建设",
+      "实施方案",
+      "创建",
+      "培育",
+      "申报",
+      "推进"
+    ],
+    "园区实践": [
+      "园区",
+      "经开区",
+      "开发区",
+      "产业园",
+      "示范"
+    ],
+    "能源系统": [
+      "绿电",
+      "直连",
+      "源网荷储",
+      "微电网",
+      "储能",
+      "虚拟电厂"
+    ],
+    "节能设施": [
+      "节能",
+      "余热",
+      "热泵",
+      "电机",
+      "空压",
+      "蒸汽",
+      "水循环"
+    ],
+    "数据治理": [
+      "能碳管理",
+      "数字化",
+      "监测",
+      "计量",
+      "碳核算",
+      "平台"
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC001",
+      "name": "国家发展改革委—发展改革工作",
+      "type": "official_html",
+      "start_url": "https://www.ndrc.gov.cn/fggz/",
+      "allowed_domains": [
+        "ndrc.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC002",
+      "name": "国家发展改革委—政策通知",
+      "type": "official_html",
+      "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/",
+      "allowed_domains": [
+        "ndrc.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC003",
+      "name": "国家能源局",
+      "type": "official_html",
+      "start_url": "https://www.nea.gov.cn/",
+      "allowed_domains": [
+        "nea.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC004",
+      "name": "工业和信息化部",
+      "type": "official_html",
+      "start_url": "https://www.miit.gov.cn/",
+      "allowed_domains": [
+        "miit.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "技术与设施",
+      "region": "中国"
+    },
+    {
+      "id": "SRC005",
+      "name": "商务部—开发区工作",
+      "type": "official_html",
+      "start_url": "https://www.mofcom.gov.cn/",
+      "allowed_domains": [
+        "mofcom.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "园区建设",
+      "region": "中国"
+    },
+    {
+      "id": "SRC006",
+      "name": "北京市发展改革委",
+      "type": "official_html",
+      "start_url": "https://fgw.beijing.gov.cn/",
+      "allowed_domains": [
+        "fgw.beijing.gov.cn"
+      ],
+      "priority": "P1",
+      "enabled": true,
+      "scope": "地方",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC007",
+      "name": "北京经济技术开发区",
+      "type": "official_html",
+      "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/",
+      "allowed_domains": [
+        "kfqgw.beijing.gov.cn"
+      ],
+      "priority": "P1",
+      "enabled": true,
+      "scope": "园区",
+      "default_category": "园区建设",
+      "region": "中国"
+    },
+    {
+      "id": "SRC008",
+      "name": "甘肃省发展改革委",
+      "type": "official_html",
+      "start_url": "https://fzgg.gansu.gov.cn/",
+      "allowed_domains": [
+        "fzgg.gansu.gov.cn"
+      ],
+      "priority": "P1",
+      "enabled": true,
+      "scope": "地方",
+      "default_category": "园区建设",
+      "region": "中国"
+    },
+    {
+      "id": "SRC009",
+      "name": "广东省发展改革委",
+      "type": "official_html",
+      "start_url": "https://drc.gd.gov.cn/",
+      "allowed_domains": [
+        "drc.gd.gov.cn"
+      ],
+      "priority": "P1",
+      "enabled": true,
+      "scope": "地方",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC010",
+      "name": "福建省工业和信息化厅",
+      "type": "official_html",
+      "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/",
+      "allowed_domains": [
+        "gxt.fujian.gov.cn"
+      ],
+      "priority": "P1",
+      "enabled": true,
+      "scope": "地方",
+      "default_category": "技术与设施",
+      "region": "中国"
+    },
+    {
+      "id": "SRC011",
+      "name": "中国政府网—政策",
+      "type": "official_html",
+      "start_url": "https://www.gov.cn/zhengce/",
+      "allowed_domains": [
+        "gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "政策与标准",
+      "region": "中国"
+    },
+    {
+      "id": "SRC012",
+      "name": "生态环境部",
+      "type": "official_html",
+      "start_url": "https://www.mee.gov.cn/",
+      "allowed_domains": [
+        "mee.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "国家",
+      "default_category": "数据与评估",
+      "region": "中国"
+    },
+    {
+      "id": "SRC013",
+      "name": "天津经济技术开发区—建设动态",
+      "type": "official_html",
+      "start_url": "https://www.teda.gov.cn/contents/13/99411.html",
+      "allowed_domains": [
+        "teda.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "园区",
+      "default_category": "园区建设",
+      "region": "天津"
+    },
+    {
+      "id": "SRC014",
+      "name": "上海临港集团—新片区动态",
+      "type": "official_html",
+      "start_url": "https://www.shlingang.com/lg1/lingangjituan/xwzx/focusnewarea/",
+      "allowed_domains": [
+        "shlingang.com"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "园区",
+      "default_category": "园区建设",
+      "region": "上海"
+    },
+    {
+      "id": "SRC015",
+      "name": "北京经济技术开发区—工作动态",
+      "type": "official_html",
+      "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/",
+      "allowed_domains": [
+        "kfqgw.beijing.gov.cn"
+      ],
+      "priority": "P0",
+      "enabled": true,
+      "scope": "园区",
+      "default_category": "园区建设",
+      "region": "北京"
+    }
+  ],
+  "minimum_relevance_score": 4,
+  "near_duplicate_threshold": 0.9
+}
