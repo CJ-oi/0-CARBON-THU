@@ -1,0 +1,437 @@
+{
+  "merge": {
+    "added": 40,
+    "updated": 5,
+    "unchanged": 0,
+    "total": 62,
+    "duplicates_collapsed": 6,
+    "included": 61,
+    "excluded_low_relevance": 1
+  },
+  "source_logs": [
+    {
+      "source_id": "SRC001",
+      "source_name": "国家发展改革委—发展改革工作",
+      "start_url": "https://www.ndrc.gov.cn/fggz/",
+      "status": "ok",
+      "candidates": 0,
+      "records": 0,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 0.87,
+      "attempted_at": "2026-08-17T12:00:15+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC002",
+      "source_name": "国家发展改革委—政策通知",
+      "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/",
+      "status": "ok",
+      "candidates": 7,
+      "records": 7,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 4.2,
+      "attempted_at": "2026-08-17T12:00:19+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC003",
+      "source_name": "国家能源局",
+      "start_url": "https://www.nea.gov.cn/",
+      "status": "ok",
+      "candidates": 1,
+      "records": 1,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 2.13,
+      "attempted_at": "2026-08-17T12:00:22+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC004",
+      "source_name": "工业和信息化部",
+      "start_url": "https://www.miit.gov.cn/",
+      "status": "ok",
+      "candidates": 2,
+      "records": 1,
+      "rejected_low_relevance": 1,
+      "rejected_examples": [
+        {
+          "title": "李乐成调研盐湖产业和工业绿色低碳发展",
+          "url": "https://www.miit.gov.cn/xwfb/bldhd/art/2026/art_fa5d00560bce4889ac5e4cfbf83f2bf4.html",
+          "score": 2,
+          "reason": "含实施或量化线索"
+        }
+      ],
+      "elapsed_seconds": 4.61,
+      "attempted_at": "2026-08-17T12:00:27+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC005",
+      "source_name": "商务部—开发区工作",
+      "start_url": "https://www.mofcom.gov.cn/",
+      "status": "ok",
+      "candidates": 1,
+      "records": 1,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 1.66,
+      "attempted_at": "2026-08-17T12:00:29+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC006",
+      "source_name": "北京市发展改革委",
+      "start_url": "https://fgw.beijing.gov.cn/",
+      "status": "ok",
+      "candidates": 1,
+      "records": 1,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 3.56,
+      "attempted_at": "2026-08-17T12:00:33+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC007",
+      "source_name": "北京经济技术开发区",
+      "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/",
+      "status": "ok",
+      "candidates": 31,
+      "records": 24,
+      "rejected_low_relevance": 7,
+      "rejected_examples": [
+        {
+          "title": "北京经济技术开发区管理委员会印发《北京经济技术开发区关于进一步优化科技创新生态的若干措施》的通知",
+          "url": "https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcwj/202608/t20260807_4813468.html",
+          "score": -21,
+          "reason": "命中“经济技术开发区”；命中“经开区”；弱相关“脑机接口”；弱相关“量子科技”；弱相关“6g”；弱相关“低空装备”；弱相关“科技创新生态”"
+        },
+        {
+          "title": "北京经济技术开发区管理委员会印发《北京经济技术开发区关于支持词元驱动智能经济高质量发展的若干措施（试行）》的通知",
+          "url": "https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcwj/202608/t20260805_4809951.html",
+          "score": -13,
+          "reason": "命中“经济技术开发区”；弱相关“词元驱动”；弱相关“智能经济”；来自园区公开来源"
+        },
+        {
+          "title": "《北京经济技术开发区关于支持词元驱动智能经济高质量发展的若干措施（试行）》政策解读",
+          "url": "https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcjd/202608/t20260805_4809962.html",
+          "score": -13,
+          "reason": "命中“经济技术开发区”；弱相关“词元驱动”；弱相关“智能经济”；来自园区公开来源"
+        },
+        {
+          "title": "北京经济技术开发区2026年卫生健康领域事业单位公开招聘拟聘用人员(第二批)公示",
+          "url": "https://kfqgw.beijing.gov.cn/zwgkkfq/tzgg/202608/t20260817_4826212.html",
+          "score": -2,
+          "reason": "命中“经济技术开发区”；弱相关“招聘”；来自园区公开来源"
+        },
+        {
+          "title": "北京经济技术开发区教育领域面向应届毕业生公开招聘事业单位工作人员拟聘用人员公示",
+          "url": "https://kfqgw.beijing.gov.cn/zwgkkfq/tzgg/202608/t20260817_4826207.html",
+          "score": -2,
+          "reason": "命中“经济技术开发区”；弱相关“招聘”；来自园区公开来源"
+        }
+      ],
+      "elapsed_seconds": 14.01,
+      "attempted_at": "2026-08-17T12:00:47+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC008",
+      "source_name": "甘肃省发展改革委",
+      "start_url": "https://fzgg.gansu.gov.cn/",
+      "status": "failed",
+      "records": 0,
+      "elapsed_seconds": 0,
+      "attempted_at": "2026-08-17T12:00:53+00:00",
+      "error": "HTTPError: HTTP Error 412: Precondition Failed"
+    },
+    {
+      "source_id": "SRC009",
+      "source_name": "广东省发展改革委",
+      "start_url": "https://drc.gd.gov.cn/",
+      "status": "ok",
+      "candidates": 4,
+      "records": 3,
+      "rejected_low_relevance": 1,
+      "rejected_examples": [
+        {
+          "title": "关于广东省人民医院等3家省属医院医疗设备更新项目可行性研究报告的审批前公示",
+          "url": "https://drc.gd.gov.cn/xmgs/content/post_4940458.html",
+          "score": -3,
+          "reason": "含实施或量化线索；缺少园区或降碳直接语义"
+        }
+      ],
+      "elapsed_seconds": 11.51,
+      "attempted_at": "2026-08-17T12:01:05+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC010",
+      "source_name": "福建省工业和信息化厅",
+      "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/",
+      "status": "ok",
+      "candidates": 4,
+      "records": 1,
+      "rejected_low_relevance": 3,
+      "rejected_examples": [
+        {
+          "title": "工业和信息化部发布《工业绿色低碳发展“十五五”规划》",
+          "url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202608/t20260803_7195358.htm",
+          "score": 2,
+          "reason": "命中“绿色制造”"
+        },
+        {
+          "title": "中国培育更多“国家级零碳工厂”",
+          "url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202607/t20260729_7193689.htm",
+          "score": 0,
+          "reason": "未命中零碳园区核心主题"
+        },
+        {
+          "title": "国家级零碳工厂建设工作启动 _ 国内行业动态 _ 省工信厅",
+          "url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/202607/t20260728_7193048.htm",
+          "score": 0,
+          "reason": "未命中零碳园区核心主题"
+        }
+      ],
+      "elapsed_seconds": 15.5,
+      "attempted_at": "2026-08-17T12:01:21+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC011",
+      "source_name": "中国政府网—政策",
+      "start_url": "https://www.gov.cn/zhengce/",
+      "status": "ok",
+      "candidates": 0,
+      "records": 0,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 0.92,
+      "attempted_at": "2026-08-17T12:01:22+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC012",
+      "source_name": "生态环境部",
+      "start_url": "https://www.mee.gov.cn/",
+      "status": "ok",
+      "candidates": 1,
+      "records": 1,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 0.79,
+      "attempted_at": "2026-08-17T12:01:23+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC013",
+      "source_name": "天津经济技术开发区—建设动态",
+      "start_url": "https://www.teda.gov.cn/contents/13/99411.html",
+      "status": "ok",
+      "candidates": 0,
+      "records": 0,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 1.79,
+      "attempted_at": "2026-08-17T12:01:25+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC014",
+      "source_name": "上海临港集团—新片区动态",
+      "start_url": "https://www.shlingang.com/lg1/lingangjituan/xwzx/focusnewarea/",
+      "status": "ok",
+      "candidates": 1,
+      "records": 1,
+      "rejected_low_relevance": 0,
+      "rejected_examples": [],
+      "elapsed_seconds": 2.69,
+      "attempted_at": "2026-08-17T12:01:28+00:00",
+      "error": ""
+    },
+    {
+      "source_id": "SRC015",
+      "source_name": "北京经济技术开发区—工作动态",
+      "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/",
+      "status": "ok",
+      "candidates": 6,
+      "records": 4,
+      "rejected_low_relevance": 2,
+      "rejected_examples": [
+        {
+          "title": "丰富馆藏资源 拓展文化活动 提升服务功能 经开区区史馆持续擦亮区域文化名片",
+          "url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/202608/t20260814_4822818.html",
+          "score": 0,
+          "reason": "命中“经开区”；弱相关“党建”；来自园区公开来源"
+        },
+        {
+          "title": "研发最高支持50% 科技保险最高年补300万 北京经开区发布“创新生态十条”",
+          "url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/202608/t20260810_4816425.html",
+          "score": 2,
+          "reason": "命中“经济技术开发区”；命中“经开区”；弱相关“科技创新生态”；含实施或量化线索；来自园区公开来源"
+        }
+      ],
+      "elapsed_seconds": 8.28,
+      "attempted_at": "2026-08-17T12:01:37+00:00",
+      "error": ""
+    }
+  ],
+  "source_health": {
+    "updated_at": "2026-08-17T12:01:37+00:00",
+    "sources": {
+      "SRC001": {
+        "source_name": "国家发展改革委—发展改革工作",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:15+00:00",
+        "last_success": "2026-08-17T12:00:15+00:00",
+        "last_record_count": 0,
+        "last_error": "",
+        "start_url": "https://www.ndrc.gov.cn/fggz/"
+      },
+      "SRC002": {
+        "source_name": "国家发展改革委—政策通知",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:19+00:00",
+        "last_success": "2026-08-17T12:00:19+00:00",
+        "last_record_count": 7,
+        "last_error": "",
+        "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/"
+      },
+      "SRC003": {
+        "source_name": "国家能源局",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:22+00:00",
+        "last_success": "2026-08-17T12:00:22+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://www.nea.gov.cn/"
+      },
+      "SRC004": {
+        "source_name": "工业和信息化部",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:27+00:00",
+        "last_success": "2026-08-17T12:00:27+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://www.miit.gov.cn/"
+      },
+      "SRC005": {
+        "source_name": "商务部—开发区工作",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:29+00:00",
+        "last_success": "2026-08-17T12:00:29+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://www.mofcom.gov.cn/"
+      },
+      "SRC006": {
+        "source_name": "北京市发展改革委",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:33+00:00",
+        "last_success": "2026-08-17T12:00:33+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://fgw.beijing.gov.cn/"
+      },
+      "SRC007": {
+        "source_name": "北京经济技术开发区",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:00:47+00:00",
+        "last_success": "2026-08-17T12:00:47+00:00",
+        "last_record_count": 24,
+        "last_error": "",
+        "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/"
+      },
+      "SRC008": {
+        "source_name": "甘肃省发展改革委",
+        "status": "failed",
+        "consecutive_failures": 1,
+        "last_attempt": "2026-08-17T12:00:53+00:00",
+        "last_success": null,
+        "last_record_count": 0,
+        "last_error": "HTTPError: HTTP Error 412: Precondition Failed",
+        "start_url": "https://fzgg.gansu.gov.cn/"
+      },
+      "SRC009": {
+        "source_name": "广东省发展改革委",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:05+00:00",
+        "last_success": "2026-08-17T12:01:05+00:00",
+        "last_record_count": 3,
+        "last_error": "",
+        "start_url": "https://drc.gd.gov.cn/"
+      },
+      "SRC010": {
+        "source_name": "福建省工业和信息化厅",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:21+00:00",
+        "last_success": "2026-08-17T12:01:21+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/"
+      },
+      "SRC011": {
+        "source_name": "中国政府网—政策",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:22+00:00",
+        "last_success": "2026-08-17T12:01:22+00:00",
+        "last_record_count": 0,
+        "last_error": "",
+        "start_url": "https://www.gov.cn/zhengce/"
+      },
+      "SRC012": {
+        "source_name": "生态环境部",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:23+00:00",
+        "last_success": "2026-08-17T12:01:23+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://www.mee.gov.cn/"
+      },
+      "SRC013": {
+        "source_name": "天津经济技术开发区—建设动态",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:25+00:00",
+        "last_success": "2026-08-17T12:01:25+00:00",
+        "last_record_count": 0,
+        "last_error": "",
+        "start_url": "https://www.teda.gov.cn/contents/13/99411.html"
+      },
+      "SRC014": {
+        "source_name": "上海临港集团—新片区动态",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:28+00:00",
+        "last_success": "2026-08-17T12:01:28+00:00",
+        "last_record_count": 1,
+        "last_error": "",
+        "start_url": "https://www.shlingang.com/lg1/lingangjituan/xwzx/focusnewarea/"
+      },
+      "SRC015": {
+        "source_name": "北京经济技术开发区—工作动态",
+        "status": "healthy",
+        "consecutive_failures": 0,
+        "last_attempt": "2026-08-17T12:01:37+00:00",
+        "last_success": "2026-08-17T12:01:37+00:00",
+        "last_record_count": 4,
+        "last_error": "",
+        "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/"
+      }
+    }
+  }
+}

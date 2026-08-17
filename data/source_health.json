@@ -1,4 +1,155 @@
 {
-  "updated_at": null,
-  "sources": {}
+  "updated_at": "2026-08-17T12:01:37+00:00",
+  "sources": {
+    "SRC001": {
+      "source_name": "国家发展改革委—发展改革工作",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:15+00:00",
+      "last_success": "2026-08-17T12:00:15+00:00",
+      "last_record_count": 0,
+      "last_error": "",
+      "start_url": "https://www.ndrc.gov.cn/fggz/"
+    },
+    "SRC002": {
+      "source_name": "国家发展改革委—政策通知",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:19+00:00",
+      "last_success": "2026-08-17T12:00:19+00:00",
+      "last_record_count": 7,
+      "last_error": "",
+      "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/"
+    },
+    "SRC003": {
+      "source_name": "国家能源局",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:22+00:00",
+      "last_success": "2026-08-17T12:00:22+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://www.nea.gov.cn/"
+    },
+    "SRC004": {
+      "source_name": "工业和信息化部",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:27+00:00",
+      "last_success": "2026-08-17T12:00:27+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://www.miit.gov.cn/"
+    },
+    "SRC005": {
+      "source_name": "商务部—开发区工作",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:29+00:00",
+      "last_success": "2026-08-17T12:00:29+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://www.mofcom.gov.cn/"
+    },
+    "SRC006": {
+      "source_name": "北京市发展改革委",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:33+00:00",
+      "last_success": "2026-08-17T12:00:33+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://fgw.beijing.gov.cn/"
+    },
+    "SRC007": {
+      "source_name": "北京经济技术开发区",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:00:47+00:00",
+      "last_success": "2026-08-17T12:00:47+00:00",
+      "last_record_count": 24,
+      "last_error": "",
+      "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/"
+    },
+    "SRC008": {
+      "source_name": "甘肃省发展改革委",
+      "status": "failed",
+      "consecutive_failures": 1,
+      "last_attempt": "2026-08-17T12:00:53+00:00",
+      "last_success": null,
+      "last_record_count": 0,
+      "last_error": "HTTPError: HTTP Error 412: Precondition Failed",
+      "start_url": "https://fzgg.gansu.gov.cn/"
+    },
+    "SRC009": {
+      "source_name": "广东省发展改革委",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:05+00:00",
+      "last_success": "2026-08-17T12:01:05+00:00",
+      "last_record_count": 3,
+      "last_error": "",
+      "start_url": "https://drc.gd.gov.cn/"
+    },
+    "SRC010": {
+      "source_name": "福建省工业和信息化厅",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:21+00:00",
+      "last_success": "2026-08-17T12:01:21+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/"
+    },
+    "SRC011": {
+      "source_name": "中国政府网—政策",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:22+00:00",
+      "last_success": "2026-08-17T12:01:22+00:00",
+      "last_record_count": 0,
+      "last_error": "",
+      "start_url": "https://www.gov.cn/zhengce/"
+    },
+    "SRC012": {
+      "source_name": "生态环境部",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:23+00:00",
+      "last_success": "2026-08-17T12:01:23+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://www.mee.gov.cn/"
+    },
+    "SRC013": {
+      "source_name": "天津经济技术开发区—建设动态",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:25+00:00",
+      "last_success": "2026-08-17T12:01:25+00:00",
+      "last_record_count": 0,
+      "last_error": "",
+      "start_url": "https://www.teda.gov.cn/contents/13/99411.html"
+    },
+    "SRC014": {
+      "source_name": "上海临港集团—新片区动态",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:28+00:00",
+      "last_success": "2026-08-17T12:01:28+00:00",
+      "last_record_count": 1,
+      "last_error": "",
+      "start_url": "https://www.shlingang.com/lg1/lingangjituan/xwzx/focusnewarea/"
+    },
+    "SRC015": {
+      "source_name": "北京经济技术开发区—工作动态",
+      "status": "healthy",
+      "consecutive_failures": 0,
+      "last_attempt": "2026-08-17T12:01:37+00:00",
+      "last_success": "2026-08-17T12:01:37+00:00",
+      "last_record_count": 4,
+      "last_error": "",
+      "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/"
+    }
+  }
 }
