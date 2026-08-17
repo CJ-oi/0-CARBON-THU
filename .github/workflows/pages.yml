@@ -27,7 +27,7 @@ permissions:
 
 concurrency:
   group: zero-carbon-park-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -36,6 +36,7 @@ jobs:
       - name: 获取代码与上一版档案
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: 配置 Python
@@ -82,12 +83,19 @@ jobs:
         run: |
           git config user.name "park-observer-bot"
           git config user.email "park-observer-bot@users.noreply.github.com"
+
           git add -A -- data/archive.jsonl data/archive_manifest.json data/source_health.json outputs/source_sync_log.json outputs/build_manifest.json
+
           if git diff --cached --quiet; then
             echo "No public archive changes to commit"
           else
             git commit -m "data: update public archive [skip ci]"
-            git push origin HEAD:main
+
+            if git push origin HEAD:main; then
+              echo "Public archive updated successfully"
+            else
+              echo "::warning::main branch changed during this run. Archive write-back is skipped, but website deployment will continue."
+            fi
           fi
 
       - name: 保存本次合格数据与报告快照
