@@ -68,34 +68,14 @@
 #mapBase,.map-land,.map-coastline,.map-gridline{pointer-events:none}
 #mapMarkers,.map-marker-group{pointer-events:all}
 .map-canvas svg{background:#eef3f0}
-.leaflet-container {
-  background: #eef2ef;
-  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-}
 
-.leaflet-tile-pane.basemap-failed {
-  opacity: 0;
-}
-
-.leaflet-control-zoom a {
-  color: #1f3b33;
-}
-
-.map-shell,
-#park-map,
-#map {
-  min-height: 520px;
-}
-
-.map-panel {
-  min-height: 520px;
-}
-
-.map-detail-card {
-  min-height: 520px;
-}
-
-.leaflet-marker-pane circle,
-.leaflet-interactive {
-  cursor: pointer;
-}
+/* Deterministic local vector map: no external raster tiles. */
+.leaflet-map{display:none!important}
+.svg-map-fallback{display:block!important;background:#eef3f0}
+.svg-map-fallback[hidden]{display:block!important}
+.svg-map-fallback svg{display:block;width:100%;height:100%;background:#eef3f0}
+.map-gridline{stroke:#c9d4cc;stroke-width:.55;stroke-opacity:.55;vector-effect:non-scaling-stroke}
+.map-land{fill:#e2e9e3;stroke:#ffffff;stroke-width:.8;vector-effect:non-scaling-stroke}
+.map-land.china{fill:#c7d9cd;stroke:#ffffff;stroke-width:1.05;vector-effect:non-scaling-stroke}
+.map-land.neighbor{fill:#e9eeea}
+.map-note{max-width:720px}

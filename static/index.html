@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#f7f8f5">
   <title>园区碳观察｜零碳园区公共数据与实施决策平台</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -44,7 +43,7 @@
 
   <section id="map" class="section map-section">
     <div class="section-head split-head">
-      <div><p class="overline">园区名录与空间核对</p><h2>园区地图</h2><p>点位直接按经纬度落在标准网络地图上，可缩放并查看周边地名。当前坐标多为园区或所在片区近似中心；法定四至边界仍以园区批复和GIS文件为准。</p></div>
+      <div><p class="overline">园区名录与空间核对</p><h2>园区地图</h2><p>点位按经纬度投影到仓库内置矢量边界图，不依赖外部地图瓦片。当前坐标多为园区或所在片区近似中心；法定四至边界仍以园区批复和GIS文件为准。</p></div>
       <div class="segmented" role="group" aria-label="地图范围"><button type="button" class="map-filter active" data-map-filter="全国">全国</button><button type="button" class="map-filter" data-map-filter="国家级">国家级</button><button type="button" class="map-filter" data-map-filter="广东">广东</button><button type="button" class="map-filter" data-map-filter="全球">全球案例</button></div>
     </div>
     <div class="map-grid">
@@ -57,9 +56,9 @@
             <div id="mapTooltip" class="map-tooltip" hidden></div>
           </div>
           <div id="mapLoading" class="map-loading">地图加载中…</div>
-          <div class="map-note">在线底图采用OpenStreetMap；网络不可用或报告截图使用同坐标系简化矢量底图。点位为园区或所在片区近似中心，不代表法定四至边界。</div>
+          <div class="map-note">底图与点位均由本地数据生成，不调用第三方瓦片服务。点位为园区或所在片区近似中心，不代表法定四至边界。</div>
         </div>
-        <div class="map-legend"><span><i class="dot national"></i>国家级建设名单</span><span><i class="dot provincial"></i>省级建设名单</span><span><i class="dot international"></i>国际参考案例</span><a id="coordinateIssue" href="https://github.com/CJ-oi/zero-carbon-park/issues/new/choose" target="_blank" rel="noopener">提交坐标或边界更正</a></div>
+        <div class="map-legend"><span><i class="dot national"></i>国家级建设名单</span><span><i class="dot provincial"></i>省级建设名单</span><span><i class="dot international"></i>国际参考案例</span><a id="coordinateIssue" href="https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose" target="_blank" rel="noopener">提交坐标或边界更正</a></div>
       </div>
       <aside id="parkDetail" class="detail-card" aria-live="polite"><div class="detail-placeholder"><span class="eyebrow">园区资料卡</span><h3>选择地图点位</h3><p>这里显示园区层级、产业类型、建设周期、公开事实、坐标精度和资料来源。</p></div></aside>
     </div>
@@ -122,13 +121,12 @@
     <div class="section-head"><p class="overline">定时生成，可下载、可打印、可发送</p><h2>报告中心</h2><p>每次更新后重建日报、周报和可行性报告；报告中自动插入首页、地图和工作台截图。质量门禁失败时不覆盖上一版合格网站。</p></div>
     <div id="reportLinks" class="report-grid"></div>
     <div class="mail-panel"><div><h3>发送报告到邮箱</h3><p>选择报告并输入邮箱。配置安全发送端点后由网页直接发送；未配置时会打开本机邮件客户端并带入报告链接。</p></div><div class="mail-form"><label>邮箱<input id="reportEmail" type="email" placeholder="name@example.com" autocomplete="email"></label><label>报告<select id="reportEmailType"><option value="weekly">本周报告</option><option value="daily">今日报告</option><option value="feasibility">可行性初筛报告</option></select></label><label class="consent-line"><input id="reportConsent" type="checkbox">同意仅为本次发送使用该邮箱</label><button id="sendReportEmail" class="btn btn-dark" type="button">发送报告</button><span id="mailStatus" class="mail-status" aria-live="polite"></span></div></div>
-    <div class="open-source-strip"><div><strong>开源与数据更正</strong><p>采集、去重、分类、报告、截图、测算和发布代码均在仓库中；坐标、来源和计算问题可通过公开问题模板提交。</p></div><a id="issueLink" class="btn btn-dark" href="https://github.com/CJ-oi/zero-carbon-park/issues/new/choose" target="_blank" rel="noopener">提交数据更正</a><a class="btn btn-line" href="docs/technical.html">技术说明</a><a class="btn btn-line" href="docs/email-setup.html">邮件发送配置</a></div>
+    <div class="open-source-strip"><div><strong>开源与数据更正</strong><p>采集、去重、分类、报告、截图、测算和发布代码均在仓库中；坐标、来源和计算问题可通过公开问题模板提交。</p></div><a id="issueLink" class="btn btn-dark" href="https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose" target="_blank" rel="noopener">提交数据更正</a><a class="btn btn-line" href="docs/technical.html">技术说明</a><a class="btn btn-line" href="docs/email-setup.html">邮件发送配置</a></div>
   </section>
 </main>
 
 <footer class="footer"><div><strong>园区碳观察</strong><p>面向经济技术开发区的公开数据、标准差距与项目可行性工具。</p></div><div class="footer-links"><a href="data/park_catalog.csv" download>园区名录</a><a href="data/coordinate_audit.csv" download>坐标审核</a><a href="data/required_data_fields.csv" download>数据字段</a><a href="data/technology_guidance.csv" download>设施指南</a><a href="data/standard_rules.csv" download>政策标准</a><a href="data/archive.jsonl" download>滚动档案</a></div><div class="footer-note">数据版本 <span id="footerVersion">—</span> · 正式决策前核验原始文件、统计边界和计算口径。</div></footer>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
