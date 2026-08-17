@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-17T11:13:46+00:00",
-  "output_dir": "/mnt/data/zero-carbon-park-round2-final/site",
-  "archive_records": 28,
+  "generated_at": "2026-08-17T12:23:05+00:00",
+  "output_dir": "/home/runner/work/0-CARBON-THU/0-CARBON-THU/site",
+  "archive_records": 62,
   "reports": [
     {
       "type": "daily",
@@ -19,7 +19,7 @@
       "markdown": "reports/weekly-latest.md",
       "json": "reports/weekly-latest.json",
       "pdf": "reports/weekly-latest.pdf",
-      "record_count": 8
+      "record_count": 27
     },
     {
       "type": "feasibility",
@@ -34,8 +34,8 @@
   "dashboard_counts": {
     "domestic_parks": 67,
     "international_cases": 12,
-    "archive_records": 27,
-    "archive_records_total": 28,
+    "archive_records": 61,
+    "archive_records_total": 62,
     "duplicates_collapsed": 0,
     "excluded_low_relevance": 1,
     "required_fields": 50,
