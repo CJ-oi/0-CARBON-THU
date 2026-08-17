@@ -381,20 +381,80 @@
         worldCopyJump: true, preferCanvas: false, minZoom: 2, maxZoom: 16,
       });
       state.leafletMap.setView([35.8, 104.2], 4);
-      const tileLayer = window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+    const primaryTiles = window.L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; CARTO',
+        subdomains: "abcd",
+        maxZoom: 19,
         crossOrigin: true,
-      });
-      tileLayer.on("load", () => { if (loading) loading.hidden = true; });
-      tileLayer.on("tileerror", () => {
-        state.leafletTileErrors += 1;
-        if (loading && state.leafletTileErrors >= 6) {
-          loading.hidden = false;
-          loading.textContent = "底图暂未完整加载，点位仍按经纬度定位";
-        }
-      });
-      tileLayer.addTo(state.leafletMap);
+      }
+    );
+
+    const backupTiles = window.L.tileLayer(
+      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        crossOrigin: true,
+      }
+    );
+
+    let tileFallbackTriggered = false;
+
+    primaryTiles.on("load", () => {
+      if (loading) loading.hidden = true;
+    });
+
+    primaryTiles.on("tileerror", () => {
+      state.leafletTileErrors += 1;
+
+      if (state.leafletTileErrors < 4 || tileFallbackTriggered) return;
+
+      tileFallbackTriggered = true;
+
+      console.warn("主底图加载失败，切换备用 OpenStreetMap 底图");
+
+      if (state.leafletMap.hasLayer(primaryTiles)) {
+        state.leafletMap.removeLayer(primaryTiles);
+      }
+
+      backupTiles.addTo(state.leafletMap);
+
+      if (loading) {
+        loading.hidden = false;
+        loading.textContent = "正在切换备用地图……";
+      }
+    });
+
+    backupTiles.on("load", () => {
+      if (loading) loading.hidden = true;
+    });
+
+    backupTiles.on("tileerror", () => {
+      state.leafletTileErrors += 1;
+
+      if (state.leafletTileErrors < 10) return;
+
+      console.warn("在线底图不可用，切换本地矢量地图");
+
+      if (state.leafletMap.hasLayer(backupTiles)) {
+        state.leafletMap.removeLayer(backupTiles);
+      }
+
+      mapElement.hidden = true;
+      fallback.hidden = false;
+
+      if (loading) loading.hidden = true;
+
+      state.mapMode = "svg";
+      renderMapBase();
+      renderSvgMapMarkers();
+    });
+
+    primaryTiles.addTo(state.leafletMap);    
       state.leafletMarkerLayer = window.L.layerGroup().addTo(state.leafletMap);
       state.leafletMap.on("focus", () => state.leafletMap.scrollWheelZoom.enable());
       state.leafletMap.on("blur", () => state.leafletMap.scrollWheelZoom.disable());

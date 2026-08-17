@@ -68,3 +68,34 @@
 #mapBase,.map-land,.map-coastline,.map-gridline{pointer-events:none}
 #mapMarkers,.map-marker-group{pointer-events:all}
 .map-canvas svg{background:#eef3f0}
+.leaflet-container {
+  background: #eef2ef;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.leaflet-tile-pane.basemap-failed {
+  opacity: 0;
+}
+
+.leaflet-control-zoom a {
+  color: #1f3b33;
+}
+
+.map-shell,
+#park-map,
+#map {
+  min-height: 520px;
+}
+
+.map-panel {
+  min-height: 520px;
+}
+
+.map-detail-card {
+  min-height: 520px;
+}
+
+.leaflet-marker-pane circle,
+.leaflet-interactive {
+  cursor: pointer;
+}
