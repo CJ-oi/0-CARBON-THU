@@ -9,7 +9,7 @@ class CurationTests(unittest.TestCase):
     def test_unrelated_innovation_policy_is_excluded(self) -> None:
         row = curate_record({
             "title": "北京经开区发布智能经济与脑机接口创新政策",
-            "summary": "支持人工智能企业和创新创业活动。",
+            "summary": "支持科技企业和创新创业活动。",
             "publisher": "北京经济技术开发区",
             "published_date": "2026-08-01",
             "url": "https://example.com/1",

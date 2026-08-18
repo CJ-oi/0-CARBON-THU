@@ -61,40 +61,36 @@ jobs:
       - name: 运行数据、核算和报告测试
         run: python -m unittest discover -s tests -v
 
-      - name: 构建网站、分析报告与可行性报告
+      - name: 构建网站与报告
         run: zcpark build --output site --feasibility-input data/assessments/example.json
 
-      - name: 生成参考界面截图与 PDF 报告
+      - name: 生成界面截图与 PDF 报告
         run: python scripts/capture_and_render.py --site site
 
-      - name: 发布质量门禁
+      - name: 发布质量检查
         run: zcpark validate --site site
 
-      - name: 浏览器功能验收
+      - name: 浏览器功能检查
         run: python scripts/browser_smoke_test.py --site site --output outputs/browser_smoke_test.json
 
       - name: JavaScript 语法检查
-        run: |
-          node --check static/app.js
-          node --check services/report-mailer/src/index.js
+        run: node --check static/app.js
 
       - name: 保存滚动档案与来源健康
         shell: bash
         run: |
           git config user.name "park-observer-bot"
           git config user.email "park-observer-bot@users.noreply.github.com"
-
           git add -A -- data/archive.jsonl data/archive_manifest.json data/source_health.json outputs/source_sync_log.json outputs/build_manifest.json
 
           if git diff --cached --quiet; then
             echo "No public archive changes to commit"
           else
             git commit -m "data: update public archive [skip ci]"
-
             if git push origin HEAD:main; then
               echo "Public archive updated successfully"
             else
-              echo "::warning::main branch changed during this run. Archive write-back is skipped, but website deployment will continue."
+              echo "::warning::main changed during this run; archive write-back was skipped, but deployment will continue."
             fi
           fi
 

@@ -1,1 +1,1 @@
-Captured screenshots and rendered report PDFs in /mnt/data/zero-carbon-park-round2-final/site
+Captured screenshots and rendered report PDFs in /mnt/data/zc_natural/site

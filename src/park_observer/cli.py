@@ -108,7 +108,7 @@ def cmd_all(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="zcpark", description="园区碳观察：公开数据同步、自动报告与可行性分析")
+    parser = argparse.ArgumentParser(prog="zcpark", description="园区碳观察：公开数据同步、定期报告与可行性分析")
     parser.add_argument("--root", help="repository root; defaults to the installed project root")
     sub = parser.add_subparsers(dest="command", required=True)
 

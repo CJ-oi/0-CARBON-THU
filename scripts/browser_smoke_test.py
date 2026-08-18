@@ -120,20 +120,20 @@ def main() -> int:
         else:
             record("园区现状画像", False, "无园区选项")
 
-        # Gap calculation automatically produces recommendations.
+        # Gap calculation also prepares measure options.
         page.locator('.five-tab[data-panel="gap"]').click()
         page.locator("#loadGapDemo").click()
         page.locator("#runGap").click()
         gap_text = page.locator("#gapResult").inner_text()
         advice_text = page.locator("#reductionAdvice").inner_text()
         record("指标差距核算", "单位综合能耗碳排放" in gap_text and "差距" in gap_text, gap_text[:120])
-        record("自动减排建议", len(advice_text) > 80 and "先核实" in advice_text, advice_text[:120])
+        record("差距对应措施清单", len(advice_text) > 80 and "先核实" in advice_text, advice_text[:120])
 
         # Measure filtering and selection.
         page.locator('.five-tab[data-panel="reduce"]').click()
-        page.locator("#selectNoRegret").click()
+        page.locator("#selectBasicMeasures").click()
         checked = page.locator('#measuresGrid input[type="checkbox"]:checked').count()
-        record("无悔型措施批量选择", checked > 0, str(checked))
+        record("基础改进措施批量选择", checked > 0, str(checked))
         page.locator("#measureSearch").fill("余热")
         page.wait_for_timeout(100)
         record("措施检索", page.locator("#measuresGrid .measure-card").count() > 0)
@@ -168,11 +168,8 @@ def main() -> int:
         page.locator("#dbClear").click()
         record("公开资料库清空", page.locator("#dbSearch").input_value() == "")
 
-        # Email validation; do not trigger external mail clients in smoke test.
-        page.locator("#reportEmail").fill("")
-        page.locator("#sendReportEmail").click()
-        mail_status = page.locator("#mailStatus").inner_text()
-        record("邮箱输入校验", "有效邮箱" in mail_status, mail_status)
+        pdf_links = page.locator('#reportLinks a[download][href$=".pdf"]').count()
+        record("PDF报告直接下载", pdf_links >= 1, str(pdf_links))
 
         record("浏览器控制台无错误", not console_errors, " | ".join(console_errors[:5]))
         record("页面运行无异常", not page_errors, " | ".join(page_errors[:5]))

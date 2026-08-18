@@ -9,17 +9,17 @@ from .recommendations import build_reduction_recommendations
 from .utils import safe_float, truthy
 
 
-NO_REGRET_KEYWORDS = ("计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽", "凝结水", "余热", "水回用", "维护", "工业共生")
-CONDITIONAL_KEYWORDS = ("光伏", "绿电", "储能", "微电网", "热泵", "电锅炉", "电窑炉", "氢")
+BASIC_MEASURE_KEYWORDS = ("计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽", "凝结水", "余热", "水回用", "维护", "工业共生")
+CONDITIONAL_MEASURE_KEYWORDS = ("光伏", "绿电", "储能", "微电网", "热泵", "电锅炉", "电窑炉", "氢")
 
 
 def classify_measure(row: dict[str, Any]) -> str:
     text = " ".join(str(row.get(k, "")) for k in ("一级方向", "二级措施", "对象/工艺", "主要约束", "备注"))
-    if any(term in text for term in CONDITIONAL_KEYWORDS):
-        return "条件型"
-    if any(term in text for term in NO_REGRET_KEYWORDS):
-        return "无悔型"
-    return "战略型"
+    if any(term in text for term in CONDITIONAL_MEASURE_KEYWORDS):
+        return "条件实施型"
+    if any(term in text for term in BASIC_MEASURE_KEYWORDS):
+        return "基础改进型"
+    return "专项论证型"
 
 
 def screen_measures(measures: list[dict[str, Any]], payload: dict[str, Any], limit: int = 18) -> list[dict[str, Any]]:
@@ -34,7 +34,7 @@ def screen_measures(measures: list[dict[str, Any]], payload: dict[str, Any], lim
         if "全部" in applicable or industry in applicable or any(token and token in applicable for token in industry.replace("/", "、").split("、")):
             score += 3
             reasons.append("适用产业匹配")
-        if category == "无悔型":
+        if category == "基础改进型":
             score += 3
             reasons.append("对外部制度与能源条件依赖较小")
         if "绿电" in str(row.get("二级措施")) and not truthy(payload.get("green_power_conditions_confirmed")):
@@ -72,7 +72,7 @@ def feasibility_risks(payload: dict[str, Any], gap_result: dict[str, Any] | None
     else:
         risks.append({"dimension": "数据与边界", "level": "低", "finding": "正式核算门槛字段已提供", "action": "继续保留原始凭证、因子版本和复核记录"})
     if not truthy(payload.get("green_power_conditions_confirmed")):
-        risks.append({"dimension": "绿电实践", "level": "中", "finding": "源荷匹配、网架、计量结算或责任边界未全部确认", "action": "绿电直连仅作为条件型路径，先开展负荷曲线与接入条件专项核查"})
+        risks.append({"dimension": "绿电实践", "level": "中", "finding": "源荷匹配、网架、计量结算或责任边界未全部确认", "action": "绿电直连仅作为条件实施型路径，先开展负荷曲线与接入条件专项核查"})
     else:
         risks.append({"dimension": "绿电实践", "level": "低", "finding": "已确认基本接入与责任条件", "action": "进入电价、消纳、可靠性和合同风险测算"})
     project_rows = payload.get("projects") or []
@@ -136,7 +136,7 @@ def assess(payload: dict[str, Any], measures: list[dict[str, Any]]) -> dict[str,
     screened = screen_measures(measures, payload)
     recommendations = build_reduction_recommendations(gap_result, measures, payload)
     result["five_questions"]["怎么减"] = {
-        "answer": "已按指标差距、产业适用性和实施前置条件形成分层建议；未取得项目参数前不填写确定减排量和投资额",
+        "answer": "已按指标差距、产业适用性和实施前置条件形成措施清单；未取得项目参数前不填写确定减排量和投资额",
         "recommendations": recommendations,
         "measures": screened,
         "counts": dict(Counter(row["tier"] for row in recommendations)) if recommendations else dict(Counter(row["category"] for row in screened)),

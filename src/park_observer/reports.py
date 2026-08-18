@@ -138,7 +138,7 @@ def _editorial_analysis(rows: list[dict[str, Any]]) -> dict[str, Any]:
         constraints.append(f"有{related_material_count}份补充来源被归并到主事件下，报告不再重复列示，但原始链接继续保留。")
     constraints.append("公开资料用于发现线索和形成核查任务；正式核算仍要求同一边界、同一年度、同一单位和可追溯凭证。")
 
-    no_regret = [
+    priority_actions = [
         "确认园区法定边界、纳入企业清单和基准年，建立统一园区主键。",
         "完善分级计量、能源平衡和数据责任表，先处理缺失、重复和口径不一致。",
         "优先排查计量、空压、蒸汽、泵风机、余热和水回用，形成可验证的低风险项目。",
@@ -160,7 +160,7 @@ def _editorial_analysis(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "opportunities": opportunities or ["继续补充园区与设施一手资料，形成可复核的案例和项目参数。"],
         "constraints": constraints,
         "data_tasks": data_tasks or ["补充园区建设边界、企业清单、基准年能源和排放台账。"],
-        "no_regret": no_regret,
+        "priority_actions": priority_actions,
         "category_counts": dict(categories),
         "source_counts": dict(sources.most_common()),
         "source_level_counts": dict(levels),
@@ -205,7 +205,7 @@ def _records_by_category(rows: list[dict[str, Any]]) -> dict[str, list[dict[str,
 def intelligence_markdown(payload: dict[str, Any], title: str) -> str:
     analysis = payload.get("analysis", {})
     lines = [
-        f"# {title}", "", f"- 报告日期：{payload.get('report_date')}", f"- 生成时间：{payload.get('generated_at')}",
+        f"# {title}", "", f"- 报告日期：{payload.get('report_date')}", f"- 汇编时间：{payload.get('generated_at')}",
         f"- 入选记录：{payload.get('record_count')} 条", "", f"> {payload.get('note', '')}", "",
         "## 本期摘要", "",
     ]
@@ -229,7 +229,7 @@ def intelligence_markdown(payload: dict[str, Any], title: str) -> str:
                 f"- 用途边界：{row.get('why', '')}",
                 f"- 原文：{row.get('url', '')}", "",
             ])
-    for heading, key in (("对经开区的机会", "opportunities"), ("约束与风险", "constraints"), ("下一步补数任务", "data_tasks"), ("无悔工作清单", "no_regret")):
+    for heading, key in (("对经开区的机会", "opportunities"), ("约束与风险", "constraints"), ("下一步补数任务", "data_tasks"), ("近期基础工作", "priority_actions")):
         lines.extend([f"## {heading}", ""])
         lines.extend([f"- {x}" for x in analysis.get(key, [])])
         lines.append("")
@@ -276,7 +276,7 @@ def intelligence_html(payload: dict[str, Any], title: str) -> str:
     quality_table = "<table><tr><th>项目</th><th>数量</th><th>说明</th></tr>" + "".join(f"<tr><td>{html.escape(str(m.get('label','')))}</td><td>{m.get('value',0)}</td><td>{html.escape(str(m.get('note','')))}</td></tr>" for m in analysis.get("quality_metrics", [])) + "</table>"
     topic_table = "<table><tr><th>分类</th><th>记录数</th><th>实际占比</th><th>参考占比</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('category','')))}</td><td>{r.get('count',0)}</td><td>{r.get('actual_share',0):.0%}</td><td>{r.get('target_share',0):.0%}</td></tr>" for r in analysis.get("balance_rows", [])) + "</table>"
     theme_table = "<table><tr><th>工作主题</th><th>涉及记录</th></tr>" + "".join(f"<tr><td>{html.escape(str(k))}</td><td>{v}</td></tr>" for k, v in analysis.get("theme_counts", {}).items()) + "</table>" if analysis.get("theme_counts") else ""
-    body = f"""<main><p><a href="../index.html#reports">← 返回平台</a></p><h1>{html.escape(title)}</h1><p class="meta">报告日期：{html.escape(str(payload.get('report_date')))}　生成时间：{html.escape(str(payload.get('generated_at')))}　入选记录：{payload.get('record_count')}</p><div class="summary">{''.join(f'<p>{html.escape(str(x))}</p>' for x in analysis.get('summary', []))}</div>{figures}<h2>数据质量摘要</h2>{quality_table}<h2>分类结构</h2>{topic_table}{'<h2>工作主题</h2>'+theme_table if theme_table else ''}{''.join(sections)}<h2>对经开区的机会</h2>{ul('opportunities')}<h2>约束与风险</h2>{ul('constraints')}<h2>下一步补数任务</h2>{ul('data_tasks')}<h2>无悔工作清单</h2>{ul('no_regret')}<div class="footer-note">公开记录用于发现线索、比较结构和组织数据任务。正式核算、排名和投资决策必须使用同边界、同年度、可追溯的园区数据。</div></main>"""
+    body = f"""<main><p><a href="../index.html#reports">← 返回平台</a></p><h1>{html.escape(title)}</h1><p class="meta">报告日期：{html.escape(str(payload.get('report_date')))}　汇编时间：{html.escape(str(payload.get('generated_at')))}　入选记录：{payload.get('record_count')}</p><div class="summary">{''.join(f'<p>{html.escape(str(x))}</p>' for x in analysis.get('summary', []))}</div>{figures}<h2>数据质量摘要</h2>{quality_table}<h2>分类结构</h2>{topic_table}{'<h2>工作主题</h2>'+theme_table if theme_table else ''}{''.join(sections)}<h2>对经开区的机会</h2>{ul('opportunities')}<h2>约束与风险</h2>{ul('constraints')}<h2>下一步补数任务</h2>{ul('data_tasks')}<h2>近期基础工作</h2>{ul('priority_actions')}<div class="footer-note">公开记录用于发现线索、比较结构和组织数据任务。正式核算、排名和投资决策必须使用同边界、同年度、可追溯的园区数据。</div></main>"""
     return f"<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>{html.escape(title)}</title><style>{_report_css()}</style></head><body>{body}</body></html>"
 
 
@@ -288,7 +288,7 @@ def feasibility_markdown(result: dict[str, Any]) -> str:
     mode_label = {"formal": "正式初筛", "data_completion": "数据补齐", "demonstration": "演示场景"}.get(result.get("mode"), "前期筛查")
     lines = [
         f"# {result.get('park_name','园区')}零碳建设可行性初筛报告", "",
-        f"- 基准年：{result.get('baseline_year') or '待确认'}", f"- 生成模式：{mode_label}",
+        f"- 基准年：{result.get('baseline_year') or '待确认'}", f"- 报告类型：{mode_label}",
         f"- 结论：{result.get('feasibility',{}).get('conclusion','—')}", "",
         "> 本报告用于前期筛查和项目排序，不替代节能审查、环评、接入系统审查、工程可研或投资决策。", "",
     ]
@@ -299,14 +299,14 @@ def feasibility_markdown(result: dict[str, Any]) -> str:
         if content.get("rows"):
             lines.append(markdown_table(["指标", "现状", "目标", "差距", "状态"], [[_display(r.get("metric")), _display(r.get("current")), _display(r.get("target")), _display(r.get("gap")), _display(r.get("status"))] for r in content["rows"]])); lines.append("")
         if content.get("recommendations"):
-            lines.append(markdown_table(["层级", "建议", "对应差距", "前置数据", "主要责任方"], [[r.get("tier"), r.get("measure"), "、".join(r.get("matched_gaps", [])), r.get("prerequisites"), r.get("stakeholders")] for r in content["recommendations"]])); lines.append("")
+            lines.append(markdown_table(["类别", "措施", "对应差距", "前置数据", "主要责任方"], [[r.get("tier"), r.get("measure"), "、".join(r.get("matched_gaps", [])), r.get("prerequisites"), r.get("stakeholders")] for r in content["recommendations"]])); lines.append("")
         portfolio = content.get("portfolio")
         if portfolio:
             lines.extend([f"- 预算：{portfolio.get('budget_10k_cny',0):,.2f} 万元", f"- 入选投资：{portfolio.get('capex_10k_cny',0):,.2f} 万元", f"- 年减排：{portfolio.get('annual_abatement_tco2',0):,.2f} tCO₂", f"- 年净收益：{portfolio.get('annual_net_benefit_10k_cny',0):,.2f} 万元", f"- 目标缺口：{portfolio.get('target_gap_tco2',0):,.2f} tCO₂/年", ""])
             lines.append(markdown_table(["项目", "投资/万元", "年减排/tCO₂", "年净收益/万元", "回收期/年", "参数证据"], [[p.get("name"), p.get("capex_10k_cny"), p.get("annual_abatement_tco2"), p.get("annual_net_benefit_10k_cny"), p.get("simple_payback_years"), p.get("evidence_level")] for p in portfolio.get("selected_projects", [])])); lines.append("")
             if portfolio.get("sensitivity"):
                 lines.extend(["### 关键参数敏感性", "", markdown_table(["情景", "投资/万元", "年减排/tCO₂", "年净收益/万元", "回收期/年", "参数变化"], [[r.get("name"), r.get("capex_10k_cny"), r.get("annual_abatement_tco2"), r.get("annual_net_benefit_10k_cny"), r.get("simple_payback_years"), r.get("note")] for r in portfolio.get("sensitivity", [])]), ""])
-    lines.extend(["## 关键风险", "", markdown_table(["维度", "等级", "发现", "建议动作"], [[r.get("dimension"), r.get("level"), r.get("finding"), r.get("action")] for r in result.get("feasibility", {}).get("risks", [])]), ""])
+    lines.extend(["## 关键风险", "", markdown_table(["维度", "等级", "发现", "后续动作"], [[r.get("dimension"), r.get("level"), r.get("finding"), r.get("action")] for r in result.get("feasibility", {}).get("risks", [])]), ""])
     return "\n".join(lines)
 
 
@@ -319,7 +319,7 @@ def feasibility_html(result: dict[str, Any]) -> str:
         if content.get("rows"):
             inner += "<table><tr><th>指标</th><th>现状</th><th>目标</th><th>差距</th><th>状态</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('metric','')))}</td><td>{html.escape(_display(r.get('current')))}</td><td>{html.escape(_display(r.get('target')))}</td><td>{html.escape(_display(r.get('gap')))}</td><td>{html.escape(str(r.get('status','')))}</td></tr>" for r in content["rows"]) + "</table>"
         if content.get("recommendations"):
-            inner += "<table><tr><th>层级</th><th>建议</th><th>对应差距</th><th>前置数据</th><th>责任方</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('tier','')))}</td><td>{html.escape(str(r.get('measure','')))}</td><td>{html.escape('、'.join(r.get('matched_gaps', [])))}</td><td>{html.escape(str(r.get('prerequisites','')))}</td><td>{html.escape(str(r.get('stakeholders','')))}</td></tr>" for r in content["recommendations"]) + "</table>"
+            inner += "<table><tr><th>类别</th><th>措施</th><th>对应差距</th><th>前置数据</th><th>责任方</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('tier','')))}</td><td>{html.escape(str(r.get('measure','')))}</td><td>{html.escape('、'.join(r.get('matched_gaps', [])))}</td><td>{html.escape(str(r.get('prerequisites','')))}</td><td>{html.escape(str(r.get('stakeholders','')))}</td></tr>" for r in content["recommendations"]) + "</table>"
         portfolio = content.get("portfolio")
         if portfolio:
             inner += f"<div class='summary'><strong>入选投资：</strong>{portfolio.get('capex_10k_cny',0):,.2f}万元　<strong>年减排：</strong>{portfolio.get('annual_abatement_tco2',0):,.2f}tCO₂　<strong>目标缺口：</strong>{portfolio.get('target_gap_tco2',0):,.2f}tCO₂/年</div>"
@@ -327,9 +327,9 @@ def feasibility_html(result: dict[str, Any]) -> str:
             if portfolio.get("sensitivity"):
                 inner += "<h3>关键参数敏感性</h3><table><tr><th>情景</th><th>投资/万元</th><th>年减排/tCO₂</th><th>年净收益/万元</th><th>回收期/年</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('name','')))}<br><small>{html.escape(str(r.get('note','')))}</small></td><td>{r.get('capex_10k_cny')}</td><td>{r.get('annual_abatement_tco2')}</td><td>{r.get('annual_net_benefit_10k_cny')}</td><td>{_display(r.get('simple_payback_years'))}</td></tr>" for r in portfolio.get("sensitivity", [])) + "</table>"
         sections.append(f"<h2>{html.escape(question)}</h2>{inner}")
-    risks = "<table><tr><th>维度</th><th>等级</th><th>发现</th><th>建议动作</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('dimension','')))}</td><td>{html.escape(str(r.get('level','')))}</td><td>{html.escape(str(r.get('finding','')))}</td><td>{html.escape(str(r.get('action','')))}</td></tr>" for r in result.get("feasibility", {}).get("risks", [])) + "</table>"
+    risks = "<table><tr><th>维度</th><th>等级</th><th>发现</th><th>后续动作</th></tr>" + "".join(f"<tr><td>{html.escape(str(r.get('dimension','')))}</td><td>{html.escape(str(r.get('level','')))}</td><td>{html.escape(str(r.get('finding','')))}</td><td>{html.escape(str(r.get('action','')))}</td></tr>" for r in result.get("feasibility", {}).get("risks", [])) + "</table>"
     mode_label = {"formal": "正式初筛", "data_completion": "数据补齐", "demonstration": "演示场景"}.get(result.get("mode"), "前期筛查")
-    body = f"<main><p><a href='../index.html#cost'>← 返回平台</a></p><h1>{html.escape(str(result.get('park_name','园区')))}零碳建设可行性初筛报告</h1><p class='meta'>基准年：{html.escape(str(result.get('baseline_year') or '待确认'))}　生成模式：{html.escape(mode_label)}</p><div class='summary'><strong>结论：</strong>{html.escape(str(result.get('feasibility',{}).get('conclusion','—')))}<br>{html.escape(str(result.get('feasibility',{}).get('decision_boundary','')))}</div><div class='figures'><figure><img src='../assets/report_screenshots/five-questions.png' alt='五问工作台'><figcaption>数据准备、差距核算与投资测算入口</figcaption></figure><figure><img src='../assets/report_screenshots/map-and-detail.png' alt='园区资料卡'><figcaption>园区点位与公开资料卡</figcaption></figure></div>{''.join(sections)}<h2>关键风险</h2>{risks}<div class='footer-note'>所有减排量、投资和收益必须追溯到项目参数、原始凭证与测量验证边界。</div></main>"
+    body = f"<main><p><a href='../index.html#cost'>← 返回平台</a></p><h1>{html.escape(str(result.get('park_name','园区')))}零碳建设可行性初筛报告</h1><p class='meta'>基准年：{html.escape(str(result.get('baseline_year') or '待确认'))}　报告类型：{html.escape(mode_label)}</p><div class='summary'><strong>结论：</strong>{html.escape(str(result.get('feasibility',{}).get('conclusion','—')))}<br>{html.escape(str(result.get('feasibility',{}).get('decision_boundary','')))}</div><div class='figures'><figure><img src='../assets/report_screenshots/five-questions.png' alt='五问工作台'><figcaption>数据准备、差距核算与投资测算入口</figcaption></figure><figure><img src='../assets/report_screenshots/map-and-detail.png' alt='园区资料卡'><figcaption>园区点位与公开资料卡</figcaption></figure></div>{''.join(sections)}<h2>关键风险</h2>{risks}<div class='footer-note'>所有减排量、投资和收益必须追溯到项目参数、原始凭证与测量验证边界。</div></main>"
     title = f"{result.get('park_name','园区')}可行性初筛报告"
     return f"<!doctype html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>{html.escape(title)}</title><style>{_report_css()}</style></head><body>{body}</body></html>"
 

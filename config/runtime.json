@@ -2,8 +2,5 @@
   "site_url": "https://cj-oi.github.io/0-CARBON-THU/",
   "repository_url": "https://github.com/CJ-oi/0-CARBON-THU",
   "issues_url": "https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose",
-  "mail_endpoint": "",
-  "turnstile_site_key": "",
-  "mail_mode": "fallback",
-  "mail_note": "配置 Cloudflare Worker 与 Resend 后可由网页直接发送；未配置时使用本机邮件客户端发送报告链接。"
+  "turnstile_site_key": ""
 }

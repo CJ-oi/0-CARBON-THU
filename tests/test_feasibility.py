@@ -36,7 +36,7 @@ class FeasibilityTests(unittest.TestCase):
         self.assertEqual(len(portfolio["sensitivity"]), 3)
 
     def test_green_power_is_conditional(self) -> None:
-        self.assertEqual(classify_measure(MEASURES[1]), "条件型")
+        self.assertEqual(classify_measure(MEASURES[1]), "条件实施型")
 
     def test_demonstration_scenario_is_not_formal_conclusion(self) -> None:
         payload = {

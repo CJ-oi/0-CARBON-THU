@@ -43,7 +43,7 @@
     "研究评估": ["公开数据用于结构比较和假设提出，不替代园区台账", "不以采集频次替代建设绩效", "对关键技术和经济参数开展敏感性分析"],
   };
 
-  const noRegretTerms = ["计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽", "凝结水", "余热", "余压", "水回用", "维护", "工业共生"];
+  const basicMeasureTerms = ["计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽", "凝结水", "余热", "余压", "水回用", "维护", "工业共生"];
   const conditionalTerms = ["光伏", "绿电", "储能", "微电网", "热泵", "电锅炉", "电窑炉", "氢"];
   const categoryOrder = ["园区建设", "技术与设施", "项目与投融资", "政策与标准", "数据与评估", "其他重要动态"];
 
@@ -84,7 +84,7 @@
     link.click();
     link.remove();
     URL.revokeObjectURL(url);
-    toast(`已生成 ${filename}`);
+    toast(`已导出 ${filename}`);
   }
 
   function downloadCsv(filename, headers, rows) {
@@ -110,9 +110,9 @@
 
   function measureType(row) {
     const text = [row["一级方向"], row["二级措施"], row["对象/工艺"], row["主要约束"], row["备注"]].join(" ");
-    if (conditionalTerms.some(term => text.includes(term))) return "条件型";
-    if (noRegretTerms.some(term => text.includes(term))) return "无悔型";
-    return "战略型";
+    if (conditionalTerms.some(term => text.includes(term))) return "条件实施型";
+    if (basicMeasureTerms.some(term => text.includes(term))) return "基础改进型";
+    return "专项论证型";
   }
 
   async function fetchJson(url, fallback = null) {
@@ -150,7 +150,7 @@
     const version = meta.latest_record_date || meta.data_version || "—";
     $("#dataVersion").textContent = version;
     $("#footerVersion").textContent = version;
-    $("#updateSchedule").textContent = `本次数据生成于 ${String(meta.generated_at || "—").replace("T", " ").slice(0, 19)}；公开来源按计划自动检查。`;
+    $("#updateSchedule").textContent = `本次数据生成于 ${String(meta.generated_at || "—").replace("T", " ").slice(0, 19)}；公开来源按计划检查。`;
     const kpis = [
       ["国内园区", counts.domestic_parks],
       ["国际案例", counts.international_cases],
@@ -173,7 +173,7 @@
   }
 
   function configureLinks() {
-    const issues = state.runtime.issues_url || "https://github.com/CJ-oi/zero-carbon-park/issues/new/choose";
+    const issues = state.runtime.issues_url || "https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose";
     [$("#issueLink"), $("#coordinateIssue")].filter(Boolean).forEach(link => { link.href = issues; link.target = "_blank"; link.rel = "noopener"; });
   }
 
@@ -367,43 +367,20 @@
     const mapElement = $("#leafletMap");
     const fallback = $("#svgMapFallback");
     const loading = $("#mapLoading");
-    if (!mapElement || !fallback) return false;
-    if (!window.L) {
-      mapElement.hidden = true;
-      fallback.hidden = false;
-      if (loading) loading.hidden = true;
-      state.mapMode = "svg";
-      return false;
+
+    // 公共网站统一使用仓库内置矢量底图。这样不会依赖第三方瓦片服务，
+    // 也不会因网络、区域限制或占位图而出现异常色块。
+    if (state.leafletMap && typeof state.leafletMap.remove === "function") {
+      state.leafletMap.remove();
+      state.leafletMap = null;
+      state.leafletMarkerLayer = null;
+      state.leafletMarkers.clear();
     }
-    if (!state.leafletMap) {
-      state.leafletMap = window.L.map(mapElement, {
-        zoomControl: true, attributionControl: true, scrollWheelZoom: false,
-        worldCopyJump: true, preferCanvas: false, minZoom: 2, maxZoom: 16,
-      });
-      state.leafletMap.setView([35.8, 104.2], 4);
-      const tileLayer = window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
-        crossOrigin: true,
-      });
-      tileLayer.on("load", () => { if (loading) loading.hidden = true; });
-      tileLayer.on("tileerror", () => {
-        state.leafletTileErrors += 1;
-        if (loading && state.leafletTileErrors >= 6) {
-          loading.hidden = false;
-          loading.textContent = "底图暂未完整加载，点位仍按经纬度定位";
-        }
-      });
-      tileLayer.addTo(state.leafletMap);
-      state.leafletMarkerLayer = window.L.layerGroup().addTo(state.leafletMap);
-      state.leafletMap.on("focus", () => state.leafletMap.scrollWheelZoom.enable());
-      state.leafletMap.on("blur", () => state.leafletMap.scrollWheelZoom.disable());
-      state.mapMode = "leaflet";
-    }
-    mapElement.hidden = false;
-    fallback.hidden = true;
-    requestAnimationFrame(() => state.leafletMap && state.leafletMap.invalidateSize({ pan: false }));
-    return true;
+    if (mapElement) mapElement.hidden = true;
+    if (fallback) fallback.hidden = false;
+    if (loading) loading.hidden = true;
+    state.mapMode = "svg";
+    return false;
   }
 
   function fitLeafletView(rows) {
@@ -447,9 +424,9 @@
     if (loading && state.leafletTileErrors < 6) setTimeout(() => { loading.hidden = true; }, 1800);
   }
 
-  function renderMapMarkers(fitView = false) {
+  function renderMapMarkers(_fitView = false) {
+    ensureLeafletMap();
     renderSvgMapMarkers();
-    renderLeafletMarkers(fitView);
   }
 
   function showMapTooltip(event, park) {
@@ -483,7 +460,7 @@
     const source = park.source_url
       ? `<a class="source-link" href="${escapeHtml(park.source_url)}" target="_blank" rel="noopener">查看名录或原始来源 ↗</a>`
       : "<span>暂无公开来源链接</span>";
-    const issueBase = state.runtime.issues_url || "https://github.com/CJ-oi/zero-carbon-park/issues/new/choose";
+    const issueBase = state.runtime.issues_url || "https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose";
     $("#parkDetail").innerHTML = `
       <span class="eyebrow">${escapeHtml(park.list_level || park.scope)}</span>
       <h2>${escapeHtml(park.name)}</h2>
@@ -651,13 +628,13 @@
       status: "待提供",
     }));
     $("#taskList").innerHTML = state.tasks.length ? state.tasks.map(task => `<div class="task-item"><strong>${task.no}. [${task.priority}] ${escapeHtml(task.task)}</strong><span>责任：${escapeHtml(task.owner)} · 最低材料：${escapeHtml(task.material)}</span><span>建议时限：${task.deadline} · 用途：${escapeHtml(task.purpose)}</span></div>`).join("") : '<div class="empty-state">当前清单无缺失项。仍需核验统计年份、空间边界、单位和原始凭证。</div>';
-    toast(`已生成 ${state.tasks.length} 项补数任务`);
+    toast(`已导出 ${state.tasks.length} 项补数任务`);
   }
 
   function initDataReady() {
     renderFieldChecklist();
     $("#checkAllP0").addEventListener("click", () => { (state.data.fields || []).filter(row => fieldPriority(row) === "P0").forEach(row => state.selectedFields.add(fieldId(row))); renderFieldChecklist(); toast("已标记全部P0字段"); });
-    $("#clearChecklist").addEventListener("click", () => { state.selectedFields.clear(); state.tasks = []; renderFieldChecklist(); $("#taskList").innerHTML = '<div class="empty-state">点击“生成补数任务”后显示。</div>'; toast("已清空勾选"); });
+    $("#clearChecklist").addEventListener("click", () => { state.selectedFields.clear(); state.tasks = []; renderFieldChecklist(); $("#taskList").innerHTML = '<div class="empty-state">点击“整理补数任务”后显示。</div>'; toast("已清空勾选"); });
     $("#generateTasks").addEventListener("click", generateTasks);
     $("#exportTasks").addEventListener("click", () => {
       if (!state.tasks.length) generateTasks();
@@ -755,7 +732,7 @@
     const unresolved = rows.filter(row => row.status !== "达到").length;
     $("#gapResult").innerHTML = `<div class="gap-summary"><div><span>年度总排放</span><strong>${fmt.format(emissions)}</strong><small>tCO₂</small></div><div><span>单位能耗排放</span><strong>${fmt.format(intensity)}</strong><small>tCO₂/tce</small></div><div><span>待处理指标</span><strong>${unresolved}</strong><small>项</small></div></div><table class="gap-table"><thead><tr><th>指标</th><th>现状</th><th>目标</th><th>差距/状态</th></tr></thead><tbody>${rows.map(row => `<tr><td>${escapeHtml(row.metric)}<br><small>${escapeHtml(row.note)}</small></td><td>${row.current === null ? "—" : escapeHtml(typeof row.current === "number" ? fmt.format(row.current) + row.unit : row.current)}</td><td>${row.target === null ? "待确认" : escapeHtml(typeof row.target === "number" ? fmt.format(row.target) + row.unit : row.target)}</td><td class="${row.status === "达到" ? "status-ok" : "status-gap"}">${escapeHtml(row.status)}${row.gap ? `；差 ${fmt.format(row.gap)}${row.unit}` : ""}</td></tr>`).join("")}</tbody></table><p class="profile-sub">核算结果只对当前输入边界和年度有效，正式使用前复核活动数据、排放因子、绿电凭证和产品口径。</p>`;
     generateReductionAdvice(false);
-    if (showToast) toast("差距核算完成，减排建议已同步更新");
+    if (showToast) toast("差距核算完成，减排措施已同步更新");
     return { energy, scope1, scope2, process, emissions, intensity, rows };
   }
 
@@ -767,7 +744,7 @@
     state.reductionAdvice = [];
     $("#gapResult").innerHTML = '<div class="empty-state">填入数据并确认边界后开始核算。</div>';
     $("#reductionAdvice").className = "advice-board empty-state";
-    $("#reductionAdvice").textContent = "尚未生成减排建议。";
+    $("#reductionAdvice").textContent = "尚未形成措施清单。";
   }
 
   function initGap() {
@@ -792,7 +769,7 @@
     });
   }
 
-  // Measures and automatic recommendations
+  // Measures and gap-based matching
   function normalizedMeasures() {
     return (state.data.measures || []).map((row, index) => ({
       id: row.tech_id || `T${index + 1}`,
@@ -834,7 +811,7 @@
   function updateMeasureSummary() {
     const selected = normalizedMeasures().filter(row => state.selectedMeasures.has(row.id));
     const counts = selected.reduce((acc, row) => { acc[row.type] = (acc[row.type] || 0) + 1; return acc; }, {});
-    $("#measureSummary").textContent = selected.length ? `已选 ${selected.length} 项：无悔型 ${counts["无悔型"] || 0}、条件型 ${counts["条件型"] || 0}、战略型 ${counts["战略型"] || 0}。` : "尚未选择措施。";
+    $("#measureSummary").textContent = selected.length ? `已选 ${selected.length} 项：基础改进型 ${counts["基础改进型"] || 0}、条件实施型 ${counts["条件实施型"] || 0}、专项论证型 ${counts["专项论证型"] || 0}。` : "尚未选择措施。";
   }
 
   const gapMeasureMap = [
@@ -864,16 +841,16 @@
       });
     }
     if (!candidates.size) {
-      measures.filter(measure => measure.type === "无悔型").slice(0, 9).forEach(measure => add(measure, "在正式差距数据形成前，先核查低风险、低制度依赖的基础工作", "数据前置"));
+      measures.filter(measure => measure.type === "基础改进型").slice(0, 9).forEach(measure => add(measure, "在正式差距数据形成前，先核查计量、设备效率和资源循环等基础事项", "数据前置"));
     }
-    const typeRank = { "无悔型": 0, "条件型": 1, "战略型": 2 };
+    const typeRank = { "基础改进型": 0, "条件实施型": 1, "专项论证型": 2 };
     state.reductionAdvice = [...candidates.values()].map(item => ({ ...item, reasons: [...item.reasons], metrics: [...item.metrics] })).sort((a, b) => typeRank[a.type] - typeRank[b.type] || a.name.localeCompare(b.name, "zh-CN")).slice(0, 12);
     state.reductionAdvice.forEach(item => state.selectedMeasures.add(item.id));
     $("#reductionAdvice").className = "advice-board";
-    $("#reductionAdvice").innerHTML = `<div class="advice-grid">${state.reductionAdvice.map(item => `<article class="advice-card"><span class="advice-tier ${item.type === "无悔型" ? "no-regret" : item.type === "条件型" ? "conditional" : "strategic"}">${escapeHtml(item.type)}</span><h4>${escapeHtml(item.name)}</h4><p><strong>对应问题：</strong>${escapeHtml(item.metrics.join("、"))}</p><p>${escapeHtml(item.reasons.join("；"))}</p><p><strong>先核实：</strong>${escapeHtml(item.inputs)}</p><p class="caveat">不在缺少项目参数时给出确定减排量和收益。</p></article>`).join("")}</div>`;
+    $("#reductionAdvice").innerHTML = `<div class="advice-grid">${state.reductionAdvice.map(item => `<article class="advice-card"><span class="advice-tier ${item.type === "基础改进型" ? "basic-improvement" : item.type === "条件实施型" ? "conditional" : "strategic"}">${escapeHtml(item.type)}</span><h4>${escapeHtml(item.name)}</h4><p><strong>对应问题：</strong>${escapeHtml(item.metrics.join("、"))}</p><p>${escapeHtml(item.reasons.join("；"))}</p><p><strong>先核实：</strong>${escapeHtml(item.inputs)}</p><p class="caveat">不在缺少项目参数时给出确定减排量和收益。</p></article>`).join("")}</div>`;
     renderMeasures();
     updateMeasureSummary();
-    if (showToast) toast(`已形成 ${state.reductionAdvice.length} 项分级建议`);
+    if (showToast) toast(`已列出 ${state.reductionAdvice.length} 项措施`);
   }
 
   function initMeasures() {
@@ -882,7 +859,7 @@
     ["measureType", "measureDirection"].forEach(id => $("#" + id).addEventListener("change", () => renderMeasures(true)));
     $("#measureSearch").addEventListener("input", () => renderMeasures(true));
     $("#moreMeasures").addEventListener("click", () => { state.measureLimit += 12; renderMeasures(); });
-    $("#selectNoRegret").addEventListener("click", () => { normalizedMeasures().filter(row => row.type === "无悔型").forEach(row => state.selectedMeasures.add(row.id)); renderMeasures(); updateMeasureSummary(); toast("已勾选全部无悔型措施"); });
+    $("#selectBasicMeasures").addEventListener("click", () => { normalizedMeasures().filter(row => row.type === "基础改进型").forEach(row => state.selectedMeasures.add(row.id)); renderMeasures(); updateMeasureSummary(); toast("已勾选基础改进措施"); });
     $("#clearMeasures").addEventListener("click", () => { state.selectedMeasures.clear(); renderMeasures(); updateMeasureSummary(); toast("已清空措施选择"); });
     $("#exportMeasures").addEventListener("click", () => {
       const selected = normalizedMeasures().filter(row => state.selectedMeasures.has(row.id));
@@ -892,7 +869,7 @@
     $("#generateReductionAdvice").addEventListener("click", generateReductionAdvice);
     $("#exportReductionAdvice").addEventListener("click", () => {
       if (!state.reductionAdvice.length) generateReductionAdvice();
-      downloadCsv("园区自动减排建议.csv", ["编号", "措施", "分级", "对应问题", "建议理由", "前置数据", "计算逻辑", "经济性", "主要约束"], state.reductionAdvice.map(item => [item.id, item.name, item.type, item.metrics.join("；"), item.reasons.join("；"), item.inputs, item.calculation, item.economics, item.constraints]));
+      downloadCsv("园区减排措施清单.csv", ["编号", "措施", "分级", "对应问题", "匹配依据", "前置数据", "计算逻辑", "经济性", "主要约束"], state.reductionAdvice.map(item => [item.id, item.name, item.type, item.metrics.join("；"), item.reasons.join("；"), item.inputs, item.calculation, item.economics, item.constraints]));
     });
     renderMeasures();
     updateMeasureSummary();
@@ -1038,9 +1015,9 @@
     const parkName = $("#feasParkName").value.trim() || "未命名园区";
     if (tasks.length) {
       state.lastFeasibility = { parkName, mode: "data_completion", conclusion: "暂不具备正式可行性测算条件", tasks, gap: null, portfolio: null, risks: [{ dimension: "数据与边界", level: "高", finding: `缺少${tasks.length}项正式测算前置数据`, action: "先完成补数任务" }], recommendations: state.reductionAdvice };
-      $("#feasibilityResult").innerHTML = `<div class="empty-state"><strong>暂不具备正式可行性测算条件</strong><br>系统没有生成排名或投资结论，而是形成 ${tasks.length} 项补数任务。</div>${tasks.map(task => `<div class="task-item"><strong>${task.no}. ${escapeHtml(task.name)}</strong><span>责任：${escapeHtml(task.owner)} · 最低材料：${escapeHtml(task.material)}</span><span>建议时限：${task.due}</span></div>`).join("")}`;
-      $("#pathResult").innerHTML = '<div class="empty-state">数据门槛通过后再生成项目组合、利益相关方分配和年度路径。</div>';
-      toast("数据门槛未通过，已生成补数任务");
+      $("#feasibilityResult").innerHTML = `<div class="empty-state"><strong>暂不具备正式可行性测算条件</strong><br>页面不输出排名或投资结论，当前整理出 ${tasks.length} 项补数任务。</div>${tasks.map(task => `<div class="task-item"><strong>${task.no}. ${escapeHtml(task.name)}</strong><span>责任：${escapeHtml(task.owner)} · 最低材料：${escapeHtml(task.material)}</span><span>建议时限：${task.due}</span></div>`).join("")}`;
+      $("#pathResult").innerHTML = '<div class="empty-state">数据门槛通过后再计算项目组合、利益相关方分配和年度路径。</div>';
+      toast("数据门槛未通过，已整理补数任务");
       return;
     }
     const gap = runGap(false);
@@ -1075,11 +1052,11 @@
     const result = state.lastFeasibility;
     if (!result) return "";
     const modeLabel = result.mode === "demonstration" ? "演示场景" : result.mode === "data_completion" ? "数据补齐" : "正式初筛";
-    let markdown = `# ${result.parkName}零碳建设可行性初筛报告\n\n- 基准年：${result.year || "待确认"}\n- 生成模式：${modeLabel}\n- 初筛结论：${result.conclusion}\n- 生成时间：${new Date().toLocaleString("zh-CN")}\n\n> 本报告用于前期筛查和项目排序，不替代法定节能审查、环评、接入系统审查、工程可研或投资决策。\n\n## 1. 数据够不够\n\n`;
-    if (result.tasks.length) return markdown + `数据尚不完整，当前只生成补数任务。\n\n|序号|字段|责任部门|最低材料|时限|\n|---|---|---|---|---|\n${result.tasks.map(task => `|${task.no}|${task.name}|${task.owner}|${task.material}|${task.due}|`).join("\n")}\n`;
+    let markdown = `# ${result.parkName}零碳建设可行性初筛报告\n\n- 基准年：${result.year || "待确认"}\n- 报告类型：${modeLabel}\n- 初筛结论：${result.conclusion}\n- 形成时间：${new Date().toLocaleString("zh-CN")}\n\n> 本报告用于前期筛查和项目排序，不替代法定节能审查、环评、接入系统审查、工程可研或投资决策。\n\n## 1. 数据够不够\n\n`;
+    if (result.tasks.length) return markdown + `数据尚不完整，当前只列出补数任务。\n\n|序号|字段|责任部门|最低材料|时限|\n|---|---|---|---|---|\n${result.tasks.map(task => `|${task.no}|${task.name}|${task.owner}|${task.material}|${task.due}|`).join("\n")}\n`;
     markdown += `数据门槛字段已提供；正式提交前仍应复核原始凭证、因子版本和复核记录。\n\n## 2. 现状是什么\n\n- 园区排放：${fmt.format(result.gap.emissions)} tCO₂\n- 综合能源消费：${fmt.format(result.gap.energy)} tce\n- 单位能耗碳排放：${fmt.format(result.gap.intensity)} tCO₂/tce\n\n## 3. 差距在哪里\n\n|指标|现状|目标|状态|\n|---|---:|---:|---|\n${result.gap.rows.map(row => `|${row.metric}|${row.current ?? "—"}|${row.target ?? "待确认"}|${row.status}|`).join("\n")}\n\n## 4. 怎么减\n\n`;
-    markdown += result.recommendations.length ? result.recommendations.map((item, index) => `${index + 1}. **${item.name}（${item.type}）**：${item.reasons.join("；")}。前置数据：${item.inputs}。`).join("\n") : "先从计量、设备效率、蒸汽与余热、水循环和工业协同等无悔工作开始。";
-    markdown += `\n\n## 5. 花多少钱\n\n- 预算：${fmt.format(result.portfolio.budget)} 万元\n- 入选投资：${fmt.format(result.portfolio.capex)} 万元\n- 年减排：${fmt.format(result.portfolio.abatement)} tCO₂\n- 年净收益：${fmt.format(result.portfolio.net)} 万元\n- 目标缺口：${fmt.format(result.portfolio.gap)} tCO₂/年\n\n|项目|投资/万元|年减排/tCO₂|年净收益/万元|参数证据|\n|---|---:|---:|---:|---|\n${result.portfolio.selected.map(project => `|${project.name}|${project.capex}|${project.abatement}|${project.net}|${project.evidence}|`).join("\n")}\n\n### 关键参数敏感性\n\n|情景|投资/万元|年减排/tCO₂|年净收益/万元|回收期/年|\n|---|---:|---:|---:|---:|\n${(result.sensitivity || []).map(row => `|${row.name}|${fmt.format(row.capex)}|${fmt.format(row.abatement)}|${fmt.format(row.annualNet)}|${row.payback === null ? "—" : fmt.format(row.payback)}|`).join("\n")}\n\n## 关键风险\n\n${result.risks.map(item => `- **${item.dimension}（${item.level}）**：${item.finding}；建议：${item.action}`).join("\n")}\n`;
+    markdown += result.recommendations.length ? result.recommendations.map((item, index) => `${index + 1}. **${item.name}（${item.type}）**：${item.reasons.join("；")}。前置数据：${item.inputs}。`).join("\n") : "先核查计量、设备效率、蒸汽与余热、水循环和工业协同等基础事项。";
+    markdown += `\n\n## 5. 花多少钱\n\n- 预算：${fmt.format(result.portfolio.budget)} 万元\n- 入选投资：${fmt.format(result.portfolio.capex)} 万元\n- 年减排：${fmt.format(result.portfolio.abatement)} tCO₂\n- 年净收益：${fmt.format(result.portfolio.net)} 万元\n- 目标缺口：${fmt.format(result.portfolio.gap)} tCO₂/年\n\n|项目|投资/万元|年减排/tCO₂|年净收益/万元|参数证据|\n|---|---:|---:|---:|---|\n${result.portfolio.selected.map(project => `|${project.name}|${project.capex}|${project.abatement}|${project.net}|${project.evidence}|`).join("\n")}\n\n### 关键参数敏感性\n\n|情景|投资/万元|年减排/tCO₂|年净收益/万元|回收期/年|\n|---|---:|---:|---:|---:|\n${(result.sensitivity || []).map(row => `|${row.name}|${fmt.format(row.capex)}|${fmt.format(row.abatement)}|${fmt.format(row.annualNet)}|${row.payback === null ? "—" : fmt.format(row.payback)}|`).join("\n")}\n\n## 关键风险\n\n${result.risks.map(item => `- **${item.dimension}（${item.level}）**：${item.finding}；后续动作：${item.action}`).join("\n")}\n`;
     return markdown;
   }
 
@@ -1093,7 +1070,7 @@
     const projectRows = result.portfolio ? `<table><tr><th>项目</th><th>投资/万元</th><th>年减排/tCO₂</th><th>年净收益/万元</th></tr>${result.portfolio.selected.map(project => `<tr><td>${escapeHtml(project.name)}</td><td>${fmt.format(project.capex)}</td><td>${fmt.format(project.abatement)}</td><td>${fmt.format(project.net)}</td></tr>`).join("")}</table>` : "<p>数据不全，未形成项目组合。</p>";
     const sensitivityRows = result.sensitivity?.length ? `<h2>关键参数敏感性</h2><table><tr><th>情景</th><th>投资/万元</th><th>年减排/tCO₂</th><th>年净收益/万元</th><th>回收期/年</th></tr>${result.sensitivity.map(row => `<tr><td>${escapeHtml(row.name)}</td><td>${fmt.format(row.capex)}</td><td>${fmt.format(row.abatement)}</td><td>${fmt.format(row.annualNet)}</td><td>${row.payback === null ? "—" : fmt.format(row.payback)}</td></tr>`).join("")}</table>` : "";
     const modeLabel = result.mode === "demonstration" ? "演示场景" : result.mode === "data_completion" ? "数据补齐" : "正式初筛";
-    return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>${escapeHtml(result.parkName)}可行性初筛报告</title><style>body{max-width:940px;margin:30px auto;font:15px/1.7 SimSun,serif;color:#202824}h1,h2{font-family:"Microsoft YaHei",sans-serif}small,.note{color:#657067}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #ccd4ce;padding:8px;text-align:left;vertical-align:top}svg{width:100%;height:360px;background:#eef2ee;border:1px solid #d7ded8}.actions{position:sticky;top:0;padding:10px 0;background:#fff}.actions button{padding:8px 14px}@media print{.actions{display:none}}</style></head><body><div class="actions"><button onclick="window.print()">打印或另存为PDF</button></div><h1>${escapeHtml(result.parkName)}零碳建设可行性初筛报告</h1><p><strong>生成模式：</strong>${escapeHtml(modeLabel)}　<strong>结论：</strong>${escapeHtml(result.conclusion)}</p><p class="note">生成时间：${new Date().toLocaleString("zh-CN")}。本报告用于前期筛查，不替代法定审查和工程可研。</p><h2>参考界面：园区空间位置</h2>${mapSvg}<h2>1. 数据够不够</h2>${taskRows}<h2>2. 现状是什么</h2><p>${result.gap ? `年度排放 ${fmt.format(result.gap.emissions)} tCO₂，综合能源消费 ${fmt.format(result.gap.energy)} tce，单位能耗碳排放 ${fmt.format(result.gap.intensity)} tCO₂/tce。` : "数据尚未达到现状核算门槛。"}</p><h2>3. 差距在哪里</h2>${gapRows}<h2>4. 怎么减</h2><ol>${recommendationRows || "<li>先完成数据补齐和无悔型排查。</li>"}</ol><h2>5. 花多少钱</h2>${projectRows}${sensitivityRows}</body></html>`;
+    return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>${escapeHtml(result.parkName)}可行性初筛报告</title><style>body{max-width:940px;margin:30px auto;font:15px/1.7 SimSun,serif;color:#202824}h1,h2{font-family:"Microsoft YaHei",sans-serif}small,.note{color:#657067}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #ccd4ce;padding:8px;text-align:left;vertical-align:top}svg{width:100%;height:360px;background:#eef2ee;border:1px solid #d7ded8}.actions{position:sticky;top:0;padding:10px 0;background:#fff}.actions button{padding:8px 14px}@media print{.actions{display:none}}</style></head><body><div class="actions"><button onclick="window.print()">打印或另存为PDF</button></div><h1>${escapeHtml(result.parkName)}零碳建设可行性初筛报告</h1><p><strong>报告类型：</strong>${escapeHtml(modeLabel)}　<strong>结论：</strong>${escapeHtml(result.conclusion)}</p><p class="note">形成时间：${new Date().toLocaleString("zh-CN")}。本报告用于前期筛查，不替代法定审查和工程可研。</p><h2>参考界面：园区空间位置</h2>${mapSvg}<h2>1. 数据够不够</h2>${taskRows}<h2>2. 现状是什么</h2><p>${result.gap ? `年度排放 ${fmt.format(result.gap.emissions)} tCO₂，综合能源消费 ${fmt.format(result.gap.energy)} tce，单位能耗碳排放 ${fmt.format(result.gap.intensity)} tCO₂/tce。` : "数据尚未达到现状核算门槛。"}</p><h2>3. 差距在哪里</h2>${gapRows}<h2>4. 怎么减</h2><ol>${recommendationRows || "<li>先完成数据补齐，并核查计量、设备效率和资源循环等基础事项。</li>"}</ol><h2>5. 花多少钱</h2>${projectRows}${sensitivityRows}</body></html>`;
   }
 
   function initFeasibility() {
@@ -1116,9 +1093,9 @@
     });
     $("#downloadProjectTemplate").addEventListener("click", () => downloadText("项目可行性参数模板.json", JSON.stringify({ projects: [{ project_id: "P001", name: "示例：空压系统优化", category: "节能降碳", capex_10k_cny: 0, annual_abatement_tco2: 0, annual_saving_10k_cny: 0, annual_opex_10k_cny: 0, lifetime_years: 10, start_year: 2027, evidence_level: "待核实" }] }, null, 2), "application/json;charset=utf-8"));
     $("#runFeasibility").addEventListener("click", runFeasibility);
-    $("#downloadFeasibilityReport").addEventListener("click", () => { if (!state.lastFeasibility) { toast("请先运行可行性分析"); return; } downloadText(`${state.lastFeasibility.parkName}_可行性初筛报告.md`, feasibilityMarkdown(), "text/markdown;charset=utf-8"); });
+    $("#downloadFeasibilityReport").addEventListener("click", () => { if (!state.lastFeasibility) { toast("请先计算项目组合"); return; } downloadText(`${state.lastFeasibility.parkName}_可行性初筛报告.md`, feasibilityMarkdown(), "text/markdown;charset=utf-8"); });
     $("#printFeasibilityReport").addEventListener("click", () => {
-      if (!state.lastFeasibility) { toast("请先运行可行性分析"); return; }
+      if (!state.lastFeasibility) { toast("请先计算项目组合"); return; }
       const url = URL.createObjectURL(new Blob([printableFeasibilityHtml()], { type: "text/html;charset=utf-8" }));
       const win = window.open(url, "_blank", "noopener,noreferrer");
       if (!win) { URL.revokeObjectURL(url); toast("浏览器阻止了新窗口，请允许弹窗后重试"); return; }
@@ -1163,73 +1140,21 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Reports and email delivery
+  // Reports and direct downloads
   // ---------------------------------------------------------------------------
-  function reportForType(type) {
-    return (state.reportIndex.reports || []).find(row => row.type === type);
-  }
-
   function initReports() {
     const labels = {
       daily: ["日报", "当天及近期园区、技术、项目和政策线索"],
-      weekly: ["周报", "近7天事件归并、机会约束、补数任务和无悔工作"],
-      feasibility: ["可行性初筛报告", "示范场景的数据门槛、指标差距、减排建议和项目组合"],
+      weekly: ["周报", "近7天事件归并、实施条件、补数任务和近期基础工作"],
+      feasibility: ["可行性初筛报告", "示范场景的数据门槛、指标差距、措施清单和项目组合"],
     };
     const rows = state.reportIndex.reports || [];
     $("#reportLinks").innerHTML = rows.length ? rows.map(row => {
-      const [title, description] = labels[row.type] || [row.type, "自动生成报告"];
-      return `<article class="report-card"><span class="report-type">${escapeHtml(title)}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}。报告日期：${escapeHtml(row.date || "—")}；记录：${escapeHtml(row.record_count ?? "—")}。</p><div class="report-actions"><a class="btn btn-dark" href="${escapeHtml(row.html)}">网页报告</a>${row.pdf ? `<a class="btn btn-line" href="${escapeHtml(row.pdf)}" target="_blank" rel="noopener">PDF</a>` : ""}<a class="btn btn-line" href="${escapeHtml(row.markdown)}" download>Markdown</a><a class="btn btn-line" href="${escapeHtml(row.json)}" download>JSON</a></div></article>`;
-    }).join("") : '<div class="empty-state">报告索引尚未生成。运行构建命令后自动出现。</div>';
-    $("#sendReportEmail").addEventListener("click", sendReportEmail);
+      const [title, description] = labels[row.type] || [row.type, "定期汇编报告"];
+      return `<article class="report-card"><span class="report-type">${escapeHtml(title)}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}。报告日期：${escapeHtml(row.date || "—")}；记录：${escapeHtml(row.record_count ?? "—")}。</p><div class="report-actions">${row.pdf ? `<a class="btn btn-dark" href="${escapeHtml(row.pdf)}" download>下载PDF</a>` : ""}<a class="btn btn-line" href="${escapeHtml(row.html)}">在线阅读</a><a class="btn btn-line" href="${escapeHtml(row.markdown)}" download>下载Markdown</a><a class="btn btn-line" href="${escapeHtml(row.json)}" download>下载JSON</a></div></article>`;
+    }).join("") : '<div class="empty-state">报告索引尚未形成。完成构建后即可下载。</div>';
   }
 
-  async function sendReportEmail() {
-    const email = $("#reportEmail").value.trim();
-    const type = $("#reportEmailType").value;
-    const consent = $("#reportConsent").checked;
-    const status = $("#mailStatus");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = "请填写有效邮箱。"; return; }
-    if (!consent) { status.textContent = "请先勾选本次发送授权。"; return; }
-    const report = reportForType(type);
-    if (!report) { status.textContent = "所选报告尚未生成。"; return; }
-    const base = new URL(".", location.href);
-    const reportUrl = new URL(report.pdf || report.html, base).href;
-    const endpoint = String(state.runtime.mail_endpoint || "").trim();
-    status.textContent = "正在准备发送…";
-    if (endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email, report_type: type, report_url: reportUrl,
-            site_url: location.origin + location.pathname.replace(/[^/]*$/, ""),
-            consent: true,
-            feasibility_summary: type === "feasibility" && state.lastFeasibility ? {
-              park_name: state.lastFeasibility.park_name || "园区",
-              conclusion: state.lastFeasibility.feasibility?.conclusion || "",
-              decision_boundary: state.lastFeasibility.feasibility?.decision_boundary || "",
-              selected_projects: state.lastFeasibility.five_questions?.["花多少钱"]?.portfolio?.selected_projects?.map(project => project.name).slice(0, 12) || [],
-              capex_10k_cny: state.lastFeasibility.five_questions?.["花多少钱"]?.portfolio?.capex_10k_cny ?? null,
-              annual_abatement_tco2: state.lastFeasibility.five_questions?.["花多少钱"]?.portfolio?.annual_abatement_tco2 ?? null,
-            } : null,
-          }),
-        });
-        const payload = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(payload.error || `HTTP ${response.status}`);
-        status.textContent = "报告发送请求已受理，请检查收件箱和垃圾邮件。";
-        toast("报告发送请求已提交");
-        return;
-      } catch (error) {
-        status.textContent = `直接发送未完成：${error.message}。已转为本机邮件方式。`;
-      }
-    }
-    const subject = encodeURIComponent(`园区碳观察：${type === "weekly" ? "本周报告" : type === "daily" ? "今日报告" : "可行性初筛报告"}`);
-    const body = encodeURIComponent(`您好：\n\n请查收园区碳观察报告：\n${reportUrl}\n\n该链接来自公开网站，不含邮箱信息。`);
-    location.href = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${body}`;
-    status.textContent = "已打开本机邮件客户端，并填入报告链接。若未弹出，请复制报告链接后手动发送。";
-    try { await navigator.clipboard.writeText(reportUrl); toast("报告链接已复制"); } catch (_) { /* clipboard optional */ }
-  }
 
   function installServiceWorker() {
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("sw.js").catch(() => {});
@@ -1246,7 +1171,7 @@
     add("all five panels", $$(".five-tab").length === 5 && $$(".diagnosis-panel").length === 5);
     add("all visible buttons bound", $$('button').every(button => button.id || button.dataset.panel || button.dataset.mapFilter || button.dataset.openPanel || button.classList.contains("project-delete") || button.classList.contains("similar-open") || button.classList.contains("lens-button") || button.classList.contains("topic-filter")));
     add("report links", $$("#reportLinks a").length >= 2);
-    add("mail button", Boolean($("#sendReportEmail")));
+    add("direct PDF downloads", $$('#reportLinks a[download][href$=".pdf"]').length >= 1);
     document.documentElement.dataset.selftest = checks.every(check => check.pass) ? "pass" : "fail";
     console.table(checks);
   }

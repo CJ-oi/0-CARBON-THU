@@ -15,7 +15,7 @@
   <nav class="topnav" aria-label="主要导航">
     <a href="#overview">概览</a><a href="#map">园区地图</a><a href="#today">近期动态</a><a href="#analytics">数据质量</a><a href="#workbench">五问工作台</a><a href="#reports">报告</a>
   </nav>
-  <div class="top-actions"><a class="quiet-link" href="docs/user-manual.html">使用说明</a><a class="btn btn-dark" href="reports/weekly-latest.html">本周报告</a></div>
+  <div class="top-actions"><a class="quiet-link" href="docs/user-manual.html">使用说明</a><a class="btn btn-dark" href="#reports">下载报告</a></div>
 </header>
 
 <main id="top">
@@ -31,8 +31,8 @@
         <a href="#workbench" data-open-panel="reduce"><span>04</span>怎么减</a>
         <a href="#workbench" data-open-panel="cost"><span>05</span>花多少钱</a>
       </div>
-      <div class="principle-row"><span>不以市级数据代替园区数据</span><span>不把建设名单写成达标排名</span><span>不在缺少参数时填写确定收益</span></div>
-      <div class="update-status"><span class="status-dot"></span><span id="updateSchedule">自动更新状态读取中…</span></div>
+      <div class="principle-row"><span>不以市级数据代替园区数据</span><span>不把建设名单写成达标排名</span><span>缺少项目参数时不填写确定收益</span></div>
+      <div class="update-status"><span class="status-dot"></span><span id="updateSchedule">数据更新时间读取中…</span></div>
     </div>
     <aside class="dataset-card">
       <div class="dataset-head"><span>当前数据快照</span><strong id="dataVersion">—</strong></div>
@@ -80,9 +80,9 @@
     <div class="five-tabs" role="tablist" aria-label="五问工作台"><button class="five-tab active" type="button" data-panel="data-ready" role="tab"><span>01</span>数据够不够</button><button class="five-tab" type="button" data-panel="current-state" role="tab"><span>02</span>现状是什么</button><button class="five-tab" type="button" data-panel="gap" role="tab"><span>03</span>差距在哪里</button><button class="five-tab" type="button" data-panel="reduce" role="tab"><span>04</span>怎么减</button><button class="five-tab" type="button" data-panel="cost" role="tab"><span>05</span>花多少钱</button></div>
 
     <div id="data-ready" class="diagnosis-panel active" role="tabpanel">
-      <div class="panel-intro"><div><span class="eyebrow">数据准备</span><h3>数据够不够</h3><p>按边界、组织、能源、排放、经济、资源和项目参数检查，缺失项转成有责任部门、最低材料和时限的任务。</p></div><div class="score-card"><strong id="readinessScore">0%</strong><span>当前数据准备度</span><small id="readinessNote">尚未勾选已提供字段</small></div></div>
-      <div class="toolbar-row"><button id="checkAllP0" class="btn btn-dark" type="button">标记全部P0已提供</button><button id="clearChecklist" class="btn btn-line" type="button">清空勾选</button><button id="generateTasks" class="btn btn-accent" type="button">生成补数任务</button><button id="exportTasks" class="btn btn-line" type="button">导出任务CSV</button></div>
-      <div class="data-grid-layout"><div id="fieldChecklist" class="checklist"></div><div class="task-output"><h4>补数任务</h4><div id="taskList" class="empty-state">点击“生成补数任务”后显示。</div></div></div>
+      <div class="panel-intro"><div><span class="eyebrow">数据准备</span><h3>数据够不够</h3><p>按边界、组织、能源、排放、经济、资源和项目参数检查，缺失项整理为带责任部门、最低材料和时限的补数任务。</p></div><div class="score-card"><strong id="readinessScore">0%</strong><span>当前数据准备度</span><small id="readinessNote">尚未勾选已提供字段</small></div></div>
+      <div class="toolbar-row"><button id="checkAllP0" class="btn btn-dark" type="button">标记全部P0已提供</button><button id="clearChecklist" class="btn btn-line" type="button">清空勾选</button><button id="generateTasks" class="btn btn-accent" type="button">整理补数任务</button><button id="exportTasks" class="btn btn-line" type="button">导出任务CSV</button></div>
+      <div class="data-grid-layout"><div id="fieldChecklist" class="checklist"></div><div class="task-output"><h4>补数任务</h4><div id="taskList" class="empty-state">点击“整理补数任务”后显示。</div></div></div>
     </div>
 
     <div id="current-state" class="diagnosis-panel" role="tabpanel">
@@ -96,19 +96,19 @@
     </div>
 
     <div id="reduce" class="diagnosis-panel" role="tabpanel">
-      <div class="panel-intro"><div><span class="eyebrow">措施筛选</span><h3>怎么减</h3><p>先根据指标差距生成建议，再按产业、前置条件和责任主体筛选设施。无实测项目参数时只给指南，不填确定减排量。</p></div></div>
+      <div class="panel-intro"><div><span class="eyebrow">措施筛选</span><h3>怎么减</h3><p>先按指标差距匹配措施，再结合产业、前置条件和责任主体筛选设施。缺少实测项目参数时只列出核查要点，不填写确定减排量。</p></div></div>
       <div class="green-power-note"><strong>绿电不作为所有园区的默认第一步。</strong><span>先核对资源与负荷匹配、网架安全、直接消纳、计量结算、项目主体和环境属性，再进入专项可研。</span><a href="https://www.nea.gov.cn/20260520/9e1c4277ce324c8ab82a84da98da7980/c.html" target="_blank" rel="noopener">查看政策原文</a></div>
-      <div class="advice-actions"><button id="generateReductionAdvice" class="btn btn-dark" type="button">根据差距生成建议</button><button id="exportReductionAdvice" class="btn btn-line" type="button">导出建议</button><span>建议会引用上一步的差距结果；没有差距数据时从无悔型排查开始。</span></div>
-      <div id="reductionAdvice" class="advice-board empty-state">尚未生成减排建议。</div>
-      <div class="measure-toolbar"><label>措施类型<select id="measureType"><option value="全部">全部</option><option value="无悔型">无悔型</option><option value="条件型">条件型</option><option value="战略型">战略型</option></select></label><label>方向<select id="measureDirection"><option value="全部">全部方向</option></select></label><label class="search-field">搜索<input id="measureSearch" type="search" placeholder="工艺、设备或措施"></label><button id="selectNoRegret" class="btn btn-dark" type="button">勾选全部无悔型</button><button id="clearMeasures" class="btn btn-line" type="button">清空</button><button id="exportMeasures" class="btn btn-accent" type="button">导出措施清单</button></div><div id="measureSummary" class="selection-summary">尚未选择措施。</div><div id="measuresGrid" class="measures-grid"></div><button id="moreMeasures" class="btn btn-line centered" type="button">显示更多措施</button>
+      <div class="advice-actions"><button id="generateReductionAdvice" class="btn btn-dark" type="button">形成措施清单</button><button id="exportReductionAdvice" class="btn btn-line" type="button">导出措施建议</button><span>措施清单引用上一步的差距结果；没有差距数据时先列出计量、设备效率和资源循环等基础改进事项。</span></div>
+      <div id="reductionAdvice" class="advice-board empty-state">尚未形成措施清单。</div>
+      <div class="measure-toolbar"><label>措施类型<select id="measureType"><option value="全部">全部</option><option value="基础改进型">基础改进型</option><option value="条件实施型">条件实施型</option><option value="专项论证型">专项论证型</option></select></label><label>方向<select id="measureDirection"><option value="全部">全部方向</option></select></label><label class="search-field">搜索<input id="measureSearch" type="search" placeholder="工艺、设备或措施"></label><button id="selectBasicMeasures" class="btn btn-dark" type="button">勾选基础改进措施</button><button id="clearMeasures" class="btn btn-line" type="button">清空</button><button id="exportMeasures" class="btn btn-accent" type="button">导出措施清单</button></div><div id="measureSummary" class="selection-summary">尚未选择措施。</div><div id="measuresGrid" class="measures-grid"></div><button id="moreMeasures" class="btn btn-line centered" type="button">显示更多措施</button>
     </div>
 
     <div id="cost" class="diagnosis-panel" role="tabpanel">
       <div class="panel-intro"><div><span class="eyebrow">投资测算</span><h3>花多少钱</h3><p>录入投资、年度减排、年度收益、寿命和项目关系，形成预算约束下的项目组合、年度路径和可行性初筛报告。</p></div></div>
       <div class="feasibility-gate"><label><input id="feasBoundary" type="checkbox">边界已确认</label><label><input id="feasEnterprise" type="checkbox">企业清单已确认</label><label>园区名称<input id="feasParkName" type="text" value="示范经济技术开发区"></label><label>基准年<input id="feasYear" type="number" value="2025"></label></div>
-      <div class="cost-controls"><label>预算上限（万元）<input id="budgetLimit" type="number" min="0" value="35000"></label><label>年度减排目标（tCO₂）<input id="abatementTarget" type="number" min="0" value="50000"></label><label>折现率（%）<input id="discountRate" type="number" min="0" max="30" step="0.1" value="5"></label><button id="loadProjectDemo" class="btn btn-line" type="button">载入演示项目</button><button id="addProject" class="btn btn-line" type="button">新增项目</button><label class="btn btn-line file-btn">导入JSON<input id="projectFile" type="file" accept=".json,application/json"></label><button id="downloadProjectTemplate" class="btn btn-line" type="button">下载模板</button><button id="runFeasibility" class="btn btn-dark" type="button">运行可行性分析</button></div>
+      <div class="cost-controls"><label>预算上限（万元）<input id="budgetLimit" type="number" min="0" value="35000"></label><label>年度减排目标（tCO₂）<input id="abatementTarget" type="number" min="0" value="50000"></label><label>折现率（%）<input id="discountRate" type="number" min="0" max="30" step="0.1" value="5"></label><button id="loadProjectDemo" class="btn btn-line" type="button">载入演示项目</button><button id="addProject" class="btn btn-line" type="button">新增项目</button><label class="btn btn-line file-btn">导入JSON<input id="projectFile" type="file" accept=".json,application/json"></label><button id="downloadProjectTemplate" class="btn btn-line" type="button">下载模板</button><button id="runFeasibility" class="btn btn-dark" type="button">计算项目组合</button></div>
       <div class="project-table-wrap"><table class="data-table project-table"><thead><tr><th>项目</th><th>类型</th><th>投资/万元</th><th>年减排/tCO₂</th><th>年节省/万元</th><th>年运维/万元</th><th>寿命/年</th><th>实施年</th><th>参数证据</th><th>操作</th></tr></thead><tbody id="projectTableBody"></tbody></table></div>
-      <div class="portfolio-grid"><div class="result-card"><div class="result-head"><h4>项目组合与可行性</h4><div class="result-actions"><button id="downloadFeasibilityReport" class="btn btn-line" type="button">下载Markdown</button><button id="printFeasibilityReport" class="btn btn-dark" type="button">打开打印报告</button></div></div><div id="feasibilityResult" class="empty-state">录入数据与项目后点击“运行可行性分析”。数据门槛未通过时只生成补数任务。</div></div><div class="result-card"><h4>利益相关方与年度路径</h4><div id="pathResult" class="empty-state">组合形成后显示投资、收益、责任和阶段路径。</div></div></div>
+      <div class="portfolio-grid"><div class="result-card"><div class="result-head"><h4>项目组合与可行性</h4><div class="result-actions"><button id="downloadFeasibilityReport" class="btn btn-line" type="button">下载Markdown</button><button id="printFeasibilityReport" class="btn btn-dark" type="button">打开可打印报告</button></div></div><div id="feasibilityResult" class="empty-state">录入数据与项目后点击“计算项目组合”。数据门槛未通过时只整理补数任务。</div></div><div class="result-card"><h4>利益相关方与年度路径</h4><div id="pathResult" class="empty-state">组合形成后显示投资、收益、责任和阶段路径。</div></div></div>
     </div>
   </section>
 
@@ -118,10 +118,10 @@
   </section>
 
   <section id="reports" class="section report-section">
-    <div class="section-head"><p class="overline">定时生成，可下载、可打印、可发送</p><h2>报告中心</h2><p>每次更新后重建日报、周报和可行性报告；报告中自动插入首页、地图和工作台截图。质量门禁失败时不覆盖上一版合格网站。</p></div>
+    <div class="section-head"><p class="overline">定期汇编，可直接下载</p><h2>报告中心</h2><p>每次更新后重新汇编日报、周报和可行性报告，并附上首页、园区地图和五项工作界面截图。检查未通过时保留上一版合格报告。</p></div>
     <div id="reportLinks" class="report-grid"></div>
-    <div class="mail-panel"><div><h3>发送报告到邮箱</h3><p>选择报告并输入邮箱。配置安全发送端点后由网页直接发送；未配置时会打开本机邮件客户端并带入报告链接。</p></div><div class="mail-form"><label>邮箱<input id="reportEmail" type="email" placeholder="name@example.com" autocomplete="email"></label><label>报告<select id="reportEmailType"><option value="weekly">本周报告</option><option value="daily">今日报告</option><option value="feasibility">可行性初筛报告</option></select></label><label class="consent-line"><input id="reportConsent" type="checkbox">同意仅为本次发送使用该邮箱</label><button id="sendReportEmail" class="btn btn-dark" type="button">发送报告</button><span id="mailStatus" class="mail-status" aria-live="polite"></span></div></div>
-    <div class="open-source-strip"><div><strong>开源与数据更正</strong><p>采集、去重、分类、报告、截图、测算和发布代码均在仓库中；坐标、来源和计算问题可通过公开问题模板提交。</p></div><a id="issueLink" class="btn btn-dark" href="https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose" target="_blank" rel="noopener">提交数据更正</a><a class="btn btn-line" href="docs/technical.html">技术说明</a><a class="btn btn-line" href="docs/email-setup.html">邮件发送配置</a></div>
+    <p class="report-download-note">点击“下载PDF”即可将报告保存到本机。</p>
+    <div class="open-source-strip"><div><strong>开源与数据更正</strong><p>采集、去重、分类、报告、截图、测算和发布代码均在仓库中；坐标、来源和计算问题可通过公开问题模板提交。</p></div><a id="issueLink" class="btn btn-dark" href="https://github.com/CJ-oi/0-CARBON-THU/issues/new/choose" target="_blank" rel="noopener">提交数据更正</a><a class="btn btn-line" href="docs/technical.html">技术说明</a><a class="btn btn-line" href="docs/user-manual.html#reports">报告下载说明</a></div>
   </section>
 </main>
 

@@ -36,8 +36,8 @@ def validate_site(site_dir: Path) -> dict[str, Any]:
         ("archive data load", ('fetch(\"data/archive.json\"', 'fetchJson(\"data/archive.json\"', 'fetchJson(\"data/curated_archive.json\"')),
         ("feasibility calculation", ("runFeasibility",)),
         ("report export", ("downloadFeasibilityReport",)),
-        ("automatic reduction advice", ("generateReductionAdvice",)),
-        ("report email", ("sendReportEmail",)),
+        ("gap-based measure matching", ("generateReductionAdvice",)),
+        ("report downloads", ("reportLinks",)),
     ]
     for label, alternatives in behavior_groups:
         if not any(token in js for token in alternatives):

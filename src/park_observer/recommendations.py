@@ -46,14 +46,14 @@ def _stakeholder(text: str) -> str:
 
 def _tier(primary_text: str, constraints: str = "") -> str:
     conditional = ("绿电", "储能", "微电网", "光伏", "热泵", "电锅炉", "电窑炉", "氢", "CCUS", "原料替代", "药剂替代")
-    no_regret = ("计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽系统", "凝结水", "维护", "水回用", "工业共生", "余热回收")
+    priority_actions = ("计量", "能碳管理", "电机", "泵", "风机", "空压", "蒸汽系统", "凝结水", "维护", "水回用", "工业共生", "余热回收")
     if any(x in primary_text for x in conditional):
-        return "条件型"
-    if any(x in primary_text for x in no_regret):
-        return "无悔型"
+        return "条件实施型"
+    if any(x in primary_text for x in priority_actions):
+        return "基础改进型"
     if any(x in constraints for x in ("产品质量", "工艺安全", "改造空间", "并网", "电网容量")):
-        return "条件型"
-    return "战略型"
+        return "条件实施型"
+    return "专项论证型"
 
 
 def build_reduction_recommendations(
@@ -63,9 +63,9 @@ def build_reduction_recommendations(
     *,
     limit: int = 12,
 ) -> list[dict[str, Any]]:
-    """Generate traceable recommendations without inventing project benefits.
+    """Build traceable measure options without inventing project benefits.
 
-    Recommendations are tied to explicit gap rows. Quantitative abatement is not
+    Measure options are tied to explicit gap rows. Quantitative abatement is not
     provided unless the user later supplies project parameters in the cost tool.
     """
     gap_rows = (gap_result or {}).get("rows", [])
@@ -106,15 +106,15 @@ def build_reduction_recommendations(
             score += 3
         constraints = str(row.get("主要约束") or "需结合现场条件核对")
         tier = _tier(primary, constraints)
-        if tier == "无悔型":
+        if tier == "基础改进型":
             score += 4
-        if tier == "条件型" and not green_ready and any(x in text for x in ("绿电", "储能", "微电网", "光伏")):
+        if tier == "条件实施型" and not green_ready and any(x in text for x in ("绿电", "储能", "微电网", "光伏")):
             score -= 3
         prerequisites = str(row.get("关键输入参数") or "需补充项目基线、设备运行和边界参数")
         reason = f"对应差距：{'、'.join(matched)}"
-        if tier == "无悔型":
-            reason += "；优先用于建立基线、消除明显能效损失或提高资源利用"
-        elif tier == "条件型":
+        if tier == "基础改进型":
+            reason += "；用于建立基线、排查明显能效损失并提高资源利用"
+        elif tier == "条件实施型":
             reason += "；需先完成源荷、接入、场地或工艺条件核查"
         else:
             reason += "；适合作为中长期专项论证方向"
@@ -134,5 +134,5 @@ def build_reduction_recommendations(
             "score": score,
             "quantitative_note": "未取得项目实测参数前不填写确定减排量和投资额。",
         })
-    ranked.sort(key=lambda x: (-int(x["score"]), {"无悔型": 0, "条件型": 1, "战略型": 2}.get(str(x["tier"]), 3), str(x.get("tech_id") or "")))
+    ranked.sort(key=lambda x: (-int(x["score"]), {"基础改进型": 0, "条件实施型": 1, "专项论证型": 2}.get(str(x["tier"]), 3), str(x.get("tech_id") or "")))
     return ranked[:limit]

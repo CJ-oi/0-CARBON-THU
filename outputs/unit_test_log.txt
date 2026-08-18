@@ -21,6 +21,6 @@ test_sensitivity_has_three_transparent_scenarios (test_portfolio.PortfolioTests.
 test_recommendations_are_gap_linked_and_non_numeric (test_recommendations.RecommendationTests.test_recommendations_are_gap_linked_and_non_numeric) ... ok
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.031s
+Ran 21 tests in 0.032s
 
 OK
