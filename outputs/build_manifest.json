@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T06:32:07+00:00",
+  "generated_at": "2026-09-08T12:33:00+00:00",
   "output_dir": "/home/runner/work/0-CARBON-THU/0-CARBON-THU/site",
   "archive_records": 145,
   "reports": [
@@ -10,7 +10,7 @@
       "markdown": "reports/daily-latest.md",
       "json": "reports/daily-latest.json",
       "pdf": "reports/daily-latest.pdf",
-      "record_count": 11
+      "record_count": 12
     },
     {
       "type": "weekly",
@@ -19,7 +19,7 @@
       "markdown": "reports/weekly-latest.md",
       "json": "reports/weekly-latest.json",
       "pdf": "reports/weekly-latest.pdf",
-      "record_count": 23
+      "record_count": 24
     },
     {
       "type": "feasibility",
