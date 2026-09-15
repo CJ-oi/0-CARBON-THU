@@ -18,8 +18,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 0.98,
-      "attempted_at": "2026-09-14T18:28:31+00:00",
+      "elapsed_seconds": 1.1,
+      "attempted_at": "2026-09-15T00:33:47+00:00",
       "error": ""
     },
     {
@@ -31,8 +31,8 @@
       "records": 7,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 4.13,
-      "attempted_at": "2026-09-14T18:28:35+00:00",
+      "elapsed_seconds": 5.2,
+      "attempted_at": "2026-09-15T00:33:52+00:00",
       "error": ""
     },
     {
@@ -51,8 +51,8 @@
           "reason": "命中“绿电”"
         }
       ],
-      "elapsed_seconds": 2.14,
-      "attempted_at": "2026-09-14T18:28:38+00:00",
+      "elapsed_seconds": 2.35,
+      "attempted_at": "2026-09-15T00:33:55+00:00",
       "error": ""
     },
     {
@@ -64,8 +64,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 2.29,
-      "attempted_at": "2026-09-14T18:28:40+00:00",
+      "elapsed_seconds": 3.89,
+      "attempted_at": "2026-09-15T00:33:59+00:00",
       "error": ""
     },
     {
@@ -77,8 +77,8 @@
       "records": 1,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 0.96,
-      "attempted_at": "2026-09-14T18:28:41+00:00",
+      "elapsed_seconds": 2.58,
+      "attempted_at": "2026-09-15T00:34:02+00:00",
       "error": ""
     },
     {
@@ -90,8 +90,8 @@
       "records": 1,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 3.52,
-      "attempted_at": "2026-09-14T18:28:45+00:00",
+      "elapsed_seconds": 3.7,
+      "attempted_at": "2026-09-15T00:34:06+00:00",
       "error": ""
     },
     {
@@ -110,19 +110,19 @@
           "reason": "命中“经济技术开发区”；弱相关“词元驱动”；弱相关“智能经济”；来自园区公开来源"
         }
       ],
-      "elapsed_seconds": 8.58,
-      "attempted_at": "2026-09-14T18:28:54+00:00",
+      "elapsed_seconds": 9.77,
+      "attempted_at": "2026-09-15T00:34:16+00:00",
       "error": ""
     },
     {
       "source_id": "SRC008",
       "source_name": "甘肃省发展改革委",
       "start_url": "https://fzgg.gansu.gov.cn/",
-      "status": "skipped_quarantine",
+      "status": "failed",
       "records": 0,
       "elapsed_seconds": 0,
-      "attempted_at": "2026-09-14T18:28:54+00:00",
-      "error": "source is quarantined and awaiting scheduled retest"
+      "attempted_at": "2026-09-15T00:34:19+00:00",
+      "error": "HTTPError: HTTP Error 412: Precondition Failed"
     },
     {
       "source_id": "SRC009",
@@ -140,8 +140,8 @@
           "reason": "命中“绿电直连”；命中“绿电”；缺少园区或降碳直接语义"
         }
       ],
-      "elapsed_seconds": 10.2,
-      "attempted_at": "2026-09-14T18:29:05+00:00",
+      "elapsed_seconds": 10.32,
+      "attempted_at": "2026-09-15T00:34:29+00:00",
       "error": ""
     },
     {
@@ -153,8 +153,8 @@
       "records": 1,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 6.36,
-      "attempted_at": "2026-09-14T18:29:11+00:00",
+      "elapsed_seconds": 6.1,
+      "attempted_at": "2026-09-15T00:34:36+00:00",
       "error": ""
     },
     {
@@ -166,8 +166,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.2,
-      "attempted_at": "2026-09-14T18:29:13+00:00",
+      "elapsed_seconds": 0.89,
+      "attempted_at": "2026-09-15T00:34:37+00:00",
       "error": ""
     },
     {
@@ -186,8 +186,8 @@
           "reason": "含实施或量化线索"
         }
       ],
-      "elapsed_seconds": 1.61,
-      "attempted_at": "2026-09-14T18:29:15+00:00",
+      "elapsed_seconds": 1.69,
+      "attempted_at": "2026-09-15T00:34:39+00:00",
       "error": ""
     },
     {
@@ -199,8 +199,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.78,
-      "attempted_at": "2026-09-14T18:29:17+00:00",
+      "elapsed_seconds": 1.74,
+      "attempted_at": "2026-09-15T00:34:41+00:00",
       "error": ""
     },
     {
@@ -210,7 +210,7 @@
       "status": "skipped_quarantine",
       "records": 0,
       "elapsed_seconds": 0,
-      "attempted_at": "2026-09-14T18:29:17+00:00",
+      "attempted_at": "2026-09-15T00:34:41+00:00",
       "error": "source is quarantined and awaiting scheduled retest"
     },
     {
@@ -222,20 +222,20 @@
       "records": 10,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 8.77,
-      "attempted_at": "2026-09-14T18:29:26+00:00",
+      "elapsed_seconds": 9.18,
+      "attempted_at": "2026-09-15T00:34:50+00:00",
       "error": ""
     }
   ],
   "source_health": {
-    "updated_at": "2026-09-14T18:29:26+00:00",
+    "updated_at": "2026-09-15T00:34:50+00:00",
     "sources": {
       "SRC001": {
         "source_name": "国家发展改革委—发展改革工作",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:31+00:00",
-        "last_success": "2026-09-14T18:28:31+00:00",
+        "last_attempt": "2026-09-15T00:33:47+00:00",
+        "last_success": "2026-09-15T00:33:47+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.ndrc.gov.cn/fggz/"
@@ -244,8 +244,8 @@
         "source_name": "国家发展改革委—政策通知",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:35+00:00",
-        "last_success": "2026-09-14T18:28:35+00:00",
+        "last_attempt": "2026-09-15T00:33:52+00:00",
+        "last_success": "2026-09-15T00:33:52+00:00",
         "last_record_count": 7,
         "last_error": "",
         "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/"
@@ -254,8 +254,8 @@
         "source_name": "国家能源局",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:38+00:00",
-        "last_success": "2026-09-14T18:28:38+00:00",
+        "last_attempt": "2026-09-15T00:33:55+00:00",
+        "last_success": "2026-09-15T00:33:55+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://www.nea.gov.cn/"
@@ -264,8 +264,8 @@
         "source_name": "工业和信息化部",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:40+00:00",
-        "last_success": "2026-09-14T18:28:40+00:00",
+        "last_attempt": "2026-09-15T00:33:59+00:00",
+        "last_success": "2026-09-15T00:33:59+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.miit.gov.cn/"
@@ -274,8 +274,8 @@
         "source_name": "商务部—开发区工作",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:41+00:00",
-        "last_success": "2026-09-14T18:28:41+00:00",
+        "last_attempt": "2026-09-15T00:34:02+00:00",
+        "last_success": "2026-09-15T00:34:02+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://www.mofcom.gov.cn/"
@@ -284,8 +284,8 @@
         "source_name": "北京市发展改革委",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:45+00:00",
-        "last_success": "2026-09-14T18:28:45+00:00",
+        "last_attempt": "2026-09-15T00:34:06+00:00",
+        "last_success": "2026-09-15T00:34:06+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://fgw.beijing.gov.cn/"
@@ -294,8 +294,8 @@
         "source_name": "北京经济技术开发区",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:28:54+00:00",
-        "last_success": "2026-09-14T18:28:54+00:00",
+        "last_attempt": "2026-09-15T00:34:16+00:00",
+        "last_success": "2026-09-15T00:34:16+00:00",
         "last_record_count": 30,
         "last_error": "",
         "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/"
@@ -303,8 +303,8 @@
       "SRC008": {
         "source_name": "甘肃省发展改革委",
         "status": "quarantined",
-        "consecutive_failures": 10,
-        "last_attempt": "2026-09-08T00:36:19+00:00",
+        "consecutive_failures": 11,
+        "last_attempt": "2026-09-15T00:34:19+00:00",
         "last_success": null,
         "last_record_count": 0,
         "last_error": "HTTPError: HTTP Error 412: Precondition Failed",
@@ -314,8 +314,8 @@
         "source_name": "广东省发展改革委",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:05+00:00",
-        "last_success": "2026-09-14T18:29:05+00:00",
+        "last_attempt": "2026-09-15T00:34:29+00:00",
+        "last_success": "2026-09-15T00:34:29+00:00",
         "last_record_count": 3,
         "last_error": "",
         "start_url": "https://drc.gd.gov.cn/"
@@ -324,8 +324,8 @@
         "source_name": "福建省工业和信息化厅",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:11+00:00",
-        "last_success": "2026-09-14T18:29:11+00:00",
+        "last_attempt": "2026-09-15T00:34:36+00:00",
+        "last_success": "2026-09-15T00:34:36+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/"
@@ -334,8 +334,8 @@
         "source_name": "中国政府网—政策",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:13+00:00",
-        "last_success": "2026-09-14T18:29:13+00:00",
+        "last_attempt": "2026-09-15T00:34:37+00:00",
+        "last_success": "2026-09-15T00:34:37+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.gov.cn/zhengce/"
@@ -344,8 +344,8 @@
         "source_name": "生态环境部",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:15+00:00",
-        "last_success": "2026-09-14T18:29:15+00:00",
+        "last_attempt": "2026-09-15T00:34:39+00:00",
+        "last_success": "2026-09-15T00:34:39+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://www.mee.gov.cn/"
@@ -354,8 +354,8 @@
         "source_name": "天津经济技术开发区—建设动态",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:17+00:00",
-        "last_success": "2026-09-14T18:29:17+00:00",
+        "last_attempt": "2026-09-15T00:34:41+00:00",
+        "last_success": "2026-09-15T00:34:41+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.teda.gov.cn/contents/13/99411.html"
@@ -374,8 +374,8 @@
         "source_name": "北京经济技术开发区—工作动态",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-09-14T18:29:26+00:00",
-        "last_success": "2026-09-14T18:29:26+00:00",
+        "last_attempt": "2026-09-15T00:34:50+00:00",
+        "last_success": "2026-09-15T00:34:50+00:00",
         "last_record_count": 10,
         "last_error": "",
         "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/"
