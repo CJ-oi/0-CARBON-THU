@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-24T04:47:02+00:00",
+  "generated_at": "2026-09-24T11:43:13+00:00",
   "output_dir": "/home/runner/work/0-CARBON-THU/0-CARBON-THU/site",
-  "archive_records": 202,
+  "archive_records": 205,
   "reports": [
     {
       "type": "daily",
@@ -10,7 +10,7 @@
       "markdown": "reports/daily-latest.md",
       "json": "reports/daily-latest.json",
       "pdf": "reports/daily-latest.pdf",
-      "record_count": 8
+      "record_count": 12
     },
     {
       "type": "weekly",
@@ -19,7 +19,7 @@
       "markdown": "reports/weekly-latest.md",
       "json": "reports/weekly-latest.json",
       "pdf": "reports/weekly-latest.pdf",
-      "record_count": 25
+      "record_count": 28
     },
     {
       "type": "feasibility",
@@ -34,8 +34,8 @@
   "dashboard_counts": {
     "domestic_parks": 67,
     "international_cases": 12,
-    "archive_records": 201,
-    "archive_records_total": 202,
+    "archive_records": 204,
+    "archive_records_total": 205,
     "duplicates_collapsed": 0,
     "excluded_low_relevance": 1,
     "required_fields": 50,
