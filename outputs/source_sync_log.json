@@ -1,11 +1,11 @@
 {
   "merge": {
-    "added": 5,
+    "added": 8,
     "updated": 0,
-    "unchanged": 37,
-    "total": 303,
+    "unchanged": 34,
+    "total": 306,
     "duplicates_collapsed": 5,
-    "included": 302,
+    "included": 305,
     "excluded_low_relevance": 1
   },
   "source_logs": [
@@ -18,8 +18,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.1,
-      "attempted_at": "2026-11-03T23:17:45+00:00",
+      "elapsed_seconds": 1.37,
+      "attempted_at": "2026-11-04T06:11:30+00:00",
       "error": ""
     },
     {
@@ -31,8 +31,8 @@
       "records": 4,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.95,
-      "attempted_at": "2026-11-03T23:17:47+00:00",
+      "elapsed_seconds": 3.21,
+      "attempted_at": "2026-11-04T06:11:33+00:00",
       "error": ""
     },
     {
@@ -51,8 +51,8 @@
           "reason": "未命中零碳园区核心主题"
         }
       ],
-      "elapsed_seconds": 2.25,
-      "attempted_at": "2026-11-03T23:17:50+00:00",
+      "elapsed_seconds": 3.21,
+      "attempted_at": "2026-11-04T06:11:37+00:00",
       "error": ""
     },
     {
@@ -60,9 +60,9 @@
       "source_name": "工业和信息化部",
       "start_url": "https://www.miit.gov.cn/",
       "status": "ok",
-      "candidates": 6,
-      "records": 3,
-      "rejected_low_relevance": 3,
+      "candidates": 4,
+      "records": 2,
+      "rejected_low_relevance": 2,
       "rejected_examples": [
         {
           "title": "精准发力推进零碳工厂建设",
@@ -71,20 +71,14 @@
           "reason": "命中“绿色工厂”"
         },
         {
-          "title": "工业和信息化部关于印发《加快构建工业和信息化领域碳排放双控工作体系实施方案（2026—2030年）》的通知",
-          "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_2b2bdc36fd7a4d249ad75084eef62e10.html",
-          "score": 3,
-          "reason": "命中“碳排放”"
-        },
-        {
           "title": "2026年度工业绿色低碳典型案例（\"无废园区\"“无废企业”方向）公示",
           "url": "https://www.miit.gov.cn/zwgk/wjgs/art/2026/art_fd8530d9ec9943feb1477c177386b3ba.html",
           "score": 2,
           "reason": "命中“工业园区”"
         }
       ],
-      "elapsed_seconds": 8.24,
-      "attempted_at": "2026-11-03T23:17:58+00:00",
+      "elapsed_seconds": 6.65,
+      "attempted_at": "2026-11-04T06:11:44+00:00",
       "error": ""
     },
     {
@@ -96,8 +90,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.9,
-      "attempted_at": "2026-11-03T23:18:00+00:00",
+      "elapsed_seconds": 1.77,
+      "attempted_at": "2026-11-04T06:11:46+00:00",
       "error": ""
     },
     {
@@ -109,8 +103,8 @@
       "records": 1,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 3.42,
-      "attempted_at": "2026-11-03T23:18:04+00:00",
+      "elapsed_seconds": 3.28,
+      "attempted_at": "2026-11-04T06:11:49+00:00",
       "error": ""
     },
     {
@@ -118,8 +112,8 @@
       "source_name": "北京经济技术开发区",
       "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/",
       "status": "ok",
-      "candidates": 27,
-      "records": 25,
+      "candidates": 28,
+      "records": 26,
       "rejected_low_relevance": 2,
       "rejected_examples": [
         {
@@ -135,8 +129,8 @@
           "reason": "命中“经济技术开发区”；命中“经开区”；弱相关“词元驱动”；弱相关“智能经济”；含实施或量化线索；来自园区公开来源"
         }
       ],
-      "elapsed_seconds": 10.14,
-      "attempted_at": "2026-11-03T23:18:14+00:00",
+      "elapsed_seconds": 14.1,
+      "attempted_at": "2026-11-04T06:12:04+00:00",
       "error": ""
     },
     {
@@ -146,7 +140,7 @@
       "status": "skipped_quarantine",
       "records": 0,
       "elapsed_seconds": 0,
-      "attempted_at": "2026-11-03T23:18:15+00:00",
+      "attempted_at": "2026-11-04T06:12:04+00:00",
       "error": "source is quarantined and awaiting scheduled retest"
     },
     {
@@ -171,8 +165,8 @@
           "reason": "命中“绿电直连”；命中“绿电”；缺少园区或降碳直接语义"
         }
       ],
-      "elapsed_seconds": 10.2,
-      "attempted_at": "2026-11-03T23:18:25+00:00",
+      "elapsed_seconds": 12.44,
+      "attempted_at": "2026-11-04T06:12:16+00:00",
       "error": ""
     },
     {
@@ -191,8 +185,8 @@
           "reason": "命中“碳排放”"
         }
       ],
-      "elapsed_seconds": 6.55,
-      "attempted_at": "2026-11-03T23:18:32+00:00",
+      "elapsed_seconds": 8.92,
+      "attempted_at": "2026-11-04T06:12:26+00:00",
       "error": ""
     },
     {
@@ -204,8 +198,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 0.62,
-      "attempted_at": "2026-11-03T23:18:33+00:00",
+      "elapsed_seconds": 0.91,
+      "attempted_at": "2026-11-04T06:12:27+00:00",
       "error": ""
     },
     {
@@ -217,8 +211,8 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.09,
-      "attempted_at": "2026-11-03T23:18:34+00:00",
+      "elapsed_seconds": 1.42,
+      "attempted_at": "2026-11-04T06:12:29+00:00",
       "error": ""
     },
     {
@@ -230,19 +224,19 @@
       "records": 0,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 1.67,
-      "attempted_at": "2026-11-03T23:18:36+00:00",
+      "elapsed_seconds": 1.47,
+      "attempted_at": "2026-11-04T06:12:30+00:00",
       "error": ""
     },
     {
       "source_id": "SRC014",
       "source_name": "上海临港集团—新片区动态",
       "start_url": "https://www.shlingang.com/lg1/lingangjituan/xwzx/focusnewarea/",
-      "status": "skipped_quarantine",
+      "status": "failed",
       "records": 0,
       "elapsed_seconds": 0,
-      "attempted_at": "2026-11-03T23:18:36+00:00",
-      "error": "source is quarantined and awaiting scheduled retest"
+      "attempted_at": "2026-11-04T06:12:36+00:00",
+      "error": "HTTPError: HTTP Error 504: Gateway Time-out"
     },
     {
       "source_id": "SRC015",
@@ -253,20 +247,20 @@
       "records": 5,
       "rejected_low_relevance": 0,
       "rejected_examples": [],
-      "elapsed_seconds": 6.07,
-      "attempted_at": "2026-11-03T23:18:42+00:00",
+      "elapsed_seconds": 6.31,
+      "attempted_at": "2026-11-04T06:12:43+00:00",
       "error": ""
     }
   ],
   "source_health": {
-    "updated_at": "2026-11-03T23:18:42+00:00",
+    "updated_at": "2026-11-04T06:12:43+00:00",
     "sources": {
       "SRC001": {
         "source_name": "国家发展改革委—发展改革工作",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:17:45+00:00",
-        "last_success": "2026-11-03T23:17:45+00:00",
+        "last_attempt": "2026-11-04T06:11:30+00:00",
+        "last_success": "2026-11-04T06:11:30+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.ndrc.gov.cn/fggz/"
@@ -275,8 +269,8 @@
         "source_name": "国家发展改革委—政策通知",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:17:47+00:00",
-        "last_success": "2026-11-03T23:17:47+00:00",
+        "last_attempt": "2026-11-04T06:11:33+00:00",
+        "last_success": "2026-11-04T06:11:33+00:00",
         "last_record_count": 4,
         "last_error": "",
         "start_url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/"
@@ -285,8 +279,8 @@
         "source_name": "国家能源局",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:17:50+00:00",
-        "last_success": "2026-11-03T23:17:50+00:00",
+        "last_attempt": "2026-11-04T06:11:37+00:00",
+        "last_success": "2026-11-04T06:11:37+00:00",
         "last_record_count": 2,
         "last_error": "",
         "start_url": "https://www.nea.gov.cn/"
@@ -295,9 +289,9 @@
         "source_name": "工业和信息化部",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:17:58+00:00",
-        "last_success": "2026-11-03T23:17:58+00:00",
-        "last_record_count": 3,
+        "last_attempt": "2026-11-04T06:11:44+00:00",
+        "last_success": "2026-11-04T06:11:44+00:00",
+        "last_record_count": 2,
         "last_error": "",
         "start_url": "https://www.miit.gov.cn/"
       },
@@ -305,8 +299,8 @@
         "source_name": "商务部—开发区工作",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:00+00:00",
-        "last_success": "2026-11-03T23:18:00+00:00",
+        "last_attempt": "2026-11-04T06:11:46+00:00",
+        "last_success": "2026-11-04T06:11:46+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.mofcom.gov.cn/"
@@ -315,8 +309,8 @@
         "source_name": "北京市发展改革委",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:04+00:00",
-        "last_success": "2026-11-03T23:18:04+00:00",
+        "last_attempt": "2026-11-04T06:11:49+00:00",
+        "last_success": "2026-11-04T06:11:49+00:00",
         "last_record_count": 1,
         "last_error": "",
         "start_url": "https://fgw.beijing.gov.cn/"
@@ -325,9 +319,9 @@
         "source_name": "北京经济技术开发区",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:14+00:00",
-        "last_success": "2026-11-03T23:18:14+00:00",
-        "last_record_count": 25,
+        "last_attempt": "2026-11-04T06:12:04+00:00",
+        "last_success": "2026-11-04T06:12:04+00:00",
+        "last_record_count": 26,
         "last_error": "",
         "start_url": "https://kfqgw.beijing.gov.cn/zwgkkfq/"
       },
@@ -345,8 +339,8 @@
         "source_name": "广东省发展改革委",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:25+00:00",
-        "last_success": "2026-11-03T23:18:25+00:00",
+        "last_attempt": "2026-11-04T06:12:16+00:00",
+        "last_success": "2026-11-04T06:12:16+00:00",
         "last_record_count": 2,
         "last_error": "",
         "start_url": "https://drc.gd.gov.cn/"
@@ -355,8 +349,8 @@
         "source_name": "福建省工业和信息化厅",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:32+00:00",
-        "last_success": "2026-11-03T23:18:32+00:00",
+        "last_attempt": "2026-11-04T06:12:26+00:00",
+        "last_success": "2026-11-04T06:12:26+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/xydt/"
@@ -365,8 +359,8 @@
         "source_name": "中国政府网—政策",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:33+00:00",
-        "last_success": "2026-11-03T23:18:33+00:00",
+        "last_attempt": "2026-11-04T06:12:27+00:00",
+        "last_success": "2026-11-04T06:12:27+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.gov.cn/zhengce/"
@@ -375,8 +369,8 @@
         "source_name": "生态环境部",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:34+00:00",
-        "last_success": "2026-11-03T23:18:34+00:00",
+        "last_attempt": "2026-11-04T06:12:29+00:00",
+        "last_success": "2026-11-04T06:12:29+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.mee.gov.cn/"
@@ -385,8 +379,8 @@
         "source_name": "天津经济技术开发区—建设动态",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:36+00:00",
-        "last_success": "2026-11-03T23:18:36+00:00",
+        "last_attempt": "2026-11-04T06:12:30+00:00",
+        "last_success": "2026-11-04T06:12:30+00:00",
         "last_record_count": 0,
         "last_error": "",
         "start_url": "https://www.teda.gov.cn/contents/13/99411.html"
@@ -394,8 +388,8 @@
       "SRC014": {
         "source_name": "上海临港集团—新片区动态",
         "status": "quarantined",
-        "consecutive_failures": 15,
-        "last_attempt": "2026-10-28T12:48:34+00:00",
+        "consecutive_failures": 16,
+        "last_attempt": "2026-11-04T06:12:36+00:00",
         "last_success": "2026-09-01T00:36:30+00:00",
         "last_record_count": 0,
         "last_error": "HTTPError: HTTP Error 504: Gateway Time-out",
@@ -405,8 +399,8 @@
         "source_name": "北京经济技术开发区—工作动态",
         "status": "healthy",
         "consecutive_failures": 0,
-        "last_attempt": "2026-11-03T23:18:42+00:00",
-        "last_success": "2026-11-03T23:18:42+00:00",
+        "last_attempt": "2026-11-04T06:12:43+00:00",
+        "last_success": "2026-11-04T06:12:43+00:00",
         "last_record_count": 5,
         "last_error": "",
         "start_url": "https://kfqgw.beijing.gov.cn/ywdt/gzdt/"
