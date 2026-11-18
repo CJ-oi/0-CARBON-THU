@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-17T07:52:09+00:00",
+  "generated_at": "2026-11-18T07:22:53+00:00",
   "output_dir": "/home/runner/work/0-CARBON-THU/0-CARBON-THU/site",
-  "archive_records": 346,
+  "archive_records": 356,
   "reports": [
     {
       "type": "daily",
@@ -34,8 +34,8 @@
   "dashboard_counts": {
     "domestic_parks": 67,
     "international_cases": 12,
-    "archive_records": 345,
-    "archive_records_total": 346,
+    "archive_records": 355,
+    "archive_records_total": 356,
     "duplicates_collapsed": 0,
     "excluded_low_relevance": 1,
     "required_fields": 50,
